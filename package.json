@@ -1,0 +1,26 @@
+{
+  "name": "project-one",
+  "version": "1.0.0",
+  "description": "a reverse engineering project of the AlTrails website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryancurtis3/all-trails-remaster.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bryancurtis3/all-trails-remaster/issues"
+  },
+  "homepage": "https://github.com/bryancurtis3/all-trails-remaster#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.0.11"
+  }
+}
