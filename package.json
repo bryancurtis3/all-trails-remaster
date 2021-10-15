@@ -12,9 +12,12 @@
 
     "test": "echo \"Error: no test specified\" && exit 1",
 
-    "start": "node server.js"
-
+    "start": "node server.js",
+    "watch-sass": "sass -w sass/source:public/styles",
+    "watch-nodemon": "nodemon server.js",
+    "dev": "open http://localhost:4001/ && concurrently --handle-input -n server,sass -c 'bgGrey.bold,bgRed.bold' 'npm:watch-nodemon' 'npm:watch-sass' rs "
   },
+
 
   "repository": {
 
@@ -48,7 +51,9 @@
 
     "mongoose": "^6.0.11"
 
+  },
+
+  "devDependencies": {
+    "concurrently": "^6.3.0"
   }
-
 }
-
