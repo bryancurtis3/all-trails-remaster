@@ -2,5 +2,3 @@ node_modules
 package-lock.json
 .env
 .css.map
-
-MONGODB_URI_DEV=mongodb://localhost:27017/alltrails
