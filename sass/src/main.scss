@@ -1,5 +1,27 @@
-@use "../variables" as *;
+:root {
+    --green: rgb(85, 135, 44);
+    --sign: rgb(75, 152, 211);
+}
 
 * {
     box-sizing: border-box;
+}
+
+#navbar {
+    background-color: white;
+}
+
+#sign-up {
+    background-color: var(--sign);
+    border-color: var(--sign);
+    color: white;
+}
+
+#login {
+    border-color: var(--sign);
+    color: var(--sign);
+}
+
+.navbar-link:not(.is-arrowless)::after {
+    border-color: var(--sign);
 }

@@ -13,11 +13,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
 
     "start": "node server.js",
-    "watch-sass": "sass -w sass/src:public/styles",
-    "watch-nodemon": "nodemon server.js",
-    "dev": "open http://localhost:4001/ && concurrently --handle-input -n server,sass -c 'bgGrey.bold,bgRed.bold' 'npm:watch-nodemon' 'npm:watch-sass' rs "
-  },
 
+    "watch-sass": "sass -w sass/src:public/styles",
+
+    "watch-nodemon": "nodemon server.js",
+
+    "dev": "open http://localhost:4001/ && concurrently --handle-input -n server,sass -c 'bgGrey.bold,bgRed.bold' 'npm:watch-nodemon' 'npm:watch-sass' rs "
+
+  },
 
   "repository": {
 
@@ -41,6 +44,8 @@
 
   "dependencies": {
 
+    "bulma": "^0.9.3",
+
     "dotenv": "^10.0.0",
 
     "ejs": "^3.1.6",
@@ -54,6 +59,10 @@
   },
 
   "devDependencies": {
+
     "concurrently": "^6.3.0"
+
   }
+
 }
+
