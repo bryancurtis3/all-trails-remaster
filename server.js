@@ -29,7 +29,7 @@ app.use(methodOverride("_method"));
 
 // Home route
 app.get("/", function (req, res) {
-    res.send("Phone Home");
+    res.render("index");
 });
 
 // ==  Default Routes
