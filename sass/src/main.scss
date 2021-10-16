@@ -22,6 +22,27 @@
     color: var(--sign);
 }
 
+#hero-body {
+    padding: 0;
+    margin: 0;
+}
+
+#main-image {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero {
+    height: 20px;
+}
+
 .navbar-link:not(.is-arrowless)::after {
     border-color: var(--sign);
+}
+
+@media only screen and (min-width: 800px) {
+    #main-image {
+        object-position: 50% 40%;
+    }
 }
