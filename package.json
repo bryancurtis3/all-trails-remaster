@@ -13,11 +13,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
 
     "start": "node server.js",
-    "watch-sass": "sass -w sass/source:public/styles",
-    "watch-nodemon": "nodemon server.js",
-    "dev": "open http://localhost:4001/ && concurrently --handle-input -n server,sass -c 'bgGrey.bold,bgRed.bold' 'npm:watch-nodemon' 'npm:watch-sass' rs "
-  },
 
+    "watch-sass": "sass -w sass/source:public/styles",
+
+    "watch-nodemon": "nodemon server.js",
+
+    "dev": "open http://localhost:4001/ && concurrently --handle-input -n server,sass -c 'bgGrey.bold,bgRed.bold' 'npm:watch-nodemon' 'npm:watch-sass' rs "
+
+  },
 
   "repository": {
 
@@ -30,6 +33,7 @@
   "author": "",
 
   "license": "ISC",
+
   "bugs": {
 
     "url": "https://github.com/bryancurtis3/all-trails-remaster/issues"
@@ -39,6 +43,8 @@
   "homepage": "https://github.com/bryancurtis3/all-trails-remaster#readme",
 
   "dependencies": {
+
+    "bulma": "^0.9.3",
 
     "dotenv": "^10.0.0",
 
@@ -53,7 +59,10 @@
   },
 
   "devDependencies": {
+
     "concurrently": "^6.3.0"
+
   }
+
 }
 
