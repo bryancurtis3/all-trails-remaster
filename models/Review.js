@@ -26,6 +26,6 @@ const mongoose = require("mongoose");
         {timestamps: true,},
     );
 
-    const Review = mongose.model("Review", ReviewSchema);
+    const Review = mongoose.model("Review", ReviewSchema);
 
     module.exports = Review;

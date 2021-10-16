@@ -1,4 +1,4 @@
-const mongoose = require("Trail");
+const mongoose = require("mongoose");
 
     const TrailSchema = new mongoose.Schema(
         {
@@ -33,6 +33,6 @@ const mongoose = require("Trail");
         {timestamps: true,},
     );
 
-    const Trail = mongose.model("Trail", TrailSchema);
+    const Trail = mongoose.model("Trail", TrailSchema);
 
     module.exports = Trail;

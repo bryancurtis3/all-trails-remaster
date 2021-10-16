@@ -7,9 +7,7 @@ const mongoose = require("mongoose");
                 required: [true, "Please input your name."],
             },
           username: {
-            type: 
-                mongoose.Types.ObjectId.Id,
-                ref: "Trail",
+                type: String,
                 required: true,
             },
             email: { 
@@ -33,6 +31,6 @@ const mongoose = require("mongoose");
         {timestamps: true,},
     );
 
-    const User = mongose.model("User", UserSchema);
+    const User = mongoose.model("User", UserSchema);
 
     module.exports = User;
