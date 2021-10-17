@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
                 ref: "User",
             },
           trail_id: {
-            type: mongoose.Types.ObjectId.Id,
+            type: mongoose.Types.ObjectId,
                 ref: "Trail",
                 required: true,
             },
@@ -23,6 +23,6 @@ const mongoose = require("mongoose");
         {timestamps: true,},
     );
 
-    const Hike = mongose.model("Hike", HikeSchema);
+    const Hike = mongoose.model("Hike", HikeSchema);
 
     module.exports = Hike;
