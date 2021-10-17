@@ -70,7 +70,7 @@ router.post("/login", async function (req, res, next){
         
         req.session.currentUser = {
             id: foundUser._id,
-            lastname: foundUser.last,
+            username: foundUser.username,
         };
         return res.redirect("/");
     }
@@ -80,6 +80,36 @@ router.post("/login", async function (req, res, next){
         return next();
     }
 });
+
+
+// == Profile / Update page. 
+
+router.get("/profile", async function(req, res, next){
+    try{
+        
+        const authUser = await User.findOne({id: req.session.currentUser._id}); 
+        const context = { user: authUser, };
+        await console.log(`authUser: ${authUser} `); 
+        return res.render("users/show", context);
+    
+    }
+    catch(error){
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+});
+
+router.post("/profile", async function(req, res, next){
+    try{
+        
+    }
+    catch(error){
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+})
 
 
 
