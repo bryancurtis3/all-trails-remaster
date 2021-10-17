@@ -2,14 +2,12 @@ const mongoose = require("mongoose");
 
     const UserSchema = new mongoose.Schema(
         {
-          Name: {
+            first: {
                 type: String,
-                required: [true, "Please input your name."],
+                required: true,
             },
-          username: {
-            type: 
-                mongoose.Types.ObjectId.Id,
-                ref: "Trail",
+            last: {
+                type: String,
                 required: true,
             },
             email: { 
@@ -19,11 +17,13 @@ const mongoose = require("mongoose");
             },
             password: {
                 type: String,
-                required: [true, "Please provide a valid password."],
+                required: [true, "Password must be at least 7 characters."],
+                min: 7,
             },
             avatar: {
                 type: String,
                 required: [true, "Add your favoite profile image."],
+                default: "https://i.imgur.com/j86hDNC.jpg"
             },
             location: {
                 type: String,
@@ -33,6 +33,6 @@ const mongoose = require("mongoose");
         {timestamps: true,},
     );
 
-    const User = mongose.model("User", UserSchema);
+    const User = mongoose.model("User", UserSchema);
 
     module.exports = User;

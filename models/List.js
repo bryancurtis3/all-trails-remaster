@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
                 required: true, 
             },
             trail_id: {
-                type:Array[mongoose.Types.ObjectId],
+                type: Array,
                 ref: "Trail",
                 required: [true, "Add at least one trail."]
             },
@@ -20,6 +20,6 @@ const mongoose = require("mongoose");
         {timestamps: true,},
     );
 
-    const List = mongose.model("List", ListSchema);
+    const List = mongoose.model("List", ListSchema);
 
     module.exports = List;

@@ -25,12 +25,20 @@ app.use(methodOverride("_method"));
 
 /* === Middleware === */
 
+// == Logger
+app.use(function (req, res, next){
+    console.log(`${req.method} - ${req.url}`);
+    next();
+});
+
 /* === Routes === */
 
 // Home route
 app.get("/", function (req, res) {
     res.render("./index");
 });
+
+app.use("/", controllers.user);
 
 // ==  Default Routes
 

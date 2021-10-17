@@ -25,6 +25,6 @@ const mongoose = require("mongoose");
         {timestamps: true,},
     );
 
-    const Plan = mongose.model("Plan", PlanSchema);
+    const Plan = mongoose.model("Plan", PlanSchema);
 
     module.exports = Plan;

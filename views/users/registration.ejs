@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Frameworks -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
+
+    <!-- Vendors -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/main.css">
+
+    <!-- Scripts -->
+    <script src="/scripts/bulma.js" defer></script>
+    <title>AllTrails Remaster</title>
+</head>
+<%- include('../partials/_nav.ejs') %>
+<body>
+    <h3> Registration</h3>
+    <form action="/registration" method="POST" class="box">
+        <div class="field">
+          <label class="label">First Name</label>
+          <div class="control">
+            <input
+              name="first"
+              class="input"
+              type="text"
+              placeholder="First name..."
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Last Name</label>
+          <div class="control">
+            <input
+              name="last"
+              class="input"
+              type="text"
+              placeholder="Last name..."
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input
+              name="email"
+              class="input"
+              type="email"
+              placeholder="input@email.com"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input
+              name="password"
+              class="input"
+              type="password"
+              placeholder="*******"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Location</label>
+          <div class="control">
+            <input
+              name="location"
+              class="input"
+              type="text"
+              placeholder="City, State, Zip"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Profile Picture</label>
+          <div class="control">
+            <input
+              name="avatar"
+              class="input"
+              type="text"
+              placeholder= "Insert image URL"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button id="submission" class="button is-link is-fullwidth">Submit</button>
+          </div>
+        </div>
+      </form>    
+
+
+
+</body>
+</html>
