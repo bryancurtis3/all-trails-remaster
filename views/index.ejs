@@ -1,43 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Frameworks -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
 
-    <!-- Vendors -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<!-- Head tag content -->
+<%- include('./partials/_head.ejs') %>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="../styles/main.css">
-
-    <!-- Scripts -->
-    <script src="/scripts/bulma.js" defer></script>
-    <title>AllTrails Remaster</title>
-</head>
-
+<!-- Navbar -->
 <%- include('./partials/_nav.ejs') %>
 
 <body>
-    <!-- Hero banner -->
-    <section class="hero is-small">
-        <!-- Hero Image -->
-        <div id="hero-body" class="hero-body">
-            <img id="main-image" src="https://i.imgur.com/xNcPoCG.jpg" alt="">
-        </div>
-        
-        <!-- Search field -->
-        <form id="search" class="control has-icons-left" action="GET">
-            <input class="input is-large is-rounded" type="text" placeholder="Search for a trail">
-            <span class="icon is-large is-left">
-                <i class="fas fa-search"></i>
-            </span>
-        </form>
-    </section>
+    <!-- Hero Banner -->
+    <%- include('./partials/_hero.ejs') %>
 
 
 
