@@ -3,18 +3,6 @@
 const express = require("express"); 
 const router = express.Router();
 const { User } = require("../models");
-<<<<<<< HEAD
-
-
-
-
-// Profile show
-router.get("/:username", function (req, res, next) {
-    try {
-        const user = User.find({ username: req.params.username });
-        // stopped here, continue later when I cant test with views
-    } catch (error) {
-=======
 const bcrypt = require("bcrypt");
 const saltRounds = 10; 
 
@@ -46,15 +34,12 @@ router.post("/registration", async function (req, res, next){
     }
     
     catch(error){
->>>>>>> dev
         console.log(error);
         req.error = error;
         return next();
     }
 });
 
-<<<<<<< HEAD
-=======
 router.get("/login", function(req, res, next){
     return res.render("users/login");
 });
@@ -98,6 +83,5 @@ router.post("/login", async function (req, res, next){
 });
 
 
->>>>>>> dev
 
 module.exports = router;
