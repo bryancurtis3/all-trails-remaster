@@ -64,14 +64,16 @@ router.post("/login", async function (req, res, next){
         const varified = await bcrypt.compare(req.body.password, foundUser.password);
 
         if(!varified) { 
-            return res.send(alert("Email or Password Invalid"));
+            return res.send("Email or Password Invalid");
+            ///// would like to make this a pop-up message /////
+
         }   
         
         req.session.currentUser = {
             id: foundUser._id,
             lastname: foundUser.last,
         };
-        
+        return res.redirect("/");
     }
     catch(error){
         console.log(error);
