@@ -9,14 +9,14 @@
 <%- include('../partials/_nav.ejs') %>
 
 <body>
-    <div class="avatar"> 
-        <img src="<%= user.avatar %>" alt=""> 
-    </div>
+   
 
     <section class="reg-container">
 
-        <form action="/registration" method="POST" class="box">
-    
+        <form action="/profile?_method=PUT " method="POST" class="box">
+        <div class="avatar"> 
+                <img class="avatar" src="<%= user.avatar %>" alt="Profile"> 
+        </div>
           <h3 class="form-title">Update <%= user.username %> </h3>
     
             <div class="field">
@@ -27,6 +27,7 @@
                     class="input"
                     type="text"
                     placeholder="<%= user.username %>"
+                    value="<%= user.username %>"
                 />
                 </div>
             </div>
@@ -38,6 +39,7 @@
                   class="input"
                   type="email"
                   placeholder="<%= user.email %>"
+                  value="<%= user.email %>"
                 />
               </div>
             </div>
@@ -49,6 +51,7 @@
                   class="input"
                   type="text"
                   placeholder="<%= user.location %>"
+                  value="<%= user.location %>"
                 />
               </div>
             </div>
@@ -60,6 +63,8 @@
                   class="input"
                   type="text"
                   placeholder= <%= user.avatar %>
+                  value= <%= user.avatar %>
+                  
                 />
               </div>
             </div>

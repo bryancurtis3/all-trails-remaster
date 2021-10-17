@@ -89,7 +89,7 @@ router.get("/profile", async function(req, res, next){
         
         const authUser = await User.findOne({id: req.session.currentUser._id}); 
         const context = { user: authUser, };
-        await console.log(`authUser: ${authUser} `); 
+         
         return res.render("users/show", context);
     
     }
@@ -100,16 +100,21 @@ router.get("/profile", async function(req, res, next){
     }
 });
 
-router.post("/profile", async function(req, res, next){
+router.put("/profile", async function(req, res, next){
     try{
-        
+        const updatedUser = 
+        await User.updateOne(
+            {id: req.session.currentUser._id},
+            {$set: req.body}, 
+            {new: true});
+        return res.redirect("/profile");
     }
     catch(error){
         console.log(error);
         req.error = error;
         return next();
     }
-})
+});
 
 
 

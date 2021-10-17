@@ -166,3 +166,11 @@
         min-width: 320px;
     }
 }
+
+
+.avatar {
+    object-fit: cover;
+    max-width: 200px;
+    margin: auto;
+    border-radius: 50%;
+}
