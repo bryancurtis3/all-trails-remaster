@@ -11,6 +11,11 @@
   background-color: white;
 }
 
+.logo-link {
+  line-height: 0;
+  padding-top: 2px;
+}
+
 #sign-up {
   background-color: var(--sign);
   border-color: var(--sign);
@@ -73,7 +78,7 @@
 }
 
 .trail-boxes {
-  margin-top: 505px;
+  margin-top: 510px;
 }
 
 .trail-box {
@@ -128,10 +133,10 @@
   .trail-boxes {
     display: grid;
     grid-template-columns: repeat(auto-fill, 330px);
-    gap: 1.5em;
+    gap: 1em 1.5em;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin: 505px 1.5em 0 1.5em;
+    margin: 525px 1.5em 0 1.5em;
   }
 
   .trail-box {
@@ -139,6 +144,9 @@
     width: 320px;
     min-width: 320px;
   }
+}
+#footer-logo {
+  margin-left: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
