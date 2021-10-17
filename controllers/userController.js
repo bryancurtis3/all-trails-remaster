@@ -6,7 +6,7 @@ const { User } = require("../models");
 const bcrypt = require("bcrypt");
 const saltRounds = 10; 
 
-// base url === "/"" 
+// base url === "/" 
 
 
 
