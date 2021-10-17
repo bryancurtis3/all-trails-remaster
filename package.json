@@ -14,7 +14,7 @@
 
     "start": "node server.js",
 
-    "watch-sass": "sass -w sass/source:public/styles",
+    "watch-sass": "sass -w sass/src:public/styles",
 
     "watch-nodemon": "nodemon server.js",
 

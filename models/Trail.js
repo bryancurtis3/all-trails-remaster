@@ -21,9 +21,10 @@ const mongoose = require("mongoose");
             },
             elevation: {
                 type: Number,
-                required: [true, "What is the elevation gain/loss in feet?"]
+                required: [true, "What is the net elevation gain in feet?"],
+                min: 0,
             },
-            dificulty: {
+            difficulty: {
                 type: Number,
                 min: 0,
                 max: 5,

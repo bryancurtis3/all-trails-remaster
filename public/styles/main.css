@@ -22,11 +22,31 @@
   color: var(--sign);
 }
 
+#hero-body {
+  padding: 0;
+  margin: 0;
+}
+
+#main-image {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+#search {
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 240px;
+}
+
+.hero {
+  height: 20px;
+}
+
 .navbar-link:not(.is-arrowless)::after {
   border-color: var(--sign);
 }
 
-#submission {
-  background-color: lightgreen;
-}
 /*# sourceMappingURL=main.css.map */
