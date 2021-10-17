@@ -48,8 +48,17 @@ app.use(function (req, res, next){
 /* === Routes === */
 
 // Home route
-app.get("/", function (req, res) {
-    res.render("./index");
+const { Trail } = require("./models"); // idk where to put this atm
+app.get("/", async function (req, res) {
+    try {
+        const allTrails = await Trail.find({});
+
+        const context = { trails: allTrails };
+    
+        return res.render("./index", context);
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 app.use("/", controllers.user);
