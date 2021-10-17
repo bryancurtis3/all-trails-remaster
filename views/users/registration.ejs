@@ -9,8 +9,15 @@
 <%- include('../partials/_nav.ejs') %>
 
 <body>
-    <h3> Registration</h3>
+  <!-- <div>
+    <img  src="https://i.imgur.com/hMrEfAu.jpg" alt="">
+  </div> -->
+  <section class="reg-container">
+
     <form action="/registration" method="POST" class="box">
+
+      <h3 class="form-title">Create an account</h3>
+
         <div class="field">
           <label class="label">First Name</label>
           <div class="control">
@@ -82,7 +89,9 @@
             <button id="submission" class="button is-link is-fullwidth">Submit</button>
           </div>
         </div>
-      </form>    
+    </form>
+
+  </section>
 
 
 
