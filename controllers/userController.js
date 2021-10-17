@@ -66,7 +66,6 @@ router.post("/login", async function (req, res, next){
         if(!varified) { 
             return res.send("Email or Password Invalid");
             ///// would like to make this a pop-up message /////
-
         }   
         
         req.session.currentUser = {
