@@ -129,7 +129,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 330px);
     gap: 1.5em;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     margin: 505px 1.5em 0 1.5em;
   }

@@ -25,7 +25,7 @@ const mongoose = require("mongoose");
                 min: 0,
             },
             difficulty: {
-                type: Number,
+                type: String,
                 min: 0,
                 max: 5,
                 required: [true, "Rate on scale of 1 - 5"],

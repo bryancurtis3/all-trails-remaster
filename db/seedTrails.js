@@ -10,6 +10,7 @@ const trails = [
         length: 1.2,
         elevation: 200,
         difficulty: 1,
+        image: "https://i.imgur.com/yinQ7OR.jpg",
     },
     {
         name: "Edwards Point",
@@ -18,6 +19,7 @@ const trails = [
         length: 4.2,
         elevation: 550,
         difficulty: 2,
+        image: "https://i.imgur.com/yinQ7OR.jpg",
     },
     {
         name: "Trolltunga",
@@ -26,14 +28,7 @@ const trails = [
         length: 18.9,
         elevation: 4000,
         difficulty: 5,
-    },
-    {
-        name: "Trolltunga",
-        description: "A grueling hike to an iconic overhanging rock in the fjords of Norway",
-        location: "Norway",
-        length: 18.9,
-        elevation: 4000,
-        difficulty: 5,
+        image: "https://i.imgur.com/yinQ7OR.jpg",
     },
     {
         name: "Alum Cave to Mount LeConte",
@@ -42,6 +37,7 @@ const trails = [
         length: 11,
         elevation: 3000,
         difficulty: 4,
+        image: "https://i.imgur.com/yinQ7OR.jpg",
     },
     {
         name: "Devil's Garden",
@@ -50,6 +46,7 @@ const trails = [
         length: 8,
         elevation: 1000,
         difficulty: 3,
+        image: "https://i.imgur.com/yinQ7OR.jpg",
     },
     {
         name: "High Dune Trail",
@@ -58,6 +55,7 @@ const trails = [
         length: 3,
         elevation: 700,
         difficulty: 3,
+        image: "https://i.imgur.com/yinQ7OR.jpg",
     },
 ];
 
