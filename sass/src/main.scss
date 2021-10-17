@@ -49,13 +49,10 @@
     border-color: var(--sign);
 }
 
-@media only screen and (min-width: 800px) {
-
-}
 
 
-// Registration CSS
 
+// === Registration CSS ===
 // .reg-background {
 //     background-image: url(https://i.imgur.com/hMrEfAu.jpg);
 //     height: 100px;
@@ -73,7 +70,6 @@
     justify-content: center;
     position: absolute;
     // box-shadow: 0px 0px 7px 1px rgba(40,40,40,0.5);
-    
 }
 
 .form-title {
@@ -87,4 +83,86 @@
     background-color: var(--sign);
     border-color: var(--sign);
     color: white;
+}
+
+// @media only screen and (min-width: 500px) {
+//     // .reg-container {
+//     //     margin-left: 50%;
+//     //     margin-right: none;
+//     //     width: 450px;
+//     //     justify-content: center;
+//     // }
+// }
+
+// === Trail box CSS ===
+
+.trail-boxes {
+    margin-top: 505px;
+}
+
+.trail-box {
+    margin: 7%;
+    width: 86%;
+    height: 260px;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    .box-img-cont {
+        object-fit: cover;
+        height: 55%;
+        .box-img {
+            height: 145px; 
+            width: 100%;
+            object-fit: cover;
+            object-position: 50% 25%;
+        }
+    }
+
+    .box-text-cont {
+        padding: .6em 1em 0 1em;
+        line-height: 1.6em;
+        h3 {
+            font-weight: bold;
+            font-size: 1.1em;
+            line-height: 1.3em;
+        }
+        .trail-location {
+            font-size: .8em;
+            color: rgb(150, 150, 150);
+            padding-bottom: .15em;
+        }
+        .diff-rating {
+            background-color: mediumseagreen;
+            width: 25%;
+            font-size: .8em;
+            font-weight: bolder;
+            color:rgb(235, 235, 235);
+            text-align: center;
+            line-height: 1.6em;
+            padding-bottom: .1em;
+            border-radius: 7px;
+        }
+        .trail-length {
+            padding-top: .15em;
+            font-size: .9em;
+        }
+    }
+}
+
+@media only screen and (min-width: 420px) {
+
+    .trail-boxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 330px);
+        gap: 1.5em;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 505px 1.5em 0 1.5em;
+    }
+
+    .trail-box {
+        margin: 0;
+        width: 320px;
+        min-width: 320px;
+    }
 }

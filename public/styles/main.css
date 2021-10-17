@@ -72,4 +72,73 @@
   color: white;
 }
 
+.trail-boxes {
+  margin-top: 505px;
+}
+
+.trail-box {
+  margin: 7%;
+  width: 86%;
+  height: 260px;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.trail-box .box-img-cont {
+  object-fit: cover;
+  height: 55%;
+}
+.trail-box .box-img-cont .box-img {
+  height: 145px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 25%;
+}
+.trail-box .box-text-cont {
+  padding: 0.6em 1em 0 1em;
+  line-height: 1.6em;
+}
+.trail-box .box-text-cont h3 {
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1.3em;
+}
+.trail-box .box-text-cont .trail-location {
+  font-size: 0.8em;
+  color: #969696;
+  padding-bottom: 0.15em;
+}
+.trail-box .box-text-cont .diff-rating {
+  background-color: mediumseagreen;
+  width: 25%;
+  font-size: 0.8em;
+  font-weight: bolder;
+  color: #ebebeb;
+  text-align: center;
+  line-height: 1.6em;
+  padding-bottom: 0.1em;
+  border-radius: 7px;
+}
+.trail-box .box-text-cont .trail-length {
+  padding-top: 0.15em;
+  font-size: 0.9em;
+}
+
+@media only screen and (min-width: 420px) {
+  .trail-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 330px);
+    gap: 1.5em;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 505px 1.5em 0 1.5em;
+  }
+
+  .trail-box {
+    margin: 0;
+    width: 320px;
+    min-width: 320px;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

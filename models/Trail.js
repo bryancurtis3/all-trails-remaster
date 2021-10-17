@@ -28,8 +28,12 @@ const mongoose = require("mongoose");
                 type: Number,
                 min: 0,
                 max: 5,
-                required: [true, "Rate on scale of 1 - 5 "],
+                required: [true, "Rate on scale of 1 - 5"],
             },
+            image: {
+                type: String,
+                required: [true, "Please provide a representitive image"]
+            }
         }, 
         {timestamps: true,},
     );
