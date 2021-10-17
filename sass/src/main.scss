@@ -36,7 +36,6 @@
 
 #search {
     position: absolute;
-    
     width: 90%;
     margin-left: 5%;
     margin-top: 240px;
@@ -52,4 +51,40 @@
 
 @media only screen and (min-width: 800px) {
 
+}
+
+
+// Registration CSS
+
+// .reg-background {
+//     background-image: url(https://i.imgur.com/hMrEfAu.jpg);
+//     height: 100px;
+//     width: 100px;
+//     object-fit: cover;
+// }
+
+
+.reg-container {
+    margin-left: 5%;
+    margin-top: 1.2em;
+    width: 90%;
+    border-radius: 20px;
+    max-width: 450px;
+    justify-content: center;
+    position: absolute;
+    // box-shadow: 0px 0px 7px 1px rgba(40,40,40,0.5);
+    
+}
+
+.form-title {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: .8em;
+    font-weight: bold;
+}
+
+#submission {
+    background-color: var(--sign);
+    border-color: var(--sign);
+    color: white;
 }
