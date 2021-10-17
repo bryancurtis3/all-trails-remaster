@@ -31,6 +31,14 @@
   height: 500px;
   width: 100%;
   object-fit: cover;
+  object-position: 50% 40%;
+}
+
+#search {
+  position: absolute;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 240px;
 }
 
 .hero {
@@ -39,12 +47,6 @@
 
 .navbar-link:not(.is-arrowless)::after {
   border-color: var(--sign);
-}
-
-@media only screen and (min-width: 800px) {
-  #main-image {
-    object-position: 50% 40%;
-  }
 }
 
 /*# sourceMappingURL=main.css.map */
