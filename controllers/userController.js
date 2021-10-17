@@ -3,10 +3,15 @@
 const express = require("express"); 
 const router = express.Router();
 const { User } = require("../models");
+const bcrypt = require("bcrypt");
+const saltRounds = 10; 
 
-// base url === / 
+// base url === "/"" 
 
 
+
+
+// == Registration 
 router.get("/registration", function (req, res, next) {
     return res.render("users/registration");
 });
@@ -19,6 +24,10 @@ router.post("/registration", async function (req, res, next){
             if(hasAccount) {
                 return res.redirect("/login");
             }
+
+        const hash = await bcrypt.hash(req.body.password, saltRounds);
+        req.body.password = hash;
+
         await User.create(req.body);
 
         return res.redirect("/login");
@@ -35,6 +44,41 @@ router.get("/login", function(req, res, next){
     return res.render("users/login");
 });
 
+
+
+
+// == Login 
+router.get("/login", function(req, res, next){
+    res.render("users/login")
+})
+
+router.post("/login", async function (req, res, next){
+    try{
+        const foundUser = await User.findOne({
+            email: req.body.email });
+
+        if(!foundUser) {
+            return res.redirect("/registration");
+        }
+
+        const varified = await bcrypt.compare(req.body.password, foundUser.password);
+
+        if(!varified) { 
+            return res.send(alert("Email or Password Invalid"));
+        }   
+        
+        req.session.currentUser = {
+            id: foundUser._id,
+            lastname: foundUser.last,
+        };
+        
+    }
+    catch(error){
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+});
 
 
 
