@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag content -->
+<%- include('../partials/_head.ejs') %>
+
+<body id="show-body">
+    <!-- Navbar -->
+    <%- include('../partials/_nav.ejs') %>
+
+    <div class="container show-wrapper">
+        <!-- Hero Image -->
+        <section class="hero">
+            <div id="show-img-div" class="hero-body">
+                <img class="show-img" src="https://i.imgur.com/yinQ7OR.jpg" alt="">
+            </div>
+        </section>
+
+        <div class="show-box-text-cont">
+            <h3><%= trail.name %></h3>
+            <span class="diff-rating">Diff: <%= trail.difficulty %></span>
+            <p class="trail-location"><%= trail.location %></p>
+        </div>
+
+        <!-- Circles with Icons -->
+        <div class="circles">
+            <div class="circle">
+                <div id="photos-circle" class="inner-circle"></div>
+                <p>Photos</p>
+            </div>
+            <div class="circle">
+                <div id="directions-circle" class="inner-circle"></div>
+                <p>Directions</p>
+            </div>
+            <div class="circle">
+                <div id="more-circle" class="inner-circle"></div>
+                <p>More</p>
+            </div>          
+        </div>
+
+        <p class="container trail-description"><%= trail.description %></p>
+
+        <hr id="tr-desc-hr">
+
+        <div class="stats">
+            <p class="stat">
+                Length
+                <br>
+                <span><%= trail.length %> mi</span>
+            </p>
+            <p class="stat">
+                Eleveation gain
+                <br>
+                <span><%= trail.elevation %> ft</span>
+            </p>
+            <p class="stat">
+                Route type
+                <br>
+                <span>Out & Back</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

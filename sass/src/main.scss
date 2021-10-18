@@ -1,5 +1,5 @@
 :root {
-    --green: rgb(85, 135, 44);
+    --green: rgb(85, 136, 44);
     --sign: rgb(75, 152, 211);
 }
 
@@ -7,8 +7,18 @@
     box-sizing: border-box;
 }
 
+a {
+    font-style: none;
+    color: #4a4a4a;
+}
+
 #navbar {
     background-color: white;
+}
+
+.logo-link {
+    line-height: 0;
+    padding-top: 2px;
 }
 
 #sign-up {
@@ -22,12 +32,12 @@
     color: var(--sign);
 }
 
-#hero-body {
+.hero-body {
     padding: 0;
     margin: 0;
 }
 
-#main-image {
+.hero-image {
     height: 500px;
     width: 100%;
     object-fit: cover;
@@ -39,6 +49,13 @@
     width: 90%;
     margin-left: 5%;
     margin-top: 240px;
+
+    // Does not work atm
+    // @media only screen and (min-width: 700px) {
+    //     input {
+    //         max-width: 650px;
+    //     }
+    // }
 }
 
 .hero {
@@ -97,7 +114,7 @@
 // === Trail box CSS ===
 
 .trail-boxes {
-    margin-top: 505px;
+    margin-top: 510px;
 }
 
 .trail-box {
@@ -154,10 +171,10 @@
     .trail-boxes {
         display: grid;
         grid-template-columns: repeat(auto-fill, 330px);
-        gap: 1.5em;
+        gap: 1em 1.5em;
         justify-content: space-evenly;
         flex-wrap: wrap;
-        margin: 505px 1.5em 0 1.5em;
+        margin: 525px 1.5em 0 1.5em;
     }
 
     .trail-box {
@@ -168,9 +185,127 @@
 }
 
 
+// Trail show CSS
+
+@media only screen and (min-width: 650px) {
+    #show-body {
+        height: 100vh;
+        background-color: #F2F2F2;
+    }
+}
+
+.show-wrapper {
+    max-width: 650px;
+    height: 100vh;
+    background-color: white;
+}
+
+.show-img {
+    height: 212px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+}
+
+.circles {
+        margin-top: 17px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        background-color: var(--green);
+        padding-bottom: 2em;
+        .circle {
+            background: #FFFFFF;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px 0 rgb(0 0 0 / 24%);
+            width: 48px;
+            height: 48px;
+            .inner-circle {
+                height: 24px;
+                width: 24px;
+                background-size: cover;
+                margin: 11px 0 0 12px;
+            }
+            p {
+                margin-top: .8em;
+                color: #FFFFFF;
+                width: .3fr;
+                display: flex;
+                text-align: center;
+                align-items: center;
+            }
+            #photos-circle {
+                background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/photos-green-81f81b5c.png);
+            }
+            #directions-circle {
+                margin-top: 12px;
+                background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/directions-green-ed305b8c.png);
+            }
+            #more-circle {
+                margin-top: 12px;
+                background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/more-green-dc6375e2.png);
+            }
+        }
+}
+
+.trail-description {
+    font-size: 18px;
+    padding: 1.3em;
+}
+
+#tr-desc-hr {
+    margin: 0 1.3em;
+}
+
+.stats {
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 2.6em;
+    justify-items: center;
+    span {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+}
+
+// This breaks index pages, but it feels like it shouldn't because nesting specificity. Continuing work for now regardless
+// Changed it, but when classes are the same it breaks
+.show-box-text-cont {
+    margin: 76px 0 0 1.7em;
+    // Seems like background colors dont work on top of images?
+    background-color: hsla(104, 104, 104, 1);
+    
+    h3 {
+        font-size: 22px;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+    .diff-rating {
+        background-color: mediumseagreen;
+        padding: 3px 9px;
+        font-size: .8em;
+        font-weight: 500;
+        color:rgb(235, 235, 235);
+        text-align: center;
+        border-radius: 5px;
+    }
+    .trail-location {
+        font-size: 14px;
+        font-weight: bold; // take this out once the background is dark
+        line-height: 2.2em;
+        color: black;
+    }
+}
+
+// User Avatar CSS
 .avatar {
     object-fit: cover;
     max-width: 200px;
     margin: auto;
     border-radius: 50%;
 }
+// Footer CSS
+
+
+

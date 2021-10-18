@@ -49,7 +49,7 @@ app.use(function (req, res, next){
 
 // Home route
 const { Trail } = require("./models"); // idk where to put this atm
-app.get("/", async function (req, res) {
+app.get("/", async function (req, res, next) {
     try {
         const allTrails = await Trail.find({});
 
@@ -58,10 +58,14 @@ app.get("/", async function (req, res) {
         return res.render("./index", context);
     } catch (error) {
         console.log(error);
+        req.error = error;
+        next();
     }
 });
 
 app.use("/", controllers.user);
+
+app.use("/trails", controllers.trail);
 
 // ==  Default Routes
 

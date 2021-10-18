@@ -5,7 +5,7 @@ const { Trail } = require("../models")
 const trails = [
     {
         name: "Signal Point",
-        description: "A short hike to a scenic overlook",
+        description: "A short hike to a scenic overlook in Signal Mountain, TN. This trail has a steep stair section which may not be suitable for the less nimble.",
         location: "Signal Mountain, TN",
         length: 1.2,
         elevation: 200,
@@ -14,7 +14,7 @@ const trails = [
     },
     {
         name: "Edwards Point",
-        description: "A woodsy hike out to a scenic view of the river",
+        description: "A woodsy hike out to a scenic view of the river. There is a quaint creek and blue hole area part way into the hike which is great for a swim in the summer.",
         location: "Signal Mountain, TN",
         length: 4.2,
         elevation: 550,

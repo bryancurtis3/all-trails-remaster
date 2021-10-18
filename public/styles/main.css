@@ -1,5 +1,5 @@
 :root {
-  --green: rgb(85, 135, 44);
+  --green: rgb(85, 136, 44);
   --sign: rgb(75, 152, 211);
 }
 
@@ -7,8 +7,18 @@
   box-sizing: border-box;
 }
 
+a {
+  font-style: none;
+  color: #4a4a4a;
+}
+
 #navbar {
   background-color: white;
+}
+
+.logo-link {
+  line-height: 0;
+  padding-top: 2px;
 }
 
 #sign-up {
@@ -22,12 +32,12 @@
   color: var(--sign);
 }
 
-#hero-body {
+.hero-body {
   padding: 0;
   margin: 0;
 }
 
-#main-image {
+.hero-image {
   height: 500px;
   width: 100%;
   object-fit: cover;
@@ -73,7 +83,7 @@
 }
 
 .trail-boxes {
-  margin-top: 505px;
+  margin-top: 510px;
 }
 
 .trail-box {
@@ -128,10 +138,10 @@
   .trail-boxes {
     display: grid;
     grid-template-columns: repeat(auto-fill, 330px);
-    gap: 1.5em;
+    gap: 1em 1.5em;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin: 505px 1.5em 0 1.5em;
+    margin: 525px 1.5em 0 1.5em;
   }
 
   .trail-box {
@@ -139,6 +149,111 @@
     width: 320px;
     min-width: 320px;
   }
+}
+@media only screen and (min-width: 650px) {
+  #show-body {
+    height: 100vh;
+    background-color: #F2F2F2;
+  }
+}
+.show-wrapper {
+  max-width: 650px;
+  height: 100vh;
+  background-color: white;
+}
+
+.show-img {
+  height: 212px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.circles {
+  margin-top: 17px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  background-color: var(--green);
+  padding-bottom: 2em;
+}
+.circles .circle {
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
+  width: 48px;
+  height: 48px;
+}
+.circles .circle .inner-circle {
+  height: 24px;
+  width: 24px;
+  background-size: cover;
+  margin: 11px 0 0 12px;
+}
+.circles .circle p {
+  margin-top: 0.8em;
+  color: #FFFFFF;
+  width: 0.3fr;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.circles .circle #photos-circle {
+  background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/photos-green-81f81b5c.png);
+}
+.circles .circle #directions-circle {
+  margin-top: 12px;
+  background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/directions-green-ed305b8c.png);
+}
+.circles .circle #more-circle {
+  margin-top: 12px;
+  background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/more-green-dc6375e2.png);
+}
+
+.trail-description {
+  font-size: 18px;
+  padding: 1.3em;
+}
+
+#tr-desc-hr {
+  margin: 0 1.3em;
+}
+
+.stats {
+  font-size: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 2.6em;
+  justify-items: center;
+}
+.stats span {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.show-box-text-cont {
+  margin: 76px 0 0 1.7em;
+  background-color: white;
+}
+.show-box-text-cont h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.show-box-text-cont .diff-rating {
+  background-color: mediumseagreen;
+  padding: 3px 9px;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #ebebeb;
+  text-align: center;
+  border-radius: 5px;
+}
+.show-box-text-cont .trail-location {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 2.2em;
+  color: black;
 }
 .avatar {
   object-fit: cover;
