@@ -4,12 +4,12 @@ const { Trail } = require("../models")
 
 const trails = [
     {
-        name: "Signal Point",
-        description: "A short hike to a scenic overlook in Signal Mountain, TN. This trail has a steep stair section which may not be suitable for the less nimble.",
-        location: "Signal Mountain, TN",
-        length: 1.2,
-        elevation: 200,
-        difficulty: 1,
+        name: 'Torres Del Paine "W" Circuit',
+        description: "A long trek through the wilds of Chilean Patagonia, this trail is a famous route that features mountains, galciers, lakes, and exotic plant life. ",
+        location: "Torres Del Paine, Patagonia",
+        length: 43.1,
+        elevation: 8956,
+        difficulty: 5,
         image: "https://i.imgur.com/yinQ7OR.jpg",
     },
     {
@@ -49,7 +49,7 @@ const trails = [
         image: "https://i.imgur.com/yinQ7OR.jpg",
     },
     {
-        name: "High Dune Trail",
+        name: "",
         description: "A sandy climb up one of the tallest sand dunes in the park",
         location: "Great Sand Dunes National Park",
         length: 3,
