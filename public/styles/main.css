@@ -207,4 +207,16 @@ a {
   margin: 0 1.3em;
 }
 
+.stats {
+  font-size: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 2.6em;
+  justify-items: center;
+}
+.stats span {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=main.css.map */
