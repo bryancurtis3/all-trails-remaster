@@ -2,7 +2,7 @@
 
 const express = require("express"); 
 const router = express.Router();
-const { User } = require("../models");
+const { User, List, Trail } = require("../models");
 const bcrypt = require("bcrypt");
 const saltRounds = 10; 
 
@@ -88,7 +88,11 @@ router.get("/profile", async function(req, res, next){
     try{
         
         const authUser = await User.findById(req.session.currentUser.id); 
-        const context = { user: authUser, };
+        const context = { 
+            user: authUser,
+            trail: Trail,
+            list: List,
+         };
         
         return res.render("users/show", context);
     
@@ -96,7 +100,7 @@ router.get("/profile", async function(req, res, next){
     catch(error){
         console.log(error);
         req.error = error;
-        return next();
+        return res.redirect("/login");
     }
 });
 
