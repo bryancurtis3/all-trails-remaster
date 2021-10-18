@@ -37,6 +37,11 @@ a {
     margin: 0;
 }
 
+.hero-body-partial {
+    display: grid;
+    place-items: center;
+}
+
 .hero-image {
     height: 500px;
     width: 100%;
@@ -47,15 +52,22 @@ a {
 #search {
     position: absolute;
     width: 90%;
-    margin-left: 5%;
-    margin-top: 240px;
-
-    // Does not work atm
-    // @media only screen and (min-width: 700px) {
-    //     input {
-    //         max-width: 650px;
-    //     }
-    // }
+    // margin-top: 240px;
+    max-width: 650px;
+    #search-arrow {
+        background-color: var(--green);
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        margin-top: 10px;
+        margin-right: 10px;
+        visibility: hidden;
+    }
+    @media screen and (min-width: 725px) {
+        #search-arrow {
+            visibility: visible;
+        }
+    }
 }
 
 .hero {
