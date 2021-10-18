@@ -9,9 +9,7 @@
 <%- include('../partials/_nav.ejs') %>
 
 <body>
-  <!-- <div>
-    <img  src="https://i.imgur.com/hMrEfAu.jpg" alt="">
-  </div> -->
+ 
   <section class="reg-container">
 
     <form action="/registration" method="POST" class="box">
@@ -19,24 +17,13 @@
       <h3 class="form-title">Create an account</h3>
 
         <div class="field">
-          <label class="label">First Name</label>
+          <label class="label">Username</label>
           <div class="control">
             <input
-              name="first"
+              name="username"
               class="input"
               type="text"
-              placeholder="First name..."
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Last Name</label>
-          <div class="control">
-            <input
-              name="last"
-              class="input"
-              type="text"
-              placeholder="Last name..."
+              placeholder="Username..."
             />
           </div>
         </div>
