@@ -1,10 +1,15 @@
 :root {
-    --green: rgb(85, 135, 44);
+    --green: rgb(85, 136, 44);
     --sign: rgb(75, 152, 211);
 }
 
 * {
     box-sizing: border-box;
+}
+
+a {
+    font-style: none;
+    color: #4a4a4a;
 }
 
 #navbar {
@@ -27,12 +32,12 @@
     color: var(--sign);
 }
 
-#hero-body {
+.hero-body {
     padding: 0;
     margin: 0;
 }
 
-#main-image {
+.hero-image {
     height: 500px;
     width: 100%;
     object-fit: cover;
@@ -180,5 +185,67 @@
 }
 
 
+// Trail show CSS
+.show-img {
+    height: 212px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+}
+
+.circles {
+        margin-top: 168px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        background-color: var(--green);
+        padding-bottom: 2em;
+        .circle {
+            background: #FFFFFF;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px 0 rgb(0 0 0 / 24%);
+            width: 48px;
+            height: 48px;
+            .inner-circle {
+                height: 24px;
+                width: 24px;
+                background-size: cover;
+                margin: 11px 0 0 12px;
+            }
+            p {
+                margin-top: .8em;
+                color: #FFFFFF;
+                width: .3fr;
+                display: flex;
+                text-align: center;
+                align-items: center;
+            }
+            #photos-circle {
+                background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/photos-green-81f81b5c.png);
+            }
+            #directions-circle {
+                margin-top: 12px;
+                background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/directions-green-ed305b8c.png);
+            }
+            #more-circle {
+                margin-top: 12px;
+                background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/more-green-dc6375e2.png);
+            }
+        }
+}
+
+.trail-description {
+    font-size: 18px;
+    padding: 1.3em;
+}
+
+#tr-desc-hr {
+    margin: 0 1.3em;
+}
+
+
+
 // Footer CSS
+
+
 
