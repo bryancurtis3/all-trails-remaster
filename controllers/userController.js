@@ -87,9 +87,9 @@ router.post("/login", async function (req, res, next){
 router.get("/profile", async function(req, res, next){
     try{
         
-        const authUser = await User.findOne({id: req.session.currentUser._id}); 
+        const authUser = await User.findById(req.session.currentUser.id); 
         const context = { user: authUser, };
-         
+        
         return res.render("users/show", context);
     
     }
@@ -116,6 +116,20 @@ router.put("/profile", async function(req, res, next){
     }
 });
 
+
+// == Logout
+
+router.get("/logout", async function (req, res, next){
+    try{
+        await req.session.destroy();
+        return res.redirect("/login");
+    }
+    catch(error){
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+});
 
 
 module.exports = router;
