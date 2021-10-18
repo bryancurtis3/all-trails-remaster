@@ -5,14 +5,23 @@
 
     
         <!-- Search Field -->
-        <form id="search" class="control has-icons-left has-icons-right" action="GET">
-            <input class="input is-large is-rounded" type="text" placeholder="Search for a trail">
+        <form id="search" class="control has-icons-left has-icons-right" action="/trails" method="GET">
+            <input 
+            name="q"
+            class="input is-large is-rounded"
+            type="search"
+            placeholder="Search for a trail"
+            >
             <span class="icon is-large is-left">
                 <i class="fas fa-search"></i>
             </span>
-            <span id="search-arrow" class="icon is-large is-right">
-                <i class="fas fa-arrow-right"></i>
-            </span>
+            
+                <span id="search-arrow" class="icon is-large is-right">
+                    <a href="/trails">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </span>
+            
         </form>
     </div>
 </section>

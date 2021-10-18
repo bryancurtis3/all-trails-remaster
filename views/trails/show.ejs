@@ -13,7 +13,7 @@
             <!-- Hero Image -->
             <section class="hero show-hero">
                 <div id="show-img-div" class="hero-body">
-                    <img class="show-img" src="https://i.imgur.com/yinQ7OR.jpg" alt="">
+                    <img class="show-img" src="<%= trail.image %>" alt="">
                 </div>
             </section>
 
@@ -65,7 +65,7 @@
             </div>
 
             <div class="container bc">
-                <a href="/trails/<%= trail.id %>/review" class="button review-button">Review</a>
+                <div class="button review-button">Review</div>
                 <%- include('../partials/_reviewModal.ejs') %>
             </div>
         </div>
