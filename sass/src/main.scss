@@ -186,6 +186,20 @@ a {
 
 
 // Trail show CSS
+
+@media only screen and (min-width: 650px) {
+    #show-body {
+        height: 100vh;
+        background-color: #F2F2F2;
+    }
+}
+
+.show-wrapper {
+    max-width: 650px;
+    height: 100vh;
+    background-color: white;
+}
+
 .show-img {
     height: 212px;
     width: 100%;
@@ -194,7 +208,7 @@ a {
 }
 
 .circles {
-        margin-top: 168px;
+        margin-top: 17px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: center;
@@ -255,7 +269,34 @@ a {
     }
 }
 
-
+// This breaks index pages, but it feels like it shouldn't because nesting specificity. Continuing work for now regardless
+// Changed it, but when classes are the same it breaks
+.show-box-text-cont {
+    margin: 76px 0 0 1.7em;
+    // Seems like background colors dont work on top of images?
+    background-color: hsla(104, 104, 104, 1);
+    
+    h3 {
+        font-size: 22px;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+    .diff-rating {
+        background-color: mediumseagreen;
+        padding: 3px 9px;
+        font-size: .8em;
+        font-weight: 500;
+        color:rgb(235, 235, 235);
+        text-align: center;
+        border-radius: 5px;
+    }
+    .trail-location {
+        font-size: 14px;
+        font-weight: bold; // take this out once the background is dark
+        line-height: 2.2em;
+        color: black;
+    }
+}
 
 // Footer CSS
 
