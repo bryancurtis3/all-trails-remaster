@@ -255,5 +255,11 @@ a {
   line-height: 2.2em;
   color: black;
 }
+.avatar {
+  object-fit: cover;
+  max-width: 200px;
+  margin: auto;
+  border-radius: 50%;
+}
 
 /*# sourceMappingURL=main.css.map */

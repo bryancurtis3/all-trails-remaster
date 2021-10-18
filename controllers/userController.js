@@ -66,12 +66,11 @@ router.post("/login", async function (req, res, next){
         if(!varified) { 
             return res.send("Email or Password Invalid");
             ///// would like to make this a pop-up message /////
-
         }   
         
         req.session.currentUser = {
             id: foundUser._id,
-            lastname: foundUser.last,
+            username: foundUser.username,
         };
         return res.redirect("/");
     }
@@ -82,6 +81,55 @@ router.post("/login", async function (req, res, next){
     }
 });
 
+
+// == Profile / Update page. 
+
+router.get("/profile", async function(req, res, next){
+    try{
+        
+        const authUser = await User.findById(req.session.currentUser.id); 
+        const context = { user: authUser, };
+        
+        return res.render("users/show", context);
+    
+    }
+    catch(error){
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+});
+
+router.put("/profile", async function(req, res, next){
+    try{
+        const updatedUser = 
+        await User.updateOne(
+            {id: req.session.currentUser._id},
+            {$set: req.body}, 
+            {new: true});
+        return res.redirect("/profile");
+    }
+    catch(error){
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+});
+
+
+// == Logout
+
+router.get("/logout", async function (req, res, next){
+    try{
+        await req.session.destroy();
+        return res.redirect("/login");
+    }
+    catch(error){
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+});
 
 
 module.exports = router;
