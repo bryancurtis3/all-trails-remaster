@@ -155,7 +155,7 @@ a {
 @media only screen and (min-width: 420px) {
   .trail-boxes {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 330px);
+    grid-template-columns: repeat(auto-fill, 335px);
     gap: 1em 1.5em;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -171,6 +171,11 @@ a {
 #show-body {
   height: 100vh;
   background-color: #F2F2F2;
+}
+
+.show-grid {
+  display: grid;
+  place-items: center;
 }
 
 .show-wrapper {
@@ -311,6 +316,24 @@ a {
     margin-top: 268px;
   }
 }
+.bc {
+  display: grid;
+  place-items: center;
+}
+.bc .review-button {
+  margin-top: 2em;
+}
+
+#review-trail-name {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 0.8em;
+}
+
+.star-score {
+  width: 25%;
+}
+
 .avatar {
   object-fit: cover;
   max-width: 200px;

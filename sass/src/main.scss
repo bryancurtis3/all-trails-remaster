@@ -52,7 +52,6 @@ a {
 #search {
     position: absolute;
     width: 90%;
-    // margin-top: 240px;
     max-width: 650px;
     #search-arrow {
         background-color: var(--green);
@@ -182,7 +181,7 @@ a {
 
     .trail-boxes {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 330px);
+        grid-template-columns: repeat(auto-fill, 335px);
         gap: 1em 1.5em;
         justify-content: space-evenly;
         flex-wrap: wrap;
@@ -204,6 +203,11 @@ a {
 #show-body {
     height: 100vh;
     background-color: #F2F2F2;
+}
+
+.show-grid {
+    display: grid;
+    place-items: center;
 }
 
 .show-wrapper {
@@ -231,7 +235,7 @@ a {
     left: 0;
     right: 0;
     height: 212px;
-    background: linear-gradient(to bottom, transparent 15%, hsla(0, 0, 0, .45) 100%);
+    background: linear-gradient(to bottom, transparent 15%, rgb(0, 0, 0, .45) 100%);
     z-index: 10;
 }
 
@@ -342,6 +346,27 @@ a {
         margin-top: 268px;
     }
 }
+
+// Review button for trails show
+.bc {
+    display: grid;
+    place-items: center;
+    .review-button {
+        margin-top: 2em;
+    }
+}
+
+// Review Modal CSS
+#review-trail-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: .8em;
+}
+
+.star-score {
+    width: 25%;
+}
+
 
 // User Avatar CSS
 .avatar {
