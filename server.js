@@ -64,7 +64,7 @@ app.get("/", async function (req, res, next) {
 });
 
 app.use("/", controllers.user);
-
+app.use("/", controllers.list);
 app.use("/trails", controllers.trail);
 
 // ==  Default Routes

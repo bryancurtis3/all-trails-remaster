@@ -293,12 +293,16 @@ a {
     margin-top: 268px;
   }
 }
-
 .avatar {
   object-fit: cover;
   max-width: 200px;
   margin: auto;
   border-radius: 50%;
+}
+
+#lists {
+  background-color: green;
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
