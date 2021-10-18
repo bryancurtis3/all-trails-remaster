@@ -150,14 +150,13 @@ a {
     min-width: 320px;
   }
 }
-@media only screen and (min-width: 650px) {
-  #show-body {
-    height: 100vh;
-    background-color: #F2F2F2;
-  }
+#show-body {
+  height: 100vh;
+  background-color: #F2F2F2;
 }
+
 .show-wrapper {
-  max-width: 650px;
+  max-width: 765px;
   height: 100vh;
   background-color: white;
 }
@@ -169,13 +168,55 @@ a {
   object-position: 50% 20%;
 }
 
+.show-hero {
+  position: relative;
+}
+
+.show-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 212px;
+  background: linear-gradient(to bottom, transparent 15%, rgba(0, 0, 0, 0.45) 100%);
+  z-index: 10;
+}
+
+.show-box-text-cont {
+  margin: 78px 0 0 1.7em;
+  position: absolute;
+  z-index: 10;
+}
+.show-box-text-cont h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.show-box-text-cont .diff-rating {
+  background-color: mediumseagreen;
+  padding: 3px 15px;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 5px;
+}
+.show-box-text-cont .trail-location {
+  font-size: 14px;
+  line-height: 2.2em;
+  color: white;
+}
+
 .circles {
-  margin-top: 17px;
+  margin-top: 168px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2;
   justify-items: center;
   background-color: var(--green);
-  padding-bottom: 2em;
+  padding-bottom: 0.5em;
 }
 .circles .circle {
   background: #FFFFFF;
@@ -183,20 +224,13 @@ a {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
   width: 48px;
   height: 48px;
+  z-index: 10;
 }
 .circles .circle .inner-circle {
   height: 24px;
   width: 24px;
   background-size: cover;
   margin: 11px 0 0 12px;
-}
-.circles .circle p {
-  margin-top: 0.8em;
-  color: #FFFFFF;
-  width: 0.3fr;
-  display: flex;
-  text-align: center;
-  align-items: center;
 }
 .circles .circle #photos-circle {
   background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/photos-green-81f81b5c.png);
@@ -208,6 +242,13 @@ a {
 .circles .circle #more-circle {
   margin-top: 12px;
   background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/more-green-dc6375e2.png);
+}
+.circles p {
+  margin-top: 0.4em;
+  line-height: 1em;
+  color: #FFFFFF;
+  width: 80px;
+  text-align: center;
 }
 
 .trail-description {
@@ -231,29 +272,26 @@ a {
   font-weight: bold;
 }
 
-.show-box-text-cont {
-  margin: 76px 0 0 1.7em;
-  background-color: white;
-}
-.show-box-text-cont h3 {
-  font-size: 22px;
-  font-weight: bold;
-  color: #FFFFFF;
-}
-.show-box-text-cont .diff-rating {
-  background-color: mediumseagreen;
-  padding: 3px 9px;
-  font-size: 0.8em;
-  font-weight: 500;
-  color: #ebebeb;
-  text-align: center;
-  border-radius: 5px;
-}
-.show-box-text-cont .trail-location {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 2.2em;
-  color: black;
+@media only screen and (min-width: 650px) {
+  .show-hero::after {
+    position: absolute;
+    height: 312px;
+  }
+
+  .show-img {
+    height: 312px;
+  }
+
+  .show-box-text-cont {
+    margin-top: 164px;
+  }
+  .show-box-text-cont h3 {
+    font-size: 30px;
+  }
+
+  .circles {
+    margin-top: 268px;
+  }
 }
 .avatar {
   object-fit: cover;

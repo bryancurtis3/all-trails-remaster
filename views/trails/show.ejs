@@ -10,7 +10,7 @@
 
     <div class="container show-wrapper">
         <!-- Hero Image -->
-        <section class="hero">
+        <section class="hero show-hero">
             <div id="show-img-div" class="hero-body">
                 <img class="show-img" src="https://i.imgur.com/yinQ7OR.jpg" alt="">
             </div>
@@ -18,7 +18,7 @@
 
         <div class="show-box-text-cont">
             <h3><%= trail.name %></h3>
-            <span class="diff-rating">Diff: <%= trail.difficulty %></span>
+            <span class="diff-rating">Difficulty: <%= trail.difficulty %></span>
             <p class="trail-location"><%= trail.location %></p>
         </div>
 
@@ -26,16 +26,19 @@
         <div class="circles">
             <div class="circle">
                 <div id="photos-circle" class="inner-circle"></div>
-                <p>Photos</p>
+                <!-- <p>Photos</p> -->
             </div>
             <div class="circle">
                 <div id="directions-circle" class="inner-circle"></div>
-                <p>Directions</p>
+                <!-- <p>Directions</p> -->
             </div>
             <div class="circle">
                 <div id="more-circle" class="inner-circle"></div>
-                <p>More</p>
-            </div>          
+                <!-- <p>More</p> -->
+            </div>
+            <p>Photos</p>
+            <p>Directions</p>
+            <p>More</p>
         </div>
 
         <p class="container trail-description"><%= trail.description %></p>
