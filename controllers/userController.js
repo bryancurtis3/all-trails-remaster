@@ -96,7 +96,7 @@ router.get("/profile", async function(req, res, next){
     catch(error){
         console.log(error);
         req.error = error;
-        return next();
+        return res.redirect("/login");
     }
 });
 
