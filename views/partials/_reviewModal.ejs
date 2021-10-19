@@ -1,7 +1,7 @@
 <div class="modal review-modal">
     <div class="modal-background"></div>
     <div class="modal-card">
-        <form action="/reviews" method="POST">
+        <form action="" method="POST">
             <header class="modal-card-head">
                 <p class="modal-card-title">Write a Review</p>
                 <button class="delete close-modal" aria-label="close"></button>
@@ -13,22 +13,24 @@
                     <%= trail.name %>
                 </h2>
 
-
                 <div class="field">
-                    <label class="label">Stars</label>
-                    <div class="control">
-                        <input 
-                        name="rating"
-                        class="input star-score" 
-                        type="number" 
-                        placeholder="1-5" 
-                        min="1" 
-                        max="5"
-                        >
+                    <div class="control has-icons-left">
+                    <div class="select mb-5">
+                        <select name="rating">
+                        <option value="" default>Select Rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="icon is-small is-left">
+                        <i class="fas fa-star has-text-warning"></i>
+                    </div>
                     </div>
                 </div>
 
-                <br>
 
                 <div class="field">
                     <!-- <label class="label">Message</label> -->
@@ -54,3 +56,6 @@
         </form>
     </div>
 </div>
+
+<!-- ALL BUTTONS SUBMIT THE MODAL OR SOMETHING? -->
+<!-- NEED TO MAKE CANCEL AND X JUST CLOSE THE MODAL -->

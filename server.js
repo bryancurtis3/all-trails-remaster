@@ -21,11 +21,8 @@ const PORT = process.env.PORT;
 
 /* === System Configuration === */
 app.set("view engine", "ejs");
-
 app.use(express.static("public"));
-
 app.use(express.urlencoded({ extended: false}));
-
 app.use(methodOverride("_method"));
 
 app.use(session({
@@ -66,7 +63,6 @@ app.get("/", async function (req, res, next) {
 app.use("/", controllers.user);
 app.use("/", controllers.list);
 app.use("/trails", controllers.trail);
-
 app.use("/reviews", controllers.review);
 
 // ==  Default Routes
