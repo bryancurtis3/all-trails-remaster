@@ -30,7 +30,7 @@ app.use(methodOverride("_method"));
 
 app.use(session({
     store: MongoStore.create(
-        { mongoUrl: process.env.MONGODB_URI }),
+        { mongoUrl: process.env.MONGODB_URI_DEV }),
         secret: process.env.SECRET,
         resave: false,
         saveUninitialized: false,
