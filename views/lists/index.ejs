@@ -10,31 +10,40 @@
 <h1>list view Ahoy!</h1>
 
    
-    <!-- Container of trail boxes -->
+    <!-- Container of list boxes -->
     <div class="trail-boxes">
-        <!-- Dynamically displays available trails -->
-        <% for (let i = 0; i < lists.length; i++) { %> 
-            <% const list = lists[i] %> 
+        <!-- Dynamically displays available list -->
+       
 
+       <% for (let i = 0; i < lists.length; i++) { %> 
+            <% const list = lists[i]; %> 
+            
+            <!-- here we have access to the list object 
+            what we need to do is access the trail_id[0] within the list and pull back the the trail object.image -->
             <div class="box trail-box">
                 <a href="<%= list.name %>">
                     
-                    <!-- Trail Box Image -->
+                    <!-- list Box Image -->
                     <div class="box-img-cont">
-                        <img class="box-img" src="<%= user.image %>" alt="User Image">
+                        <img class="box-img" src="<%= list.image %>" alt="Trail Image">
                     </div>
-<!-- Trail Box Text -->
+
+        <!-- list Box Text -->
+                <div class="box-text-cont">
                     <div class="box-text-cont">
-                        <h3><%= trail.name %></h3>
-                        <p class="trail-location"><%= trail.location %></p>
-                        <p class="diff-rating">Diff: <%= trail.difficulty %></p>
-                        <p class="trail-length">Length: <%= trail.length %> miles</p>
+                        <h3><%= list.name %></h3>
+                        <p> Trails: <%= list.trail_id.length%></p>
+ 
                     </div>
+                </div>
                 </a>
             </div>
                     
 
-        <% } %> 
+          
+        <% } %>
+
+
     </div>
 
     <footer class="footer">
