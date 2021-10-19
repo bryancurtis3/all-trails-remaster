@@ -17,7 +17,14 @@
                 <div class="box trail-box">
                     <!-- Trail Box Image -->
                     <div class="box-img-cont">
-                      <a href="/trails/<%= trail.id%>">  <img class="box-img"  src="<%= trail.image %>" alt="Trail Image"></a>
+                        <form action="/lists/<%= trail.id %>?_method=PUT" method="POST" >  
+                        
+                            <input class="button delete is-medium"
+                            type="submit"
+                            value="Remove"
+                            >
+                         </form>
+                        <a href="/trails/<%= trail.id%>">  <img class="box-img"  src="<%= trail.image %>" alt="Trail Image"></a>
                     </div>
     
                     <!-- Trail Box Text -->
@@ -28,6 +35,7 @@
                         <p class="trail-length">Length: <%= trail.length %> miles</p>
                     </div>
                 </div>
+
     
             <% } %> 
         </div>

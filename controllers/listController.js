@@ -62,4 +62,31 @@ router.get("/list/:id", async function (req, res, next) {
     }
 });
 
+/* // Delete Trail from list
+
+router.post("/lists/:id", async function (req, res, next) {
+  try{ 
+      await List.findByIdAndUpdate(req.params.id, {trail_id: {$set: ""}});
+
+    } 
+  catch(error){
+      console.log(error);
+  }
+});
+
+// Add Trail to List 
+router.post("/lists/:id", async function (req, res, next) { 
+    try{
+        List.FindByIdAndUpdate(
+
+        )
+    }
+
+    catch(error){
+        console.log(error);
+    }
+
+} */
+
+
 module.exports = router;
