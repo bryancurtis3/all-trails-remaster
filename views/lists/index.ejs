@@ -1,0 +1,67 @@
+
+<!-- Head tag content -->
+<%- include('../partials/_head.ejs') %>
+
+<body>
+    <!-- Navbar -->
+    <%- include('../partials/_nav.ejs') %>
+
+   
+<h1>list view Ahoy!</h1>
+
+   
+    <!-- Container of list boxes -->
+    <div class="trail-boxes">
+        <!-- Dynamically displays available list -->
+       
+
+       <% for (let i = 0; i < lists.length; i++) { %> 
+            <% const list = lists[i]; %> 
+            
+            <!-- here we have access to the list object 
+            what we need to do is access the trail_id[0] within the list and pull back the the trail object.image -->
+            <div class="box trail-box">
+                <a href="<%= list.name %>">
+                    
+                    <!-- list Box Image -->
+                    <div class="box-img-cont">
+                        <img class="box-img" src="<%= list.image %>" alt="Trail Image">
+                    </div>
+
+        <!-- list Box Text -->
+                <div class="box-text-cont">
+                    <div class="box-text-cont">
+                        <h3><%= list.name %></h3>
+                        <p> Trails: <%= list.trail_id.length%></p>
+ 
+                    </div>
+                </div>
+                </a>
+            </div>
+                    
+
+          
+        <% } %>
+
+
+    </div>
+
+    <footer class="footer">
+        <div class="content">
+            <img id="footer-logo" src="https://i.imgur.com/inBZZRA.png" width="140" height="60">
+        </div>
+    </footer>
+
+
+
+
+    
+
+
+
+
+
+</body>
+</html>
+
+
