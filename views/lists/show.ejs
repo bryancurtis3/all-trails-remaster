@@ -1,0 +1,52 @@
+
+<!-- Head tag content -->
+<%- include('../partials/_head.ejs') %>
+
+<body>
+    <!-- Navbar -->
+    <%- include('../partials/_nav.ejs') %>
+
+   
+<h1> <%=list.name%> </h1>
+<!-- Container of list boxes -->
+        <div class="trail-boxes">
+            <!-- Dynamically displays available trails -->
+            <%  for (i = 0; i < list.trail_id.length; i++) { %>
+               <%   const trail = list.trail_id[i]; %>
+            
+                <div class="box trail-box">
+                    <!-- Trail Box Image -->
+                    <div class="box-img-cont">
+                        <form action="/lists/<%= trail.id %>?_method=PUT" method="POST" >  
+                        
+                            <input class="button delete is-medium"
+                            type="submit"
+                            value="Remove"
+                            >
+                         </form>
+                        <a href="/trails/<%= trail.id%>">  <img class="box-img"  src="<%= trail.image %>" alt="Trail Image"></a>
+                    </div>
+    
+                    <!-- Trail Box Text -->
+                    <div class="box-text-cont">
+                        <h3><%= trail.name %></h3>
+                        <p class="trail-location"><%= trail.location %></p>
+                        <p class="diff-rating">Diff: <%= trail.difficulty %></p>
+                        <p class="trail-length">Length: <%= trail.length %> miles</p>
+                    </div>
+                </div>
+
+    
+            <% } %> 
+        </div>
+
+    <footer class="footer"> 
+    <div class="content">
+        <img id="footer-logo" src="https://i.imgur.com/inBZZRA.png" width="140" height="60">
+    </div>
+    </footer>
+
+</body>
+</html>
+
+
