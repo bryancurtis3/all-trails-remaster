@@ -6,12 +6,12 @@ const {User, Trail, Review } = require("../models");
 
 // base URL === /:id
 
-router.post("/reviews", function (req, res, next) {
-    req.body.trail = req.params.id; 
-    console.log(req.body.trial);
+router.post("/", function (req, res, next) {
+    // req.body.trail = req.params.id;
+    console.log(req.body);
     Review.create(req.body, function (error, newReview) {
         try {
-            res.redirect("/:id")
+            res.redirect("/trails/" + req.body.trail);
         } catch (error) {
             console.log(error);
             req.error = error;

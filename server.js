@@ -67,12 +67,14 @@ app.use("/", controllers.user);
 
 app.use("/trails", controllers.trail);
 
+app.use("/reviews", controllers.review);
+
 // ==  Default Routes
 
 // == Utility Routes
 
 /* === Server Listener === */
 
-app.listen(PORT, function (){
+app.listen(PORT, function () {
     console.log(`Listening for client reqs on port ${PORT}!!`);
 });
