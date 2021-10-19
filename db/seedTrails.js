@@ -68,6 +68,7 @@ const trails = [
 const seedTrails = async function seedTrails () {
     try {
         await Trail.deleteMany({});
+        await Review.deleteMany({});
         const createdTrails = await Trail.insertMany(trails);
         console.log("=== Trails Seeded ===");
         console.log(createdTrails);

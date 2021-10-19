@@ -68,7 +68,7 @@ router.post("/login", async function (req, res, next){
         if(!varified) { 
             return res.send("Email or Password Invalid");
             ///// would like to make this a pop-up message /////
-        }   
+        }
         
         req.session.currentUser = {
             id: foundUser._id,
@@ -111,7 +111,7 @@ router.get("/profile/update", async function(req, res, next){
         const authUser = await User.findById(req.session.currentUser.id); 
         const context = { 
             user: authUser,
-         };
+        };
         
         return res.render("users/update", context);
     
@@ -130,7 +130,7 @@ router.put("/profile", async function(req, res, next){
         await User.findByIdAndUpdate(
             req.session.currentUser.id,
             {$set: req.body});
-        await console.log(req.session.currentUser.id);
+        console.log(req.session.currentUser.id);
         return res.redirect("/profile");
     }
     catch(error){
@@ -146,7 +146,7 @@ router.put("/profile", async function(req, res, next){
 // Show logout page
 router.get("/logout", async function (req, res, next){
     try{
-        await req.session.destroy();
+        req.session.destroy();
         return res.redirect("/login");
     }
     catch(error){

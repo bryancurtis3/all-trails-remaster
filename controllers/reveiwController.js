@@ -10,9 +10,10 @@ router.post("/", async function (req, res, next) {
     try {
         req.body.rating = parseInt(req.body.rating);
         const newReview = await Review.create(req.body);
-        console.log(req.body);
+        
 
-        return res.redirect("/")
+        console.log("/trails/" + req.params.id);
+        return res.redirect("back");
     } catch (error) {
         console.log(error);
         req.error = error;

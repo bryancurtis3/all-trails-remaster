@@ -2,7 +2,7 @@
 
 const express = require("express"); 
 const router = express.Router();
-const { Trail } = require("../models");
+const { Trail, User } = require("../models");
 
 //== base route /trails 
 
@@ -52,7 +52,12 @@ router.get("/", async function (req, res, next) {
 router.get("/:id", async function (req, res, next) {
     try {
         const trail = await Trail.findById(req.params.id);
-        const context = { trail: trail };
+        const user = await User.findById(req.session.currentUser.id);
+        
+        const context = { 
+            trail: trail,
+            user: user,
+        };
         
         return res.render("trails/show", context);
     } catch (error) {
