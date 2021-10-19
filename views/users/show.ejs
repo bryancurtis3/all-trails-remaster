@@ -9,82 +9,57 @@
 <%- include('../partials/_nav.ejs') %>
 
 <body>
-   
 
-    <section class="reg-container">
+    <section class="container">
 
-        <form action="/profile?_method=PUT " method="POST" class="box">
-        <div class="avatar"> 
-                <img class="avatar" src="<%= user.avatar %>" alt="Profile"> 
+        <div class="tabs is-centered">
+            <ul>
+                <li class="is-active"><a href="/profile">Profile</a></li>
+                <li><a href="/lists">Lists</a></li>
+                <li><a>Completed</a></li>
+                <li><a>Reviews</a></li>
+            </ul>
         </div>
-          <h3 class="form-title">Update <%= user.username %> </h3>
-    
-            <div class="field">
-                <label class="label">Username</label>
-                <div class="control">
-                <input
-                    name="username"
-                    class="input"
-                    type="text"
-                    placeholder="<%= user.username %>"
-                    value="<%= user.username %>"
-                />
-                </div>
-            </div>
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control">
-                <input
-                  name="email"
-                  class="input"
-                  type="email"
-                  placeholder="<%= user.email %>"
-                  value="<%= user.email %>"
-                />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Location</label>
-              <div class="control">
-                <input
-                  name="location"
-                  class="input"
-                  type="text"
-                  placeholder="<%= user.location %>"
-                  value="<%= user.location %>"
-                />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Profile Picture</label>
-              <div class="control">
-                <input
-                  name="avatar"
-                  class="input"
-                  type="text"
-                  placeholder= <%= user.avatar %>
-                  value= <%= user.avatar %>
-                  
-                />
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <button id="submission" class="button is-link is-fullwidth">Submit</button>
-              </div>
-            </div>
-        </form>
-      </section>
+
+        <div class="container profile-content">
+            <figure class="image is-128x128">
+                <!-- still need session user info -->
+                <img id="profile-pic" src="<%= user.avatar %>">
+            </figure>
+
+            <h4>
+                <strong>Member Since</strong>
+                <br>
+                <!-- The rest of this <h4> ouputs the month & year lol -->
+                <% const since = user._id.getTimestamp() %> 
+                <% const monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+                ]
+                
+                const monthNumber = new Date(since).getMonth();
+                const monthName = monthNames[monthNumber]
+                %> 
+                
+                <%= monthName %> <%= new Date(since).getFullYear() %> 
+            </h4>
+
+            <h2><%= user.username %></h2>
+
+            <h3><%= user.location %></h3>
+        
+        
+
+        </div>
+
+        <hr id="pad-hr">
+
+    </section>
       
-      <footer class="footer">
+      <!-- <footer class="footer">
         <div class="content">
             <img id="footer-logo" src="https://i.imgur.com/inBZZRA.png" width="140" height="60">
         </div>
-    </footer>
-    
-          
-            
-
+    </footer> -->
 
 </body>
 </html>

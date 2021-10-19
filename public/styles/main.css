@@ -77,16 +77,6 @@ a {
   border-color: var(--sign);
 }
 
-.reg-container {
-  margin-left: 5%;
-  margin-top: 1.2em;
-  width: 90%;
-  border-radius: 20px;
-  max-width: 450px;
-  justify-content: center;
-  position: absolute;
-}
-
 .form-title {
   font-size: 2em;
   text-align: center;
@@ -168,19 +158,17 @@ a {
     min-width: 320px;
   }
 }
-#show-body {
-  height: 100vh;
-  background-color: #F2F2F2;
-}
-
 .show-grid {
   display: grid;
   place-items: center;
+  height: 100%;
+  background-color: #F2F2F2;
 }
 
 .show-wrapper {
+  width: 100%;
   max-width: 765px;
-  height: 100vh;
+  height: 100%;
   background-color: white;
 }
 
@@ -236,7 +224,6 @@ a {
   margin-top: 168px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2;
   justify-items: center;
   background-color: var(--green);
   padding-bottom: 0.5em;
@@ -279,7 +266,7 @@ a {
   padding: 1.3em;
 }
 
-#tr-desc-hr {
+#pad-hr {
   margin: 0 1.3em;
 }
 
@@ -339,6 +326,65 @@ a {
   max-width: 200px;
   margin: auto;
   border-radius: 50%;
+}
+
+.tabs a {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0.5em 1.5em;
+}
+.tabs ul {
+  border-top: 1px solid #dbdbdb;
+}
+
+.profile-content {
+  margin-top: 3em;
+  display: grid;
+  place-items: center;
+}
+.profile-content #profile-pic {
+  aspect-ratio: 1;
+  border-radius: 4px;
+}
+.profile-content h4 {
+  line-height: 1.2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+  font-size: 13px;
+  text-align: center;
+}
+.profile-content h2 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.profile-content h3 {
+  color: #8d8a7c;
+  font-size: 14px;
+  font-style: italic;
+  margin: 1em 0;
+}
+
+@media only screen and (min-width: 765px) {
+  .form-body .show-grid {
+    padding: 50px 0;
+  }
+}
+.login .show-grid {
+  height: 100vh;
+  align-content: space-between;
+}
+.login .show-grid .show-wrapper {
+  max-width: 420px;
+  height: 321px;
+  border-radius: 10px;
+}
+
+.reg-body .show-grid {
+  height: 100vh;
+  align-content: space-between;
+}
+.reg-body .show-grid .show-wrapper {
+  max-width: 480px;
 }
 
 #lists {

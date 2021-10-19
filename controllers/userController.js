@@ -47,10 +47,13 @@ router.get("/login", function(req, res, next){
 
 
 // == Login 
+
+// Show login page
 router.get("/login", function(req, res, next){
     res.render("users/login")
 })
 
+// Create(?) login
 router.post("/login", async function (req, res, next){
     try{
         const foundUser = await User.findOne({
@@ -65,7 +68,7 @@ router.post("/login", async function (req, res, next){
         if(!varified) { 
             return res.send("Email or Password Invalid");
             ///// would like to make this a pop-up message /////
-        }   
+        }
         
         req.session.currentUser = {
             id: foundUser._id,
@@ -83,6 +86,7 @@ router.post("/login", async function (req, res, next){
 
 // == Profile / Update page. 
 
+// Show profile page
 router.get("/profile", async function(req, res, next){
     try{
         
@@ -101,13 +105,32 @@ router.get("/profile", async function(req, res, next){
     }
 });
 
+// Show update profile page
+router.get("/profile/update", async function(req, res, next){
+    try{
+        const authUser = await User.findById(req.session.currentUser.id); 
+        const context = { 
+            user: authUser,
+        };
+        
+        return res.render("users/update", context);
+    
+    }
+    catch(error){
+        console.log(error);
+        req.error = error;
+        return res.redirect("/login");
+    }
+});
+
+// Update profile page
 router.put("/profile", async function(req, res, next){
     try{
         const updatedUser = 
         await User.findByIdAndUpdate(
             req.session.currentUser.id,
             {$set: req.body});
-        await console.log(req.session.currentUser.id);
+        console.log(req.session.currentUser.id);
         return res.redirect("/profile");
     }
     catch(error){
@@ -120,9 +143,10 @@ router.put("/profile", async function(req, res, next){
 
 // == Logout
 
+// Show logout page
 router.get("/logout", async function (req, res, next){
     try{
-        await req.session.destroy();
+        req.session.destroy();
         return res.redirect("/login");
     }
     catch(error){

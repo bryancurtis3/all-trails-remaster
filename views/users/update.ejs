@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Header tag content -->
+<%- include('../partials/_head.ejs') %>
+
+<!-- Navbar -->
+<%- include('../partials/_nav.ejs') %>
+
+<body class="form-body">
+   
+
+    <section class="container show-grid">
+
+        <form action="/profile?_method=PUT " method="POST" class="box show-wrapper form">
+            <div class="container profile-content">
+                <figure class="image is-128x128">
+                    <!-- still need session user info -->
+                    <img id="profile-pic" src="<%= user.avatar %>">
+                </figure>
+    
+                <h4>
+
+                    <strong>Member Since</strong>
+                    <br>
+                    <% const since = user._id.getTimestamp() %> 
+                    <% const monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"
+                    ]
+                
+                    const monthNumber = new Date(since).getMonth();
+                    const monthName = monthNames[monthNumber]
+                    %> 
+                    
+                    <%= monthName %> <%= new Date(since).getFullYear() %> 
+                </h4>
+    
+                <h2>
+                    <%= user.username %> 
+                </h2>
+    
+                <h3>
+                    <%= user.location %> 
+                </h3>
+            
+    
+            </div>
+
+            <hr>
+
+            <h3 class="form-title">Edit Your Profile</h3>
+      
+            <div class="field">
+                  <label class="label">Username</label>
+                  <div class="control">
+                  <input
+                      name="username"
+                      class="input"
+                      type="text"
+                      placeholder="<%= user.username %>"
+                      value="<%= user.username %>"
+                  />
+                  </div>
+            </div>
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                    <input
+                        name="email"
+                        class="input"
+                        type="email"
+                        placeholder="<%= user.email %>"
+                        value="<%= user.email %>"
+                    />
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Location</label>
+                <div class="control">
+                    <input
+                        name="location"
+                        class="input"
+                        type="text"
+                        placeholder="<%= user.location %>"
+                        value="<%= user.location %>"
+                    />
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Profile Picture</label>
+                <div class="control">
+                    <input
+                        name="avatar"
+                        class="input"
+                        type="text"
+                        placeholder= <%= user.avatar %>
+                        value= <%= user.avatar %>
+                    />
+            </div>
+            </div>
+              <div class="field">
+                <div class="control">
+                    <button id="submission" class="button is-link is-fullwidth">Save Changes</button>
+                </div>
+            </div>
+        </form>
+    </section>
+      
+      <!-- <footer class="footer">
+        <div class="content">
+            <img id="footer-logo" src="https://i.imgur.com/inBZZRA.png" width="140" height="60">
+        </div>
+    </footer> -->
+    
+</body>
+</html>
