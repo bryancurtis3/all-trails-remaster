@@ -9,17 +9,15 @@
    
 <h1> <%=list.name%> </h1>
 <!-- Container of list boxes -->
-        
         <div class="trail-boxes">
             <!-- Dynamically displays available trails -->
-            
             <%  for (i = 0; i < list.trail_id.length; i++) { %>
                <%   const trail = list.trail_id[i]; %>
             
                 <div class="box trail-box">
                     <!-- Trail Box Image -->
                     <div class="box-img-cont">
-                        <img class="box-img" src="<%= trail.image %>" alt="Trail Image">
+                      <a href="/trails/<%= trail.id%>">  <img class="box-img"  src="<%= trail.image %>" alt="Trail Image"></a>
                     </div>
     
                     <!-- Trail Box Text -->
@@ -33,12 +31,6 @@
     
             <% } %> 
         </div>
-
-
-
-
-
-
 
     <footer class="footer"> 
     <div class="content">

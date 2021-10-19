@@ -48,4 +48,18 @@ router.get("/lists/:id", async function (req, res, next) {
  }
 });
 
+// Trail Show
+router.get("/list/:id", async function (req, res, next) {
+    try {
+        const trail = await Trail.findById(req.params.id);
+        const context = { trail: trail };
+        
+        return res.render("trails/show", context);
+    } catch (error) {
+        console.log(error);
+        req.error = error;
+        next();
+    }
+});
+
 module.exports = router;
