@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const { User, List, Trail } = require("../models");
 const bcrypt = require("bcrypt");
-const saltRounds = 10; 
+const saltRounds = 10;
 
 // base url === "/" 
 

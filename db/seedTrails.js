@@ -49,13 +49,13 @@ const trails = [
         image: "https://i.imgur.com/yinQ7OR.jpg",
     },
     {
-        name: "",
-        description: "A sandy climb up one of the tallest sand dunes in the park",
-        location: "Great Sand Dunes National Park",
-        length: 3,
-        elevation: 700,
-        difficulty: 3,
-        image: "https://i.imgur.com/yinQ7OR.jpg",
+        name: "Eibsee Loop",
+        description: "Eibsee Loop is a 4.3 mile heavily trafficked loop trail located near Grainau, Bavaria, Germany that features a lake and is good for all skill levels. The trail is primarily used for hiking and walking and is best used from May until October.",
+        location: "Bavaria, Germany",
+        length: 4.3,
+        elevation: 705,
+        difficulty: 2,
+        image: "https://i.imgur.com/GwugiDk.jpg",
     },
 ];
 

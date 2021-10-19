@@ -33,7 +33,7 @@ app.use(session({
         { mongoUrl: process.env.MONGODB_URI }),
         secret: process.env.SECRET,
         resave: false,
-        saveUninitialized:false,
+        saveUninitialized: false,
     cookie: { maxAge: 100 * 60 * 60 * 24 * 365},
 }));
 
@@ -67,12 +67,14 @@ app.use("/", controllers.user);
 app.use("/", controllers.list);
 app.use("/trails", controllers.trail);
 
+app.use("/reviews", controllers.review);
+
 // ==  Default Routes
 
 // == Utility Routes
 
 /* === Server Listener === */
 
-app.listen(PORT, function (){
+app.listen(PORT, function () {
     console.log(`Listening for client reqs on port ${PORT}!!`);
 });
