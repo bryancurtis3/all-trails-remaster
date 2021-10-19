@@ -200,19 +200,17 @@ a {
 
 // === Trail show CSS ===
 
-#show-body {
-    height: 100vh;
-    background-color: #F2F2F2;
-}
-
 .show-grid {
     display: grid;
     place-items: center;
+    height: 100%;
+    background-color: #F2F2F2;
 }
 
 .show-wrapper {
+    width: 100%;
     max-width: 765px;
-    height: 100vh;
+    height: 100%;
     background-color: white;
 }
 
@@ -269,7 +267,6 @@ a {
         margin-top: 168px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 2;
         justify-items: center;
         background-color: var(--green);
         padding-bottom: .5em;
@@ -312,7 +309,7 @@ a {
     padding: 1.3em;
 }
 
-#tr-desc-hr {
+#pad-hr {
     margin: 0 1.3em;
 }
 
@@ -375,7 +372,61 @@ a {
     margin: auto;
     border-radius: 50%;
 }
-// Footer CSS
+
+// === Profile Show CSS ===
+
+// Changing some Bulma presets
+.tabs {
+    a {
+        font-size: 18px;
+        font-weight: bold;
+        padding: .5em 1.5em;
+    }
+    ul {
+        border-top: 1px solid #dbdbdb;
+    }
+}
+
+.profile-content {
+    margin-top: 3em;
+    display: grid;
+    place-items: center;
+    #profile-pic {
+        aspect-ratio: 1;
+        padding: 5;
+        border-radius: 5px;
+    }
+
+    h4 {
+        line-height: 1.2em;
+        margin-top: .5em;
+        margin-bottom: .2em;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    h3 {
+        color: #8d8a7c;
+        font-size: 14px;
+        font-style: italic;
+        margin: 1em 0;
+    }
+}
+
+// === Update Form ===
+@media only screen and (min-width: 765px) {
+    #update-body{
+        .show-grid {
+            padding: 50px 0;
+        }
+    }
+}
+
 
 
 

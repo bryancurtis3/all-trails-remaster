@@ -1,5 +1,5 @@
 *  User Story :
-As a none-account user I can search for new trails and see descriptions and ratings about those trails. I can also create an account from a user registration page so I can contribute to the trails catalog with new trails and reviews of current trails, as well as track my past and future. I can create custom lists of trails (for example, trails I would like to hike, trails in a specific area, or trails to share with a friend). I can view other users completed hikes and aspirational trails lists. 
+As a non-account user I can search for new trails and see descriptions and ratings about those trails. I can also create an account from a user registration page so I can contribute to the trails catalog with new trails and reviews of current trails, as well as track my past and future. I can create custom lists of trails (for example, trails I would like to hike, trails in a specific area, or trails to share with a friend). I can view other users completed hikes and aspirational trails lists. 
 
 === Home ===
 - Search bar to query trails db 

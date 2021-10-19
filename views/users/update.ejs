@@ -8,63 +8,47 @@
 <!-- Navbar -->
 <%- include('../partials/_nav.ejs') %>
 
-<body>
+<body id="update-body">
    
 
-    <section class="container">
+    <section class="container show-grid">
 
-        <div class="tabs is-centered">
-            <ul>
-                <li class="is-active"><a href="/profile">Profile</a></li>
-                <li><a href="/lists">Lists</a></li>
-                <li><a>Completed</a></li>
-                <li><a>Reviews</a></li>
-            </ul>
-        </div>
-
-        <div class="container profile-content">
-            <figure class="image is-128x128">
-                <!-- still need session user info -->
-                <img id="profile-pic" src="<%= user.avatar %>">
-            </figure>
-
-            <h4>
-                <strong>Member Since</strong>
-                <br>
-                <% const since = user._id.getTimestamp() %> 
-                <% const monthNames = ["January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-            ]
-            
-            const monthNumber = new Date(since).getMonth();
-            const monthName = monthNames[monthNumber]
-            %> 
+        <form action="/profile?_method=PUT " method="POST" class="box show-wrapper form">
+            <div class="container profile-content">
+                <figure class="image is-128x128">
+                    <!-- still need session user info -->
+                    <img id="profile-pic" src="<%= user.avatar %>">
+                </figure>
+    
+                <h4>
+                    <strong>Member Since</strong>
+                    <br>
+                    <% const since = user._id.getTimestamp() %> 
+                    <% const monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"
+                ]
                 
-                <%= monthName %> <%= new Date(since).getFullYear() %> 
-            </h4>
-
-            <h2>
-                <%= user.username %> 
-            </h2>
-
-            <h3>
-                <%= user.location %> 
-            </h3>
-        
-        
-
-        </div>
-
-          <hr id="pad-hr">
-
-
-
-        <!-- <form action="/profile?_method=PUT " method="POST" class="box">
-            <div class="avatar"> 
-                <img class="avatar" src="<%= user.avatar %>" alt="Profile"> 
+                const monthNumber = new Date(since).getMonth();
+                const monthName = monthNames[monthNumber]
+                %> 
+                    
+                    <%= monthName %> <%= new Date(since).getFullYear() %> 
+                </h4>
+    
+                <h2>
+                    <%= user.username %> 
+                </h2>
+    
+                <h3>
+                    <%= user.location %> 
+                </h3>
+            
+    
             </div>
 
-            <h3 class="form-title">Update <%= user.username %> </h3>
+            <hr>
+
+            <h3 class="form-title">Edit Your Profile</h3>
       
             <div class="field">
                   <label class="label">Username</label>
@@ -120,7 +104,7 @@
                     <button id="submission" class="button is-link is-fullwidth">Save Changes</button>
                 </div>
             </div>
-        </form> -->
+        </form>
     </section>
       
       <!-- <footer class="footer">
@@ -129,9 +113,5 @@
         </div>
     </footer> -->
     
-          
-            
-
-
 </body>
 </html>
