@@ -1,4 +1,3 @@
-/* ========== need to specify specific models for each controller========= */
 
 const express = require("express"); 
 const router = express.Router();
@@ -90,8 +89,6 @@ router.get("/profile", async function(req, res, next){
         const authUser = await User.findById(req.session.currentUser.id); 
         const context = { 
             user: authUser,
-            trail: Trail,
-            list: List,
          };
         
         return res.render("users/show", context);
@@ -107,10 +104,10 @@ router.get("/profile", async function(req, res, next){
 router.put("/profile", async function(req, res, next){
     try{
         const updatedUser = 
-        await User.updateOne(
-            {id: req.session.currentUser._id},
-            {$set: req.body}, 
-            {new: true});
+        await User.findByIdAndUpdate(
+            req.session.currentUser.id,
+            {$set: req.body});
+        await console.log(req.session.currentUser.id);
         return res.redirect("/profile");
     }
     catch(error){

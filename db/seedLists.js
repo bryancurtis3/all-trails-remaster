@@ -1,15 +1,28 @@
 
 /* ====!!!! Must be run After the seedTrails.js !!!!==== */
 
+/*  == and updated manually == */
+
+
 require("../config/db.configuration");
-const { List } = require("../models");
+const { List, User } = require("../models");
 
 const lists = [
     {
         name: "Admin Favorites",
-        user_id: "616da6433c5a6212dfc64ccb",
-        trail_id: ["616da39cc35dc789d8eb24db","616da39cc35dc789d8eb24dc", "616da39cc35dc789d8eb24e0"],
-    }
+        user_id: "616de0428522779fb4e92a53",
+        trail_id: ["616df3d061265f478db458b8","616df3d061265f478db458b4", "616df3d061265f478db458b6"],
+    },
+    {
+        name: "Admin Second List",
+        user_id: "616de0428522779fb4e92a53",
+        trail_id: ["616df3d061265f478db458b9","616df3d061265f478db458b8", "616df3d061265f478db458b6"],
+    },
+    {
+        name: "Admin Third List",
+        user_id: "616de0428522779fb4e92a53",
+        trail_id: ["616df3d061265f478db458b4","616df3d061265f478db458b8", "616df3d061265f478db458b6","616df3d061265f478db458b9"],
+    },
 ];
 
 const seedLists = async function seedLists (){
@@ -24,5 +37,4 @@ const seedLists = async function seedLists (){
         console.log(error);
     }
 }
-
 seedLists();
