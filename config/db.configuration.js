@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 // Change to .MONGODB_URI for Atlas connection
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI_DEV);
 
 mongoose.connection.on("connected", function () {
     console.log("MongoDB connected... ✅");
