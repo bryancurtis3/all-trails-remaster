@@ -77,16 +77,6 @@ a {
   border-color: var(--sign);
 }
 
-.reg-container {
-  margin-left: 5%;
-  margin-top: 1.2em;
-  width: 90%;
-  border-radius: 20px;
-  max-width: 450px;
-  justify-content: center;
-  position: absolute;
-}
-
 .form-title {
   font-size: 2em;
   text-align: center;
@@ -383,10 +373,18 @@ a {
   height: 100vh;
   align-content: space-between;
 }
-.login .show-wrapper {
+.login .show-grid .show-wrapper {
   max-width: 420px;
   height: 321px;
   border-radius: 10px;
+}
+
+.reg-body .show-grid {
+  height: 100vh;
+  align-content: space-between;
+}
+.reg-body .show-grid .show-wrapper {
+  max-width: 480px;
 }
 
 #lists {
