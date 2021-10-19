@@ -89,16 +89,16 @@ a {
 // }
 
 
-.reg-container {
-    margin-left: 5%;
-    margin-top: 1.2em;
-    width: 90%;
-    border-radius: 20px;
-    max-width: 450px;
-    justify-content: center;
-    position: absolute;
-    // box-shadow: 0px 0px 7px 1px rgba(40,40,40,0.5);
-}
+// .reg-container {
+//     margin-left: 5%;
+//     margin-top: 1.2em;
+//     width: 90%;
+//     border-radius: 20px;
+//     max-width: 450px;
+//     justify-content: center;
+//     position: absolute;
+//     // box-shadow: 0px 0px 7px 1px rgba(40,40,40,0.5);
+// }
 
 .form-title {
     font-size: 2em;
@@ -200,19 +200,17 @@ a {
 
 // === Trail show CSS ===
 
-#show-body {
-    height: 100vh;
-    background-color: #F2F2F2;
-}
-
 .show-grid {
     display: grid;
     place-items: center;
+    height: 100%;
+    background-color: #F2F2F2;
 }
 
 .show-wrapper {
+    width: 100%;
     max-width: 765px;
-    height: 100vh;
+    height: 100%;
     background-color: white;
 }
 
@@ -269,7 +267,6 @@ a {
         margin-top: 168px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 2;
         justify-items: center;
         background-color: var(--green);
         padding-bottom: .5em;
@@ -312,7 +309,7 @@ a {
     padding: 1.3em;
 }
 
-#tr-desc-hr {
+#pad-hr {
     margin: 0 1.3em;
 }
 
@@ -375,7 +372,84 @@ a {
     margin: auto;
     border-radius: 50%;
 }
-// Footer CSS
+
+// === Profile Show CSS ===
+
+// Changing some Bulma presets
+.tabs {
+    a {
+        font-size: 18px;
+        font-weight: bold;
+        padding: .5em 1.5em;
+    }
+    ul {
+        border-top: 1px solid #dbdbdb;
+    }
+}
+
+.profile-content {
+    margin-top: 3em;
+    display: grid;
+    place-items: center;
+    #profile-pic {
+        aspect-ratio: 1;
+        border-radius: 4px;
+    }
+
+    h4 {
+        line-height: 1.2em;
+        margin-top: .5em;
+        margin-bottom: .2em;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    h3 {
+        color: #8d8a7c;
+        font-size: 14px;
+        font-style: italic;
+        margin: 1em 0;
+    }
+}
+
+// === Update Form ===
+@media only screen and (min-width: 765px) {
+    .form-body{
+        .show-grid {
+            padding: 50px 0;
+        }
+    }
+}
+
+// Login Form (.login is on body)
+.login {
+    .show-grid {
+        height: 100vh;
+        align-content: space-between;
+        .show-wrapper {
+            max-width: 420px;
+            height: 321px; 
+            border-radius: 10px;
+        }
+    }
+}
+
+// Ref form
+.reg-body {
+    .show-grid {
+        height: 100vh;
+        align-content: space-between;
+        .show-wrapper {
+            max-width: 480px;
+        }
+    }
+}
+
 
 
 

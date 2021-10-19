@@ -1,86 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<!-- Header tag content -->
-<%- include('../partials/_head.ejs') %>
+	<!-- Header tag content -->
+	<%- include('../partials/_head.ejs') %>
 
-<!-- Navbar -->
-<%- include('../partials/_nav.ejs') %>
+	<!-- Navbar -->
+	<%- include('../partials/_nav.ejs') %>
 
-<body>
- 
-  <section class="reg-container">
+<body class="form-body reg-body">
 
-    <form action="/registration" method="POST" class="box">
+	<section class="reg-container show-grid">
 
-      <h3 class="form-title">Create an account</h3>
+		<form action="/registration" method="POST" class="box show-wrapper">
 
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control">
-            <input
-              name="username"
-              class="input"
-              type="text"
-              placeholder="Username..."
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control">
-            <input
-              name="email"
-              class="input"
-              type="email"
-              placeholder="input@email.com"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control">
-            <input
-              name="password"
-              class="input"
-              type="password"
-              placeholder="*******"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Location</label>
-          <div class="control">
-            <input
-              name="location"
-              class="input"
-              type="text"
-              placeholder="City, State, Zip"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Profile Picture</label>
-          <div class="control">
-            <input
-              name="avatar"
-              class="input"
-              type="text"
-              placeholder= "Insert image URL"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <button id="submission" class="button is-link is-fullwidth">Submit</button>
-          </div>
-        </div>
-    </form>
+			<h3 class="form-title">Create an account</h3>
 
-  </section>
+			<div class="field">
+				<label class="label">Username</label>
+				<div class="control">
+					<input name="username" class="input" type="text" placeholder="Username..." />
+				</div>
+			</div>
+			<div class="field">
+				<label class="label">Email</label>
+				<div class="control">
+					<input name="email" class="input" type="email" placeholder="input@email.com" />
+				</div>
+			</div>
+			<div class="field">
+				<label class="label">Password</label>
+				<div class="control">
+					<input name="password" class="input" type="password" placeholder="*******" />
+				</div>
+			</div>
+			<div class="field">
+				<label class="label">Location</label>
+				<div class="control">
+					<input name="location" class="input" type="text" placeholder="City, State, Zip" />
+				</div>
+			</div>
+			<div class="field">
+				<label class="label">Profile Picture</label>
+				<div class="control">
+					<input name="avatar" class="input" type="text" placeholder="Insert image URL" />
+				</div>
+			</div>
+			<div class="field">
+				<div class="control">
+					<button id="submission" class="button is-link is-fullwidth">Create Account</button>
+				</div>
+			</div>
+		</form>
 
+	</section>
 
 
 </body>
+
 </html>
