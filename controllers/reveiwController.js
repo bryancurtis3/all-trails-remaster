@@ -2,22 +2,22 @@
 
 const express = require("express"); 
 const router = express.Router();
-const {User, Trail, Review } = require("../models");
+const {User, Review } = require("../models");
 
-// base URL === /:id
+// base URL === /reviews
 
-router.post("/", function (req, res, next) {
-    // req.body.trail = req.params.id;
-    console.log(req.body);
-    Review.create(req.body, function (error, newReview) {
-        try {
-            res.redirect("/trails/" + req.body.trail);
-        } catch (error) {
-            console.log(error);
-            req.error = error;
-            next();
-        }
-    })
+router.post("/", async function (req, res, next) {
+    try {
+        req.body.rating = parseInt(req.body.rating);
+        const newReview = await Review.create(req.body);
+        console.log(req.body);
+
+        return res.redirect("/")
+    } catch (error) {
+        console.log(error);
+        req.error = error;
+        next();
+    }
 });
 
 module.exports = router;

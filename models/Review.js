@@ -5,21 +5,19 @@ const mongoose = require("mongoose");
             user_id: {
                 type: mongoose.Types.ObjectId,
                 ref: "User",
-                required: true, 
+                // required: true, 
             },
             trail_id: {
                 type: mongoose.Types.ObjectId,
                 ref: "Trail",
             },
-            decription: {
-                type: String,
+            description: String,
             rating: {
                 type: Number,
                 min: 1,
                 max: 5,
                 required: [true, "How much did you enjoy this hike on a scale of 1 - 5?"],
             },
-            }
         }, 
         {timestamps: true,},
     );

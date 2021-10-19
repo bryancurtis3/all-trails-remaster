@@ -17,7 +17,14 @@
                 <div class="field">
                     <label class="label">Stars</label>
                     <div class="control">
-                        <input class="input star-score" type="number" placeholder="1-5" min="1" max="5">
+                        <input 
+                        name="rating"
+                        class="input star-score" 
+                        type="number" 
+                        placeholder="1-5" 
+                        min="1" 
+                        max="5"
+                        >
                     </div>
                 </div>
 
@@ -26,12 +33,19 @@
                 <div class="field">
                     <!-- <label class="label">Message</label> -->
                     <div class="control">
-                        <textarea class="textarea" placeholder="Write your review of <%= trail.name %> trail here"
-                            maxlength="2000"></textarea>
+                        <textarea 
+                        name="description"
+                        class="textarea" 
+                        placeholder="Write your review of <%= trail.name %> trail here"
+                        maxlength="2000"
+                        ></textarea>
                     </div>
                 </div>
 
-                <input type="hidden" name="trail" value="<%= trail._id %>">
+                <input type="hidden" name="trail_id" value="<%= trail._id %>">
+
+                <!-- put squid back in -->
+                <!-- <input type="hidden" name="user_id" value="<user._id"> -->
 
             </section>
             <footer class="modal-card-foot">

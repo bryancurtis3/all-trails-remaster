@@ -30,6 +30,12 @@ router.get("/", async function (req, res, next) {
             }
         }
 
+        // *****************************************************
+        
+        // Figure out how to pass active user (session?) info as context? Or how to grab it in the ejs or something. Have to assign the review a user id
+
+        // *****************************************************
+
         const allTrails = await Trail.find(query);
         console.log(allTrails.length)
         const context = { trails: allTrails };
