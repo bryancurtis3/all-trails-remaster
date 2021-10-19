@@ -420,10 +420,23 @@ a {
 
 // === Update Form ===
 @media only screen and (min-width: 765px) {
-    #update-body{
+    .form-body{
         .show-grid {
             padding: 50px 0;
         }
+    }
+}
+
+// Login Form
+.login {
+    .show-grid {
+        height: 100vh;
+        align-content: space-between;
+    }
+    .show-wrapper {
+        max-width: 420px;
+        height: 321px; 
+        border-radius: 10px;
     }
 }
 

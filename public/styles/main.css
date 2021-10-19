@@ -376,10 +376,20 @@ a {
 }
 
 @media only screen and (min-width: 765px) {
-  #update-body .show-grid {
+  .form-body .show-grid {
     padding: 50px 0;
   }
 }
+.login .show-grid {
+  height: 100vh;
+  align-content: space-between;
+}
+.login .show-wrapper {
+  max-width: 420px;
+  height: 321px;
+  border-radius: 10px;
+}
+
 #lists {
   background-color: green;
   color: white;
