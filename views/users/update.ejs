@@ -21,16 +21,17 @@
                 </figure>
     
                 <h4>
+
                     <strong>Member Since</strong>
                     <br>
                     <% const since = user._id.getTimestamp() %> 
                     <% const monthNames = ["January", "February", "March", "April", "May", "June",
                     "July", "August", "September", "October", "November", "December"
-                ]
+                    ]
                 
-                const monthNumber = new Date(since).getMonth();
-                const monthName = monthNames[monthNumber]
-                %> 
+                    const monthNumber = new Date(since).getMonth();
+                    const monthName = monthNames[monthNumber]
+                    %> 
                     
                     <%= monthName %> <%= new Date(since).getFullYear() %> 
                 </h4>
@@ -65,38 +66,37 @@
             <div class="field">
                 <label class="label">Email</label>
                 <div class="control">
-                  <input
-                    name="email"
-                    class="input"
-                    type="email"
-                    placeholder="<%= user.email %>"
-                    value="<%= user.email %>"
-                  />
+                    <input
+                        name="email"
+                        class="input"
+                        type="email"
+                        placeholder="<%= user.email %>"
+                        value="<%= user.email %>"
+                    />
                 </div>
             </div>
             <div class="field">
                 <label class="label">Location</label>
                 <div class="control">
-                  <input
-                    name="location"
-                    class="input"
-                    type="text"
-                    placeholder="<%= user.location %>"
-                    value="<%= user.location %>"
-                  />
+                    <input
+                        name="location"
+                        class="input"
+                        type="text"
+                        placeholder="<%= user.location %>"
+                        value="<%= user.location %>"
+                    />
                 </div>
             </div>
             <div class="field">
                 <label class="label">Profile Picture</label>
                 <div class="control">
-                  <input
-                    name="avatar"
-                    class="input"
-                    type="text"
-                    placeholder= <%= user.avatar %>
-                    value= <%= user.avatar %>
-                    
-                  />
+                    <input
+                        name="avatar"
+                        class="input"
+                        type="text"
+                        placeholder= <%= user.avatar %>
+                        value= <%= user.avatar %>
+                    />
             </div>
             </div>
               <div class="field">

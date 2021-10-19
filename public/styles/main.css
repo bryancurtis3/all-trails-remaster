@@ -354,8 +354,7 @@ a {
 }
 .profile-content #profile-pic {
   aspect-ratio: 1;
-  padding: 5;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 .profile-content h4 {
   line-height: 1.2em;
