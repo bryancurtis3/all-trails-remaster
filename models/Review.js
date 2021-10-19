@@ -10,14 +10,12 @@ const mongoose = require("mongoose");
             trail_id: {
                 type: mongoose.Types.ObjectId,
                 ref: "Trail",
-                required: [true, "Add at least one trail."]
             },
             decription: {
                 type: String,
-                required: [ true, "What made this hike standout?"],
             rating: {
                 type: Number,
-                min: 0,
+                min: 1,
                 max: 5,
                 required: [true, "How much did you enjoy this hike on a scale of 1 - 5?"],
             },

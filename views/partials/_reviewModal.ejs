@@ -1,0 +1,43 @@
+<div class="modal review-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <form action="/reviews" method="POST">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Write a Review</p>
+                <button class="delete close-modal" aria-label="close"></button>
+            </header>
+
+            <section class="modal-card-body">
+
+                <h2 id="review-trail-name">
+                    <%= trail.name %>
+                </h2>
+
+
+                <div class="field">
+                    <label class="label">Stars</label>
+                    <div class="control">
+                        <input class="input star-score" type="number" placeholder="1-5" min="1" max="5">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="field">
+                    <!-- <label class="label">Message</label> -->
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Write your review of <%= trail.name %> trail here"
+                            maxlength="2000"></textarea>
+                    </div>
+                </div>
+
+                <input type="hidden" name="trail" value="<%= trail._id %>">
+
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button review-submit is-link">Submit</button>
+                <button class="button close-modal">Cancel</button>
+            </footer>
+        </form>
+    </div>
+</div>

@@ -9,7 +9,29 @@ const { Trail } = require("../models");
 // Trails Index
 router.get("/", async function (req, res, next) {
     try {
-        const allTrails = await Trail.find({});
+        let query = {};
+
+        if (req.query.q) {
+            query = {
+                $or: [
+                    {
+                        name: {
+                            $regex: req.query.q,
+                            $options: "i",
+                        },
+                    },
+                    {
+                        description: {
+                            $regex: req.query.q,
+                            $options: "i",
+                        },
+                    }
+                ]
+            }
+        }
+
+        const allTrails = await Trail.find(query);
+        console.log(allTrails.length)
         const context = { trails: allTrails };
 
         return res.render("trails/index", context);
