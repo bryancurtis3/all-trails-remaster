@@ -328,12 +328,18 @@ a {
                 background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/more-green-dc6375e2.png);
             }
         }
+        .circle:hover {
+            transform: scale(1.05);
+        }
         p {
             margin-top: .4em;
             line-height: 1em;
             color: #FFFFFF;
             width: 80px;
             text-align: center;
+        }
+        p:hover {
+            transform: scale(1.02);
         }
 }
 
@@ -441,7 +447,7 @@ a {
     width: 16px;
 }
 
-.is-64x64, .is-128x128 {
+.is-32x32, .is-64x64, .is-128x128 {
     .profile-pic {
         aspect-ratio: 1;
         object-fit: cover;
@@ -581,6 +587,28 @@ a {
     font-size: 40px;
     text-align: center;
     font-weight: 500;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+
+.new-list-form {
+    margin: 0;
+    width: 70%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+#new-list {
+    width: 70%;
+    height: 40px;
+    transition: all 0.15s ease-in-out;
+}
+#new-list:hover {
+    background-color: var(--green);
+    color: #FFFFFF;
+    transform: scale(1.05);
 }
 
 .lists-container {
@@ -589,9 +617,10 @@ a {
     max-width: 765px;
     padding: 1.5em;
     background-color: white;
-    grid-template-columns: 128px 1fr 50px;
+    grid-template-columns: 128px 1fr 40px;
     grid-auto-rows: minmax(20px, auto);
     .list-info {
+        max-height: 128px;
         padding-top: 5px;
         padding-left: 1em;
         color: #414141;
@@ -601,7 +630,6 @@ a {
         }
         h4 {
             font-size: 15px;
-            line-height: 10px;
             margin-left: 2px;
         }
         h5 {
@@ -621,6 +649,10 @@ a {
     hr {
         grid-column: span 4;
         margin-top: 20px;
+    }
+    button {
+        margin-top: 45%;
+        width: 40px;
     }
 }
 

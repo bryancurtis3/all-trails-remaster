@@ -6,21 +6,15 @@ const { User, Trail, List } = require("../models");
 // base url === "/" 
 
 //== User List index
-
 router.get("/lists", async function(req, res, next){
     try{
         const userList = await List.find( {user_id: req.session.currentUser.id} ).populate( { path: "trail_id"} );
-        // for (i = 0; i < userList.length; i++ ) {
-        //     const firstTrail = await Trail.findById( `${userList[i].trail_id[0]}`);
-            
-        //     userList[i].image = await firstTrail.image;
-        // };
+
         const authUser = await User.findById(req.session.currentUser.id);
         const context = {
             lists: userList,
             user: authUser,
         };
-        // console.log(context.lists[0].trail_id)
 
         return res.render ("lists/index", context);
     }
@@ -32,7 +26,6 @@ router.get("/lists", async function(req, res, next){
 });
 
 //== User List Show Page
-
 router.get("/lists/:id", async function (req, res, next) {
  try { 
     const selectedList = await List.findById(req.params.id).populate("trail_id");
@@ -57,6 +50,19 @@ router.get("/list/:id", async function (req, res, next) {
         const context = { trail: trail };
         
         return res.render("trails/show", context);
+    } catch (error) {
+        console.log(error);
+        req.error = error;
+        next();
+    }
+});
+
+// Create List
+router.post("/lists", async function (req, res, next) {
+    try {
+        await List.create(req.body);
+
+        return res.redirect("/lists")
     } catch (error) {
         console.log(error);
         req.error = error;

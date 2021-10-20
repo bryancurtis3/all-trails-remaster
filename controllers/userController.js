@@ -15,6 +15,7 @@ router.get("/registration", function (req, res, next) {
     return res.render("users/registration");
 });
 
+// Create User
 router.post("/registration", async function (req, res, next){
     try{
         const hasAccount = await User.exists({
@@ -50,8 +51,8 @@ router.get("/login", function(req, res, next){
 
 // Show login page
 router.get("/login", function(req, res, next){
-    res.render("users/login")
-})
+    res.render("users/login");
+});
 
 // Create(?) login
 router.post("/login", async function (req, res, next){

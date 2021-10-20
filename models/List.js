@@ -14,7 +14,6 @@ const mongoose = require("mongoose");
             trail_id: [{
                 type: mongoose.Types.ObjectId,
                 ref: "Trail",
-                required: [true, "Add at least one trail."]
             }],
             avatar: String,
             username: String,

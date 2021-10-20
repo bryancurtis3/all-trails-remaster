@@ -6,15 +6,29 @@
     <!-- Navbar -->
     <%- include('../partials/_nav.ejs') %>
 
-    <h1 id="lists-title"><%= user.username %>'s Lists</h1>
+    <div id="lists-title">
+        <%= user.username %>'s Lists
+        <%- include('../partials/_listModal.ejs') %>
+        <div class="new-list-form">
+            <button id="new-list" class="button is-outlined">New List</button>
+        </div>
+    </div>
+    
     <hr>
 
     <div class="lists-container">
 
         <% for (let i = 0; i < lists.length; i++) { %>
             <% const list = lists[i] %> 
+    
             <div class="list-spot">
-                <% if (list.trail_id.length < 4) { %>
+                <% if (list.trail_id.length === 0) { %>
+                    <a href="lists/<%= list.id %>">
+                        <figure class="image is-128x128">
+                            <img class="profile-pic" src="https://cdn-assets.alltrails.com/assets/placeholder/person_placeholder.png">
+                        </figure>
+                    </a> 
+                <% } else if (list.trail_id.length < 4) { %> 
                     
                     <a href="lists/<%= list.id %>">
                         <figure class="image is-128x128">
@@ -22,7 +36,7 @@
                         </figure>
                     </a>
                     
-                <% } else { %>
+                <% } else if (list.trail_id.length < 16) { %>
                     <% for( let i = 0; i < 4; i++ ) { %>
                         
                         <a href="lists/<%= list.id %>">
@@ -32,7 +46,17 @@
                         </a>
                         
                     <% } %>
-                <% } %> 
+                <% } else { %> 
+                    <% for( let i = 0; i < 16; i++ ) { %>
+                            
+                        <a href="lists/<%= list.id %>">
+                            <figure class="image is-32x32">
+                                <img class="profile-pic" src="<%= list.trail_id[i].image %>">
+                            </figure>
+                        </a>
+                        
+                    <% } %>
+                <% } %>
             </div>
 
 
@@ -42,63 +66,16 @@
                 <h5><%= list.trail_id.length %> trails</h5>
             </div> 
 
+            <button class="button is-danger is-outlined">
+                <span class="icon is-small">
+                <i class="fas fa-times"></i>
+                </span>
+            </button>
+
             <hr>
         <% } %> 
         
     </div>
-
-
-
-   
-    <!-- Container of list boxes -->
-    <div class="trail-boxes">
-        <!-- Dynamically displays available list -->
-       
-
-       <% for (let i = 0; i < lists.length; i++) { %> 
-            <% const list = lists[i]; %> 
-            
-            <!-- here we have access to the list object 
-            what we need to do is access the trail_id[0] within the list and pull back the the trail object.image -->
-            <div class="box trail-box">
-                <a href="<%= list.name %>">
-                    
-                    <!-- list Box Image -->
-                    <div class="box-img-cont">
-                        <a href="lists/<%= list.id%>"><img class="box-img" src="<%= list.image %>" alt="Trail Image"></a>
-                    </div>
-
-        <!-- list Box Text -->
-                <div class="box-text-cont">
-                    <div class="box-text-cont">
-                        <h3><%= list.name %></h3>
-                        <p> Trails: <%= list.trail_id.length%></p>
- 
-                    </div>
-                </div>
-                </a>
-            </div>
-                    
-
-          
-        <% } %>
-
-
-    </div>
-
-    <!-- <footer class="footer">
-        <div class="content">
-            <img id="footer-logo" src="https://i.imgur.com/inBZZRA.png" width="140" height="60">
-        </div>
-    </footer> -->
-
-
-
-
-    
-
-
-
 
 
 </body>
