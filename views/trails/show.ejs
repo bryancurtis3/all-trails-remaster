@@ -61,13 +61,37 @@
                 </p>
             </div>
 
+            <hr id="pad-hr">
         </div>
 
-        <hr>
 
         <!-- Reviews section -->
-        <button class="button review-button">Review</button>
-        <div class="container bc"><%- include('../partials/_reviewModal.ejs') %></div>
+
+        <div class="container review-head">
+            <div>
+                <!-- Get score to 1 decimal -->
+                <% let score = 0 %>
+                <% for( let i = 0; i < reviews.length; i++ ) { %>
+                     <% score += reviews[i].rating %>
+                <% } %>
+                <% const total = Math.round(((score / reviews.length) * 10)) / 10 %> 
+
+                <!-- Display total rating -->
+                <% let button = "Be the First to Review!" %> 
+                <% if (reviews.length !== 0) { %> 
+                    <% button = "Write a Review" %> 
+                    <h2><%= total %> <i class="fas fa-star has-text-warning"></i></h2>
+                <% } %> 
+                
+                <% if (reviews.length === 1) { %>
+                    <p><%= reviews.length %> review</p>
+                <% } else { %>   
+                    <p><%= reviews.length %> reviews</p>
+                <% } %> 
+            </div>
+            <%- include('../partials/_reviewModal.ejs') %>
+            <button class="button review-button"><%= button %> </button>
+        </div>
 
         <div class="reviews-container">
 
@@ -88,6 +112,8 @@
                     <div>stars</div>
                 </div>
                 <p><%= review.description %></p>
+
+                <hr>
             <% } %> 
             
         </div>

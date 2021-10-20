@@ -53,7 +53,7 @@ router.get("/:id", async function (req, res, next) {
     try {
         const trail = await Trail.findById(req.params.id);
         const user = await User.findById(req.session.currentUser.id);
-        const reviews = await Review.find( {user_id: req.session.currentUser.id});
+        const reviews = await Review.find( {trail_id: req.params.id});
         
         const context = { 
             trail: trail,
