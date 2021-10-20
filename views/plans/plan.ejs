@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag content -->
+<%- include('../partials/_head.ejs') %>
+
+<body>
+    <!-- Navbar -->
+    <%- include('../partials/_nav.ejs') %>
+
+    <div class="show-grid">
+        <div class="show-wrapper">
+            <!-- Hero Image -->
+            <section class="hero show-hero">
+                <div id="show-img-div" class="hero-body">
+                    <img class="show-img" src="https://i.pinimg.com/originals/d1/c9/d2/d1c9d27ca2f4cf78e19eccfeee90cf3d.jpg" alt="">
+                </div>
+            </section>
+
+            <div class="show-box-text-cont">
+               
+            </div>
+
+            <!-- Circles with Icons -->
+            <div class="circles">
+                <div class="circle">
+                    <div id="photos-circle" class="inner-circle"></div>
+                </div>
+                <div class="circle">
+                    <div id="directions-circle" class="inner-circle"></div>
+                </div>
+                <div class="circle">
+                    <div id="more-circle" class="inner-circle"></div>
+                </div>
+                    <p>Photos</p>
+                    <p>Directions</p>
+                    <p>More</p>
+                </div>
+            <!-- Drop down for trail selection -->
+        <form action="/plans" method="POST">
+            <div class="select mb-5"> 
+                <select name="trail" >
+                    <% trails.forEach(trail => { %>
+                        <option value="<%= trail.id %>">
+                            <%= trail.name %>
+                            : <%= trail.location %>
+                        </option>
+                    <%  }) %>
+                </select>    
+            </div><input type="submit" value="submit" class="button is-link">
+
+            <div class="field">
+                <label for="gear" class="label">Add Gear</label>
+                <div class="control">
+                    <textarea class="textarea" id="gear" placeholder="Input the gear you're going to need here!" ></textarea>
+                    
+                </div><input type="submit" value="Add Gear" class="button is-link">
+            </div>
+
+            <hr id="pad-hr">
+     
+            <!-- yes I know gear is already plural -->
+           
+            <% plan.gear.forEach(gear => { %>
+                <div class="gear">
+            <p class="gear">
+                <br>
+                <span>- <%= gear %></span>
+            </p>
+            <% }) %>
+            
+            
+            <hr id="pad-hr">
+        </div>
+    </form> 
+        
+
+        <!-- Reviews section -->
+
+       
+            
+        </div>
+    </div>
+</body>
+</html>

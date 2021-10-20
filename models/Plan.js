@@ -13,8 +13,8 @@ const mongoose = require("mongoose");
                 required: [true, "Add at least one trail."]
             },
             gear: {
-                type: String,
-                required: [ true, "List the gear would will be bringing on this trip."
+                type: Array,
+                required: [ false, "List the gear would will be bringing on this trip."
                 ],
             date: {
                 type: new Date,

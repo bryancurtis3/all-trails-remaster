@@ -60,12 +60,13 @@ app.get("/", async function (req, res, next) {
     }
 });
 
+
+// ==  Default Routes
 app.use("/", controllers.user);
 app.use("/", controllers.list);
 app.use("/trails", controllers.trail);
 app.use("/reviews", controllers.review);
-
-// ==  Default Routes
+app.use("/plans", controllers.plan);
 
 // == Utility Routes
 
