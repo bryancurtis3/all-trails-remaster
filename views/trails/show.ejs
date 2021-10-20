@@ -20,7 +20,16 @@
             <!-- Trail info on image -->
             <div class="show-box-text-cont">
                 <h3><%= trail.name %></h3>
-                <span class="diff-rating">Difficulty: <%= trail.difficulty %></span>
+
+                <!-- Difficulty color checker -->
+                <% let diff = "easy" %>
+                <% if (trail.difficulty === "3" || trail.difficulty === "4") { %> 
+                    <% diff = "medium" %> 
+                <% } else if (trail.difficulty === "5") { %>
+                    <% diff = "hard" %> 
+                <% } %> 
+
+                <span class="diff-rating <%= diff %>">Difficulty: <%= trail.difficulty %></span>
                 <p class="trail-location"><%= trail.location %></p>
             </div>
 

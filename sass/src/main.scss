@@ -171,7 +171,7 @@ a {
             padding-bottom: .15em;
         }
         .diff-rating {
-            width: 25%;
+            width: 35%;
             font-size: .8em;
             font-weight: 500;
             color:#fff;
@@ -270,8 +270,8 @@ a {
         font-weight: bold;
         color: #FFFFFF;
     }
+    
     .diff-rating {
-        background-color: mediumseagreen;
         padding: 3px 15px;
         font-size: .8em;
         font-weight: 500;
@@ -279,6 +279,16 @@ a {
         text-align: center;
         border-radius: 5px;
     }
+    .easy {
+        background-color: #69a041;
+    }
+    .medium {
+        background-color: #4bafe1;
+    }
+    .hard {
+        background-color: #676767;
+    }
+
     .trail-location {
         font-size: 14px;
         line-height: 2.2em;
