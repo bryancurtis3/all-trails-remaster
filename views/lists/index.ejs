@@ -13,22 +13,23 @@
 
         <% for (let i = 0; i < lists.length; i++) { %>
             <% const list = lists[i] %> 
-
-            <% if (lists.length < 4) { %>
-                <div class="list-spot">
+            <div class="list-spot">
+                <% if (list.trail_id.length < 4) { %>
+                    
                     <figure class="image is-128x128">
-                        <img class="profile-pic" src="<%= list.image %>">
+                        <img class="profile-pic" src="<%= list.trail_id[0].image %>">
                     </figure>
-                </div>
-            <% } else { %>
-                <% for( let i = 0; i < 4; i++ ) { %>
-                    <div class="list-spot">
+                    
+                <% } else { %>
+                    <% for( let i = 0; i < 4; i++ ) { %>
+                        
                         <figure class="image is-64x64">
-                            <img class="profile-pic" src="<%= list.image %>">
+                            <img class="profile-pic" src="<%= list.trail_id[i].image %>">
                         </figure>
-                    </div>
-                <% } %>
-            <% } %> 
+                        
+                    <% } %>
+                <% } %> 
+            </div>
 
 
             <div class="name-rating">

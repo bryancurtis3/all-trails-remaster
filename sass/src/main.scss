@@ -389,13 +389,17 @@ a {
     grid-template-columns: 2fr 1fr 1fr; 
     place-items: center;
     background-color: white;
+    #rating-cont {
+        display: grid;
+        place-items: center;
+    }
     h2 {
         font-size: 56px;
     }
     p {
         padding: 0 5px;
     }
-    button {
+    .review-button {
             grid-column: span 2;
             width: 60%;
             min-width: 137px;
@@ -408,6 +412,14 @@ a {
         transform: scale(1.05);
         color: #FFFFFF;
     }
+    #big-star {
+        height: 52px;
+        width: 52px;
+    }
+    #modal-star {
+        height: 22px;
+        width: 22px;
+    }
 }
 
 // Review Modal CSS
@@ -419,6 +431,11 @@ a {
 
 .star-score {
     width: 25%;
+}
+
+.star {
+    height: 16px;
+    width: 16px;
 }
 
 .is-64x64, .is-128x128 {
@@ -438,6 +455,18 @@ a {
     grid-auto-rows: minmax(20px, auto);
     .name-rating {
         padding-top: 5px;
+        h3 {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 25px;
+        }
+    }
+    h5 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #767676;
+        display: inline;
+        margin-left: 1em;
     }
     p {
         grid-column: span 2;
@@ -445,7 +474,6 @@ a {
     hr {
         grid-column: span 3;
         margin-top: 20px;
-
     }
 }
 
@@ -547,10 +575,19 @@ a {
     padding: 1.5em;
     background-color: white;
     grid-template-columns: 128px 1fr;
-    grid-auto-rows: minmax(128px, auto);
+    grid-auto-rows: minmax(20px, auto);
     .list-spot {
         display: flex;
         flex-wrap: wrap;
+        border-radius: 2px;
+        overflow: hidden;
+        .profile-pic {
+            border: 2px solid #414141;
+        }
+    }
+    hr {
+        grid-column: span 3;
+        margin-top: 20px;
     }
 }
 

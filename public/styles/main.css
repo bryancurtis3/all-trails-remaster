@@ -342,13 +342,17 @@ a a:hover {
   place-items: center;
   background-color: white;
 }
+.review-head #rating-cont {
+  display: grid;
+  place-items: center;
+}
 .review-head h2 {
   font-size: 56px;
 }
 .review-head p {
   padding: 0 5px;
 }
-.review-head button {
+.review-head .review-button {
   grid-column: span 2;
   width: 60%;
   min-width: 137px;
@@ -361,6 +365,14 @@ a a:hover {
   transform: scale(1.05);
   color: #FFFFFF;
 }
+.review-head #big-star {
+  height: 52px;
+  width: 52px;
+}
+.review-head #modal-star {
+  height: 22px;
+  width: 22px;
+}
 
 #review-trail-name {
   font-size: 32px;
@@ -370,6 +382,11 @@ a a:hover {
 
 .star-score {
   width: 25%;
+}
+
+.star {
+  height: 16px;
+  width: 16px;
 }
 
 .is-64x64 .profile-pic, .is-128x128 .profile-pic {
@@ -388,6 +405,18 @@ a a:hover {
 }
 .reviews-container .name-rating {
   padding-top: 5px;
+}
+.reviews-container .name-rating h3 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 25px;
+}
+.reviews-container h5 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #767676;
+  display: inline;
+  margin-left: 1em;
 }
 .reviews-container p {
   grid-column: span 2;
@@ -471,11 +500,20 @@ a a:hover {
   padding: 1.5em;
   background-color: white;
   grid-template-columns: 128px 1fr;
-  grid-auto-rows: minmax(128px, auto);
+  grid-auto-rows: minmax(20px, auto);
 }
 .lists-container .list-spot {
   display: flex;
   flex-wrap: wrap;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.lists-container .list-spot .profile-pic {
+  border: 2px solid #414141;
+}
+.lists-container hr {
+  grid-column: span 3;
+  margin-top: 20px;
 }
 
 #list-boxes {

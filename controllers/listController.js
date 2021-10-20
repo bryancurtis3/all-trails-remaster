@@ -9,17 +9,18 @@ const { User, Trail, List } = require("../models");
 
 router.get("/lists", async function(req, res, next){
     try{
-        const userList = await List.find( {user_id: req.session.currentUser.id} ).sort("-createdAt");
-        for (i = 0; i < userList.length; i++ ) {
-            const firstTrail = await Trail.findById( `${userList[i].trail_id[0]}`);
+        const userList = await List.find( {user_id: req.session.currentUser.id} ).populate( { path: "trail_id"} );
+        // for (i = 0; i < userList.length; i++ ) {
+        //     const firstTrail = await Trail.findById( `${userList[i].trail_id[0]}`);
             
-            userList[i].image = await firstTrail.image;
-        };
+        //     userList[i].image = await firstTrail.image;
+        // };
         const authUser = await User.findById(req.session.currentUser.id);
         const context = {
             lists: userList,
             user: authUser,
         };
+        // console.log(context.lists[0].trail_id)
 
         return res.render ("lists/index", context);
     }

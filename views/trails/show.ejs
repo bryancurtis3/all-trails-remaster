@@ -80,7 +80,7 @@
 
         <!-- Review header logic -->
         <div class="container review-head">
-            <div>
+            <div id="rating-cont">
                 <!-- Get score to 1 decimal -->
                 <% let score = 0 %>
                 <% for( let i = 0; i < reviews.length; i++ ) { %>
@@ -92,7 +92,7 @@
                 <% let button = "Write First Review" %> 
                 <% if (reviews.length !== 0) { %> 
                     <% button = "Write a Review" %> 
-                    <h2><%= total %> <i class="fas fa-star has-text-warning"></i></h2>
+                    <h2><%= total %> <img id="big-star" src="https://cdn-assets.alltrails.com/assets/packs/media/icons/icons_stars_active_lrg-4058040f.svg" alt=""></h2>
                 <% } %> 
                 
                 <% if (reviews.length === 1) { %>
@@ -103,7 +103,7 @@
             </div>
 
             <%- include('../partials/_reviewModal.ejs') %>
-            <button class="button"><%= button %></button>
+            <button class="button review-button"><%= button %></button>
         </div>
 
         <!-- This is where the reviews are pushed out -->
@@ -121,7 +121,25 @@
                 <div class="name-rating">
                     <h3><%= review.username %></h3>
                     <!-- make code for stars output -->
-                    <div><%= review.rating %> stars</div>
+                    <div>
+                        <% for( let i = 0; i < review.rating; i++ ) { %>
+                            <img class="star" src="https://cdn-assets.alltrails.com/assets/packs/media/icons/icons_stars_active_lrg-4058040f.svg" alt="">
+                        <% } %>
+                        <% for( let i = 5; i > review.rating; i-- ) { %>
+                            <img class="star" src="https://cdn-assets.alltrails.com/assets/packs/media/icons/icons_stars_inactive_lrg-a0d4ffbc.svg" alt="">
+                        <% } %>
+
+                        <% const posted = review.createdAt %> 
+                        <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                        
+                        const monthNumber = new Date(posted).getMonth();
+                        const monthName = monthNames[monthNumber]
+                        %> 
+
+                        <h5>
+                            <%= new Date(posted).getDay() %> <%= monthName %>, <%= new Date(posted).getFullYear() %> 
+                        <h5/>
+                    </div>
                 </div>
                 
                 <p><%= review.description %></p>
