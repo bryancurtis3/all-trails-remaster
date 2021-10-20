@@ -61,10 +61,35 @@
                 </p>
             </div>
 
-            <div class="container bc">
-                <div class="button review-button">Review</div>
-                <%- include('../partials/_reviewModal.ejs') %>
-            </div>
+        </div>
+
+        <hr>
+
+        <!-- Reviews section -->
+        <button class="button review-button">Review</button>
+        <div class="container bc"><%- include('../partials/_reviewModal.ejs') %></div>
+
+        <div class="reviews-container">
+
+
+            <% for (let i = 0; i < reviews.length; i++) { %>
+                <% const review = reviews[i] %> 
+
+                <div>
+                    <figure class="image is-64x64">
+                        <img class="profile-pic is-rounded" src="<%= user.avatar %>">
+                    </figure>
+
+
+                </div>
+                <div class="name-rating">
+                    <h3><%= user.username %></h3>
+                    <!-- make code for stars output -->
+                    <div>stars</div>
+                </div>
+                <p><%= review.description %></p>
+            <% } %> 
+            
         </div>
     </div>
 </body>
