@@ -114,17 +114,16 @@
 
                 <div>
                     <figure class="image is-64x64">
-                        <!-- this should not have been working before i realied i needed avatar in review... deeply concerned -->
                         <img class="profile-pic is-rounded" src="<%= review.avatar %>">
                     </figure>
-
-
                 </div>
+
                 <div class="name-rating">
                     <h3><%= review.username %></h3>
                     <!-- make code for stars output -->
                     <div><%= review.rating %> stars</div>
                 </div>
+                
                 <p><%= review.description %></p>
 
                 <hr>

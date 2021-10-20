@@ -7,7 +7,41 @@
     <%- include('../partials/_nav.ejs') %>
 
    
-<h1>list view Ahoy!</h1>
+    <h1>list view Ahoy!</h1>
+
+    <div class="lists-container">
+
+        <% for (let i = 0; i < lists.length; i++) { %>
+            <% const list = lists[i] %> 
+
+            <% if (lists.length < 4) { %>
+                <div class="list-spot">
+                    <figure class="image is-128x128">
+                        <img class="profile-pic" src="<%= list.image %>">
+                    </figure>
+                </div>
+            <% } else { %>
+                <% for( let i = 0; i < 4; i++ ) { %>
+                    <div class="list-spot">
+                        <figure class="image is-64x64">
+                            <img class="profile-pic" src="<%= list.image %>">
+                        </figure>
+                    </div>
+                <% } %>
+            <% } %> 
+
+
+            <div class="name-rating">
+                <h3><%= list.username %></h3>
+            </div>
+            
+
+            <hr>
+        <% } %> 
+        
+    </div>
+
+
 
    
     <!-- Container of list boxes -->
@@ -46,11 +80,11 @@
 
     </div>
 
-    <footer class="footer">
+    <!-- <footer class="footer">
         <div class="content">
             <img id="footer-logo" src="https://i.imgur.com/inBZZRA.png" width="140" height="60">
         </div>
-    </footer>
+    </footer> -->
 
 
 

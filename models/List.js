@@ -16,6 +16,8 @@ const mongoose = require("mongoose");
                 ref: "Trail",
                 required: [true, "Add at least one trail."]
             },
+            avatar: String,
+            username: String,
         }, 
         {timestamps: true,},
     );

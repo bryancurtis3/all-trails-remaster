@@ -10,9 +10,10 @@ const { User, Trail, List } = require("../models");
 router.get("/lists", async function(req, res, next){
     try{
         const userList = await List.find( {user_id: req.session.currentUser.id} ).sort("-createdAt");
-            for (i = 0; i < userList.length; i++ ) {
-                const firstTrail = await Trail.findById( `${userList[i].trail_id[0]}`);
-                userList[i].image = await firstTrail.image; 
+        for (i = 0; i < userList.length; i++ ) {
+            const firstTrail = await Trail.findById( `${userList[i].trail_id[0]}`);
+            
+            userList[i].image = await firstTrail.image;
         };
         const authUser = await User.findById(req.session.currentUser.id);
         const context = {
@@ -33,12 +34,12 @@ router.get("/lists", async function(req, res, next){
 
 router.get("/lists/:id", async function (req, res, next) {
  try { 
-      const selectedList = await List.findById(req.params.id).populate("trail_id");
-       
-     await console.log(`==========selected list  ${selectedList}`);
-     context = {
-         list: selectedList,
-     }
+    const selectedList = await List.findById(req.params.id).populate("trail_id");
+    
+    console.log(`==========selected list  ${selectedList}`);
+    context = {
+        list: selectedList,
+    }
    return res.render("lists/show", context);
  }
  catch(error){ 
