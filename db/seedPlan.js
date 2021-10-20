@@ -11,8 +11,7 @@ generate trail ids radomly usind math.random() to to hit the trial ids like in a
 const plans = [
     {
         user_id: "616de0428522779fb4e92a53",
-        trail_id: "616f5c7a20506067964e1a4d",
-        gear:[ "sleeping bag", "tent", "snax", "LG 72inch 4k TV", "kigsized matress"],
+        gear:[ "Gear List"],
     },
 ];
 

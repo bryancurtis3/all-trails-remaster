@@ -16,6 +16,7 @@ router.get("/", async function (req, res, next) {
             plan: thePlan,
             trails: allTrails,
         };
+        
     return res.render("plans/plan", context);
     } 
     catch (error) {
@@ -26,9 +27,19 @@ router.get("/", async function (req, res, next) {
 });
 
 // Create plan 
- router.post("/", async function(req, res, next){
 
- })
+      router.post("/create", async function(req, res, next){
+        try{
+            req.body.user_id = req.session.currentUser.id;
+            await Plan.create(req.body);
+            return res.redirect("/plans");
+        }
+        catch(error){
+            console.log(error);
+            req.error = error;
+            return next();
+        }
+    });
 
 
 
@@ -53,7 +64,7 @@ router.post("/:id/gear", async function (req, res, next){
 
  // == Remove Gear 
 
-router.put("/:id", async function (req, res, next){
+router.delete("/:id", async function (req, res, next){
     try{
          await Plan.findByIdAndUpdate
             (req.params.id, 
@@ -73,7 +84,7 @@ router.put("/:id", async function (req, res, next){
  
 // update date and trail 
 
-router.post("/:id", async function (req, res, next){
+router.put("/:id", async function (req, res, next){
      try{
          console.log("date", req.body.date);
          console.log("trail id", req.body.trail);
@@ -93,12 +104,23 @@ router.post("/:id", async function (req, res, next){
     catch(error){console.log(error);}
         });
     
+// Delete Plan 
 
-   
-
- 
+router.delete("/:id/delete", async function (req, res, next){
+    try{
+        await Plan.findByIdAndDelete(req.params.id);
+        return res.redirect("/plans");
+    }
+    catch(error){
+        console.log(error);
+    }
+});
  
 
 
 
 module.exports = router;
+
+
+
+
