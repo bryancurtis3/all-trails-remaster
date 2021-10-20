@@ -1,6 +1,6 @@
 require("../config/db.configuration");
 
-const { Trail } = require("../models")
+const { Trail, Review } = require("../models")
 
 const trails = [
     {
