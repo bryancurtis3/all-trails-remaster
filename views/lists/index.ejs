@@ -16,24 +16,30 @@
             <div class="list-spot">
                 <% if (list.trail_id.length < 4) { %>
                     
-                    <figure class="image is-128x128">
-                        <img class="profile-pic" src="<%= list.trail_id[0].image %>">
-                    </figure>
+                    <a href="lists/<%= list.id %>">
+                        <figure class="image is-128x128">
+                            <img class="profile-pic" src="<%= list.trail_id[0].image %>">
+                        </figure>
+                    </a>
                     
                 <% } else { %>
                     <% for( let i = 0; i < 4; i++ ) { %>
                         
-                        <figure class="image is-64x64">
-                            <img class="profile-pic" src="<%= list.trail_id[i].image %>">
-                        </figure>
+                        <a href="lists/<%= list.id %>">
+                            <figure class="image is-64x64">
+                                <img class="profile-pic" src="<%= list.trail_id[i].image %>">
+                            </figure>
+                        </a>
                         
                     <% } %>
                 <% } %> 
             </div>
 
 
-            <div class="name-rating">
-                <h3><%= list.username %></h3>
+            <div class="list-info">
+                <h3><%= list.name %></h3>
+                <h4><%= list.username %></h4>
+                <h5><%= list.trail_id.length %> trails</h5>
             </div>
             
 

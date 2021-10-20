@@ -502,6 +502,22 @@ a a:hover {
   grid-template-columns: 128px 1fr;
   grid-auto-rows: minmax(20px, auto);
 }
+.lists-container .list-info {
+  padding-top: 5px;
+  padding-left: 1em;
+  color: #414141;
+}
+.lists-container .list-info h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.lists-container .list-info h4 {
+  font-size: 15px;
+}
+.lists-container .list-info h5 {
+  font-size: 15px;
+  margin-top: 1em;
+}
 .lists-container .list-spot {
   display: flex;
   flex-wrap: wrap;
