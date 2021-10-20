@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
             trail_id: {
                 type: mongoose.Types.ObjectId,
                 ref: "Trail",
-                required: [true, "Add at least one trail."]
+                required: [false, "Add at least one trail."]
             },
             gear: {
                 type: Array,
