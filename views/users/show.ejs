@@ -23,8 +23,7 @@
 
         <div class="container profile-content">
             <figure class="image is-128x128">
-                <!-- still need session user info -->
-                <img id="profile-pic" src="<%= user.avatar %>">
+                <img class="profile-pic" src="<%= user.avatar %>">
             </figure>
 
             <h4>
@@ -32,9 +31,7 @@
                 <br>
                 <!-- The rest of this <h4> ouputs the month & year lol -->
                 <% const since = user._id.getTimestamp() %> 
-                <% const monthNames = ["January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-                ]
+                <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
                 
                 const monthNumber = new Date(since).getMonth();
                 const monthName = monthNames[monthNumber]

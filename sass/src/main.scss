@@ -317,7 +317,7 @@ a {
     font-size: 12px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 2.6em;
+    margin: 2.6em 0;
     justify-items: center;
     span {
         font-size: 1.5em;
@@ -344,12 +344,30 @@ a {
     }
 }
 
-// Review button for trails show
-.bc {
+// Trail show Cont. (Reviews)
+
+// Review button
+.review-head {
     display: grid;
+    width: 100%;
+    min-height: 150px;
+    max-width: 765px;
+    padding: 1.5em;
+    grid-template-columns: repeat(3, 1fr);
     place-items: center;
-    .review-button {
-        margin-top: 2em;
+    background-color: white;
+    h2 {
+        font-size: 56px;
+    }
+    p {
+        padding: 0 5px;
+    }
+    button {
+            grid-column: span 2;
+            width: 50%;
+            border-radius: 7px;
+            background-color: var(--green);
+            color: #FFFFFF;
     }
 }
 
@@ -363,6 +381,37 @@ a {
 .star-score {
     width: 25%;
 }
+
+.is-64x64 {
+    .profile-pic {
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+}
+
+.reviews-container {
+    display: grid;
+    width: 100%;
+    max-width: 765px;
+    padding: 1.5em;
+    background-color: white;
+    grid-template-columns: 80px 1fr;
+    grid-auto-rows: minmax(20px, auto);
+    .name-rating {
+        padding-top: 5px;
+    }
+    p {
+        grid-column: span 2;
+    }
+    hr {
+        grid-column: span 3;
+        margin-top: 20px;
+
+    }
+}
+
+
+
 
 
 // User Avatar CSS
@@ -391,8 +440,9 @@ a {
     margin-top: 3em;
     display: grid;
     place-items: center;
-    #profile-pic {
+    .profile-pic {
         aspect-ratio: 1;
+        object-fit: cover;
         border-radius: 4px;
     }
 
