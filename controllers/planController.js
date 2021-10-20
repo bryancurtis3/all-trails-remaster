@@ -8,7 +8,7 @@ const { User, Trail, Plan } = require("../models");
 router.get("/", async function (req, res, next) {
     try{      
         const allTrails = await Trail.find({});
-       
+
        /* for testing purposes will need to be updated to find by id */
         const thePlan = await Plan.findOne({});
 
@@ -26,9 +26,14 @@ router.get("/", async function (req, res, next) {
 });
 /// == how do i pick the text out 
 router.post("/", function (req, res){
-    console.log(req.body);
+    console.log(req.session);
         res.redirect("/plans");
 });
+
+/* const addGear = function addGear(string){findByIdAndUpdate(string)};
+$(() => {
+$(`gear`).on(`click`, addGear(req.session.userName));
+}); */
 
 module.exports = router;
 

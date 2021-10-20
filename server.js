@@ -36,6 +36,12 @@ app.use(session({
 
 /* === Middleware === */
 
+// access user 
+app.use(function (req, res, next){
+    res.locals.user = req.session.currentUser;
+    next();
+});
+
 // == Logger
 app.use(function (req, res, next){
     console.log(`${req.method} - ${req.url}`);
@@ -62,11 +68,19 @@ app.get("/", async function (req, res, next) {
 
 
 // ==  Default Routes
+
+
+// user
 app.use("/", controllers.user);
+// list
 app.use("/", controllers.list);
+// trail
 app.use("/trails", controllers.trail);
+// reviews
 app.use("/reviews", controllers.review);
+// plans
 app.use("/plans", controllers.plan);
+
 
 // == Utility Routes
 
