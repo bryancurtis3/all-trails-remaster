@@ -61,9 +61,14 @@ a {
   width: 40px;
   margin-top: 10px;
   margin-right: 10px;
+  border: none;
   visibility: hidden;
+  pointer-events: initial;
 }
-@media screen and (min-width: 725px) {
+#search .fa-arrow-right {
+  color: #FFFFFF;
+}
+@media screen and (min-width: 742px) {
   #search #search-arrow {
     visibility: visible;
   }
@@ -309,7 +314,7 @@ a {
   min-height: 150px;
   max-width: 765px;
   padding: 1.5em;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 2fr 1fr 1fr;
   place-items: center;
   background-color: white;
 }
@@ -321,7 +326,8 @@ a {
 }
 .review-head button {
   grid-column: span 2;
-  width: 50%;
+  width: 60%;
+  min-width: 137px;
   border-radius: 7px;
   background-color: var(--green);
   color: #FFFFFF;

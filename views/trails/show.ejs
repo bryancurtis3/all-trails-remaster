@@ -77,7 +77,7 @@
                 <% const total = Math.round(((score / reviews.length) * 10)) / 10 %> 
 
                 <!-- Display total rating -->
-                <% let button = "Be the First to Review!" %> 
+                <% let button = "Write First Review" %> 
                 <% if (reviews.length !== 0) { %> 
                     <% button = "Write a Review" %> 
                     <h2><%= total %> <i class="fas fa-star has-text-warning"></i></h2>
@@ -90,7 +90,7 @@
                 <% } %> 
             </div>
             <%- include('../partials/_reviewModal.ejs') %>
-            <button class="button review-button"><%= button %> </button>
+            <button class="button"><%= button %></button>
         </div>
 
         <div class="reviews-container">
