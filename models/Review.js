@@ -18,6 +18,8 @@ const mongoose = require("mongoose");
                 max: 5,
                 required: [true, "How much did you enjoy this hike on a scale of 1 - 5?"],
             },
+            avatar: String,
+            username: String,
         }, 
         {timestamps: true,},
     );
