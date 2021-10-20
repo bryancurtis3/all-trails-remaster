@@ -6,8 +6,8 @@
     <!-- Navbar -->
     <%- include('../partials/_nav.ejs') %>
 
-   
-    <h1>list view Ahoy!</h1>
+    <h1 id="lists-title"><%= user.username %>'s Lists</h1>
+    <hr>
 
     <div class="lists-container">
 
@@ -40,8 +40,7 @@
                 <h3><%= list.name %></h3>
                 <h4><%= list.username %></h4>
                 <h5><%= list.trail_id.length %> trails</h5>
-            </div>
-            
+            </div> 
 
             <hr>
         <% } %> 

@@ -18,7 +18,7 @@
 
     "watch-nodemon": "nodemon server.js",
 
-    "dev": "open http://localhost:4001/ && concurrently --handle-input -n server,sass -c 'bgGrey.bold,bgRed.bold' 'npm:watch-nodemon' 'npm:watch-sass' rs "
+    "dev": "concurrently --handle-input -n server,sass -c 'bgGrey.bold,bgRed.bold' 'npm:watch-nodemon' 'npm:watch-sass' rs "
 
   },
 

@@ -120,8 +120,8 @@
 
                 <div class="name-rating">
                     <h3><%= review.username %></h3>
-                    <!-- make code for stars output -->
-                    <div>
+                    <div class="star-date">
+                        <!-- Create stars -->
                         <% for( let i = 0; i < review.rating; i++ ) { %>
                             <img class="star" src="https://cdn-assets.alltrails.com/assets/packs/media/icons/icons_stars_active_lrg-4058040f.svg" alt="">
                         <% } %>
@@ -129,6 +129,7 @@
                             <img class="star" src="https://cdn-assets.alltrails.com/assets/packs/media/icons/icons_stars_inactive_lrg-a0d4ffbc.svg" alt="">
                         <% } %>
 
+                        <!-- Date Processing -->
                         <% const posted = review.createdAt %> 
                         <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
                         
