@@ -17,6 +17,7 @@
                 </div>
             </section>
 
+            <!-- Trail info on image -->
             <div class="show-box-text-cont">
                 <h3><%= trail.name %></h3>
                 <span class="diff-rating">Difficulty: <%= trail.difficulty %></span>
@@ -43,6 +44,7 @@
 
             <hr id="pad-hr">
 
+            <!-- Trail stats -->
             <div class="stats">
                 <p class="stat">
                     Length
@@ -67,6 +69,7 @@
 
         <!-- Reviews section -->
 
+        <!-- Review header logic -->
         <div class="container review-head">
             <div>
                 <!-- Get score to 1 decimal -->
@@ -89,12 +92,13 @@
                     <p><%= reviews.length %> reviews</p>
                 <% } %> 
             </div>
+
             <%- include('../partials/_reviewModal.ejs') %>
             <button class="button"><%= button %></button>
         </div>
 
+        <!-- This is where the reviews are pushed out -->
         <div class="reviews-container">
-
 
             <% for (let i = 0; i < reviews.length; i++) { %>
                 <% const review = reviews[i] %> 

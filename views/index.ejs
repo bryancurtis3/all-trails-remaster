@@ -30,8 +30,25 @@
                     <div class="box-text-cont">
                         <h3><%= trail.name %></h3>
                         <p class="trail-location"><%= trail.location %></p>
-                        <p class="diff-rating">Diff: <%= trail.difficulty %></p>
-                        <p class="trail-length">Length: <%= trail.length %> miles</p>
+
+                        <!-- Difficulty color controller -->
+                        <% let diff = "easy" %>
+                        <% if (trail.difficulty === "3" || trail.difficulty === "4") { %> 
+                            <% diff = "medium" %> 
+                        <% } else if (trail.difficulty === "5") { %>
+                            <% diff = "hard" %> 
+                        <% } %> 
+
+                        <p class="diff-rating <%= diff %>">Diff: <%= trail.difficulty %></p>
+
+                        <!-- Time Estimator -->
+                        <% const time = trail.length * 28 %> 
+                        <% const hours = (time / 60) %> 
+                        <% const roundHours = Math.floor(hours) %> 
+                        <% const minutes = (hours - roundHours) * 60 %>
+                        <% const roundMinutes = Math.round(minutes) %>  
+
+                        <p class="trail-length">Length: <%= trail.length %> mi <span>•</span> Est. <%= roundHours %> h <%= roundMinutes %> min </p>
                     </div>
                 </a>
             </div>
