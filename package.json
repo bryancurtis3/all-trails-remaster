@@ -18,9 +18,8 @@
 
     "watch-nodemon": "nodemon server.js",
 
-    "dev": "concurrently --handle-input -n server,sass -c 'bgGrey.bold,bgRed.bold' 'npm:watch-nodemon' 'npm:watch-sass' rs ",
+    "dev": "concurrently --handle-input -n server,sass -c 'bgGrey.bold,bgRed.bold' 'npm:watch-nodemon' 'npm:watch-sass' rs "
 
-    "start": "node server.js"
   },
 
   "repository": {
@@ -46,6 +45,8 @@
   "dependencies": {
 
     "bcrypt": "^5.0.1",
+
+    "body-parser": "^1.19.0",
 
     "bulma": "^0.9.3",
 
