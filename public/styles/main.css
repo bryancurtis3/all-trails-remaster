@@ -680,9 +680,8 @@ nav #nav-profile {
 .plan-grid {
   max-width: 650px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
   place-items: center;
-  grid-auto-rows: minmax(60px, auto);
+  max-width: 650px;
 }
 .plan-grid .date-trail-select {
   display: grid;
@@ -702,7 +701,7 @@ nav #nav-profile {
   grid-column: span 2;
   width: 90%;
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 1fr;
   place-items: center;
   padding-top: 1em;
   border-radius: 15%;
@@ -713,18 +712,67 @@ nav #nav-profile {
 .plan-grid .add-gear-form .control .gear-input {
   width: 100%;
 }
+.plan-grid .add-gear-form .field {
+  margin: 0;
+}
+.plan-grid .add-gear-form .label {
+  margin: 0;
+}
 .plan-grid .submit {
   background-color: var(--sign);
   color: #FFFFFF;
 }
 .plan-grid .gear-items {
-  margin: 1em 0 0 2em;
+  background-color: #dfdfdf;
+  padding: 1em;
+  border-radius: 6px;
+  margin: 1em 2em 0 2em;
+  width: 100%;
 }
 .plan-grid .gear-items .box {
-  line-height: 1.2em;
+  line-height: 1.3em;
   margin-bottom: 0.5em;
-  padding: 0.4em 0.7em;
-  max-width: 225px;
+  padding: 0.4em 1em;
+  min-width: 80%;
+}
+.plan-grid .gear-items input {
+  border: none;
+  font-size: 16px;
+}
+.plan-grid .gear-items .gear-adder {
+  display: flex;
+  max-width: 100%;
+}
+.plan-grid .gear-items .gear-adder .box {
+  max-width: 100%;
+}
+.plan-grid .gear-items .gear-adder .button {
+  display: inline-flex;
+  min-width: 15%;
+  width: 20%;
+  height: 32px;
+  padding: 0 1em;
+  margin-left: 16px;
+  background-color: var(--green);
+  color: #FFFFFF;
+  transition: all 0.1s ease-in-out;
+}
+.plan-grid .gear-items .gear-adder .button:hover {
+  box-shadow: 1px 1px #55b219, 2px 2px #55b219, 3px 3px #55b219;
+  transform: translateX(-3px);
+}
+.plan-grid .bottom-bs {
+  display: flex;
+  width: 100%;
+}
+.plan-grid .bottom-bs .undo-delete {
+  width: 50%;
+  height: 30px;
+}
+.plan-grid .bottom-bs .undo-delete .button {
+  padding: 0;
+  height: inherit;
+  width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

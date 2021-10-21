@@ -9,62 +9,33 @@
 
 <body>
 
-
-<<<<<<< HEAD
     <hr>
     <main class="container plan-grid">
 
         <!-- gear input -->
-        <form class="add-gear-form" action="/plans/<%= plan.id %>/gear" method="POST">
-            <label for="gear" class="label">Add Gear</label>
-            <div class="field">
-                <div class="control">
-                    <input name="gear" type="text" class="input gear-input" placeholder="Planning items"></input>
-=======
-    <main class="plan-grid">
-
-        <% if (plan) { %>
-            <!-- Circles with Icons -->
-            <form class="date-trail-select" action="/plans/<%= plan.id %>?_method=PUT" method="POST">
-
-                <!-- Calendar Input -->
-                <input name="date" type="date" class="calendar" data-start-date="10/24/2019">
-
-                <!-- Drop down for trail selection -->
-                <div class="select mb-5">
-                    <select name="trail_id">
-                        <option>Select a trail</option>
-                        <% trails.forEach(trail=> { %>
-                            <option value="<%= trail.id %>">
-                                <%= trail.name %>
-                            </option>
-                            <% }) %>
-                    </select>
->>>>>>> dev
-                </div>
-            </div>
-            <input type="submit" value="Add" class="button is-link">
-        </form>
-
-        <!-- yes I know gear is already plural -->
 
         
         <ul class="gear-items">
             <% plan.gear.forEach(gear=> { %>
                 <li class="box"><%= gear %></li>
             <% }) %>
-        </ul>
-        <div>
-            <form action="/plans/<%= plan.id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Undo" class="button is-link">
+            <form class="gear-adder" action="/plans/<%= plan.id %>/gear" method="POST">
+                <input name="gear" type="text" class="box" placeholder="New Item"></input>
+                <input type="submit" value="Add" class="button">
             </form>
-        </div>
+            <div class="bottom-bs">
+                <form class="undo-delete" action="/plans/<%= plan.id %>/delete?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete Plan" class="button is-danger">
+                </form>
+                <form id="undo" class="undo-delete" action="/plans/<%= plan.id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Undo" class="button">
+                </form>
+            </div>
+        </ul>
 
 
         <!--  button for deleting the current plan  -->
-        <form action="/plans/<%= plan.id %>/delete?_method=DELETE" method="POST">
-            <input type="submit" value="Delete Plan" class="button is-danger">
-        </form>
+
 
     </main>
 </body>

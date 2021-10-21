@@ -30,6 +30,7 @@ router.get("/lists", async function(req, res, next){
 router.get("/lists/:id", async function (req, res, next) {
  try { 
     const selectedList = await List.findById(req.params.id).populate("trail_id user_id");
+    const allTrails = await Trail.find({});
     
     context = {
         list: selectedList,

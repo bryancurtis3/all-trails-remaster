@@ -743,9 +743,8 @@ nav {
 .plan-grid {
     max-width: 650px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
     place-items: center;
-    grid-auto-rows: minmax(60px, auto);
+    max-width: 650px;
     .date-trail-select {
         display: grid;
         min-width: 350px;
@@ -767,7 +766,7 @@ nav {
         grid-column: span 2;
         width: 90%;
         display: grid;
-        grid-template-columns: 1fr 5fr 1fr;
+        grid-template-columns: 1fr 1fr;
         place-items: center;
         padding-top: 1em;
         border-radius: 15%;
@@ -779,18 +778,67 @@ nav {
                 width: 100%;
             }
         }
+        .field {
+            margin: 0;
+        }
+        .label {
+            margin: 0;
+        }
     }
     .submit {
         background-color: var(--sign);
         color: #FFFFFF;
     }
     .gear-items {
-        margin: 1em 0 0 2em;
+        background-color: #dfdfdf;
+        padding: 1em;
+        border-radius: 6px;
+        margin: 1em 2em 0 2em;
+        width: 100%;
         .box {
-            line-height: 1.2em;
+            line-height: 1.3em;
             margin-bottom: .5em;
-            padding: .4em .7em;
-            max-width: 225px;
+            padding: .4em 1em;
+            min-width: 80%;
+        }
+        input {
+            border: none;
+            font-size: 16px;
+        }
+        .gear-adder {
+            display: flex;
+            max-width: 100%;
+            .box {
+                max-width: 100%;
+            }
+            .button {
+                display: inline-flex;
+                min-width: 15%;
+                width: 20%;
+                height: 32px;
+                padding: 0 1em;
+                margin-left: 16px;
+                background-color: var(--green);
+                color: #FFFFFF;
+                transition: all 0.1s ease-in-out;
+            }
+            .button:hover {
+                box-shadow: 1px 1px lighten(#428a13, 9%), 2px 2px lighten(#428a13, 9%), 3px 3px lighten(#428a13, 9%);
+                transform: translateX(-3px);
+            }
+        }
+    }
+    .bottom-bs {
+        display: flex;
+        width: 100%;
+        .undo-delete {
+            width: 50%;
+            height: 30px;
+            .button {
+                padding: 0;
+                height: inherit;
+                width: 100%;
+            }
         }
     }
 }

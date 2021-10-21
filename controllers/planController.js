@@ -4,17 +4,19 @@ const router = express.Router();
 const { User, Trail, Plan } = require("../models");
 
 // == Baseroute /plans
+
+
 router.get("/:id", async function (req, res, next) {
     try{      
-        const allTrails = await Trail.find({});
+        // const allTrails = await Trail.find({});
 
 /* for testing purposes will need to be updated to find by id */
 
-        const thePlan = await Plan.findById(req.params.id);
+        const thePlan = await Plan.findById(req.params.id).populate("trail_id user_id");
 
         const context = {
             plan: thePlan,
-            trails: allTrails,
+            // trails: allTrails,
         };
         
     return res.render("plans/plan", context);
@@ -93,7 +95,7 @@ router.delete("/:id", async function (req, res, next){
                     }   
                 }
             );
-            return res.redirect("/plans");
+            return res.redirect("back");
         }
     catch(error){
         console.log(error);
