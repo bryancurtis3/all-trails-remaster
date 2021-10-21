@@ -66,6 +66,11 @@ app.get("/", async function (req, res, next) {
     }
 });
 
+//================== Test Map Route ================
+app.get("/map", function (req, res, next) {
+    res.render("./maptest");
+});
+
 
 // ==  Default Routes
 
