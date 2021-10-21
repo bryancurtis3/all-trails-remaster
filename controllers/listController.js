@@ -72,29 +72,18 @@ router.post("/lists", async function (req, res, next) {
     }
 });
 
-/* 
+
 // delete route
-router.post("/lists/:id", async function (req, res, next) {
-  try{ 
-      await List.findByIdAndUpdate(req.params.id, {trail_id: {$set: ""}});
+ router.delete("/lists/:id/delete", async function (req, res, next){
+     try{
+         console.log("we hitting it", req.params.id)
+         await List.findByIdAndDelete(req.params.id);
+         return res.redirect("/lists");
+     }
+     catch(error){
+         console.log(error);
+         next();
+     }
+ });
 
-    } 
-  catch(error){
-      console.log(error);
-  }
-});
-
-// Add Trail to List 
-router.post("/lists/:id", async function (req, res, next) { 
-    try{
-        List.FindByIdAndUpdate(
-
-        )
-    }
-
-    catch(error){
-        console.log(error);
-    }
-} 
-  */
 module.exports = router;
