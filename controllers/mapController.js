@@ -8,6 +8,30 @@ map.on('load', () => {
         },
         'source-layer': 'contour'
     });
+    map.addLayer({
+        id: 'point',
+        type: 'circle',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                properties: {},
+                geometry: {
+                  type: 'Point',
+                  coordinates: start
+                }
+              }
+            ]
+          }
+        },
+        paint: {
+          'circle-radius': 10,
+          'circle-color': '#3887be'
+        }
+      });
 });
 
 
