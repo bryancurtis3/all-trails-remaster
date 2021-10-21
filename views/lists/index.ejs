@@ -1,82 +1,85 @@
-
+<html>
 <!-- Head tag content -->
 <%- include('../partials/_head.ejs') %>
 
+<!-- Navbar -->
+<%- include('../partials/_nav.ejs') %>
+
 <body>
-    <!-- Navbar -->
-    <%- include('../partials/_nav.ejs') %>
 
-    <div id="lists-title">
-        <%= user.username %>'s Lists
-        <%- include('../partials/_listModal.ejs') %>
-        <div class="new-list-form">
-            <button class="button new-list is-outlined">New List</button>
-        </div>
-    </div>
-    
-    <hr>
+    <main class="lists-index-main">
 
-    <div class="lists-container">
-
-        <% for (let i = 0; i < lists.length; i++) { %>
-            <% const list = lists[i] %> 
-    
-            <div class="list-spot">
-                <% if (list.trail_id.length === 0) { %>
-                    <a href="lists/<%= list.id %>">
-                        <figure class="image is-128x128">
-                            <img class="profile-pic" src="https://cdn-assets.alltrails.com/assets/placeholder/person_placeholder.png">
-                        </figure>
-                    </a> 
-                <% } else if (list.trail_id.length < 4) { %> 
-                    
-                    <a href="lists/<%= list.id %>">
-                        <figure class="image is-128x128">
-                            <img class="profile-pic" src="<%= list.trail_id[0].image %>">
-                        </figure>
-                    </a>
-                    
-                <% } else if (list.trail_id.length < 16) { %>
-                    <% for( let i = 0; i < 4; i++ ) { %>
-                        
-                        <a href="lists/<%= list.id %>">
-                            <figure class="image is-64x64">
-                                <img class="profile-pic" src="<%= list.trail_id[i].image %>">
-                            </figure>
-                        </a>
-                        
-                    <% } %>
-                <% } else { %> 
-                    <% for( let i = 0; i < 16; i++ ) { %>
-                            
-                        <a href="lists/<%= list.id %>">
-                            <figure class="image is-32x32">
-                                <img class="profile-pic" src="<%= list.trail_id[i].image %>">
-                            </figure>
-                        </a>
-                        
-                    <% } %>
-                <% } %>
+        <div id="lists-title">
+            <p>Your Lists</p>
+            <%- include('../partials/_listModal.ejs') %>
+            <div class="new-list-form">
+                <button class="button new-list is-outlined">New List</button>
             </div>
-
-
-            <div class="list-info">
-                <h3><%= list.name %></h3>
-                <h4><%= list.username %></h4>
-                <h5><%= list.trail_id.length %> trails</h5>
-            </div> 
-
-            <button class="button is-danger is-outlined">
-                <span class="icon is-small">
-                <i class="fas fa-times"></i>
-                </span>
-            </button>
-
-            <hr>
-        <% } %> 
+        </div>
         
-    </div>
+        <hr id="list-index-hr">
 
+        <div class="lists-container">
+
+            <% for (let i = 0; i < lists.length; i++) { %>
+                <% const list = lists[i] %> 
+        
+                <div class="list-spot">
+                    <% if (list.trail_id.length === 0) { %>
+                        <a href="lists/<%= list.id %>">
+                            <figure class="image is-128x128">
+                                <img class="profile-pic" src="https://cdn-assets.alltrails.com/assets/placeholder/person_placeholder.png">
+                            </figure>
+                        </a> 
+                    <% } else if (list.trail_id.length < 4) { %> 
+                        
+                        <a href="lists/<%= list.id %>">
+                            <figure class="image is-128x128">
+                                <img class="profile-pic" src="<%= list.trail_id[0].image %>">
+                            </figure>
+                        </a>
+                        
+                    <% } else if (list.trail_id.length < 16) { %>
+                        <% for( let i = 0; i < 4; i++ ) { %>
+                            
+                            <a href="lists/<%= list.id %>">
+                                <figure class="image is-64x64">
+                                    <img class="profile-pic" src="<%= list.trail_id[i].image %>">
+                                </figure>
+                            </a>
+                            
+                        <% } %>
+                    <% } else { %> 
+                        <% for( let i = 0; i < 16; i++ ) { %>
+                                
+                            <a href="lists/<%= list.id %>">
+                                <figure class="image is-32x32">
+                                    <img class="profile-pic" src="<%= list.trail_id[i].image %>">
+                                </figure>
+                            </a>
+                            
+                        <% } %>
+                    <% } %>
+                </div>
+
+
+                <div class="list-info">
+                    <h3><%= list.name %></h3>
+                    <h4><%= list.username %></h4>
+                    <h5><%= list.trail_id.length %> trails</h5>
+                </div> 
+
+                <button class="button is-danger is-outlined">
+                    <span class="icon is-small">
+                    <i class="fas fa-times"></i>
+                    </span>
+                </button>
+
+                <hr>
+            <% } %> 
+            
+        </div>
+    </main>
 
 </body>
 </html>

@@ -512,7 +512,18 @@ a a:hover {
   max-width: 480px;
 }
 
+.lists-index-main {
+  display: grid;
+  place-items: center;
+}
+
+#list-index-hr {
+  width: 100%;
+}
+
 #lists-title {
+  width: 92%;
+  max-width: 765px;
   font-size: 40px;
   text-align: center;
   font-weight: 500;

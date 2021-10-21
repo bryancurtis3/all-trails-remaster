@@ -71,7 +71,8 @@ router.post("/lists", async function (req, res, next) {
     }
 });
 
-
+/* 
+// delete route
 router.post("/lists/:id", async function (req, res, next) {
   try{ 
       await List.findByIdAndUpdate(req.params.id, {trail_id: {$set: ""}});
@@ -94,5 +95,5 @@ router.post("/lists/:id", async function (req, res, next) {
         console.log(error);
     }
 } 
- */
+  */
 module.exports = router;
