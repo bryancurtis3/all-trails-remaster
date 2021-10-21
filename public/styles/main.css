@@ -473,8 +473,29 @@ nav #nav-profile {
 }
 .tabs ul {
   border-top: 1px solid #dbdbdb;
+  position: relative;
 }
 
+#update-profile {
+  position: absolute;
+  margin-left: 80%;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0.5em 1em;
+}
+
+@media only screen and (max-width: 650px) {
+  #update-profile {
+    position: relative;
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 420px) {
+  #update-profile span {
+    visibility: hidden;
+    position: absolute;
+  }
+}
 .profile-content {
   margin-top: 3em;
   display: grid;

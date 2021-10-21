@@ -498,8 +498,8 @@ nav {
     border-radius: 50%;
 }
 
-// === Profile Show CSS ===
 
+// === Profile Show CSS ===
 // Changing some Bulma presets
 .tabs {
     a {
@@ -509,6 +509,31 @@ nav {
     }
     ul {
         border-top: 1px solid #dbdbdb;
+        position: relative;
+    }
+}
+
+#update-profile {
+    position: absolute;
+    margin-left: 80%;
+    font-size: 14px;
+    font-weight: 400;
+    padding: .5em 1em;
+}
+
+@media only screen and (max-width: 650px) {
+    #update-profile {
+        position: relative;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #update-profile {
+        span {
+            visibility: hidden;
+            position: absolute;
+        }
     }
 }
 
