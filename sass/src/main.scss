@@ -24,6 +24,21 @@ a {
     background-color: white;
 }
 
+nav {
+    .button {
+        transition: all 0.1s ease-in-out;
+    }
+    .button:hover {
+        transform: scale(1.05);
+    }
+
+    #nav-profile {
+        background-color: var(--sign);
+        border-color: var(--sign);
+        color: white;
+    }
+}
+
 .logo-link {
     line-height: 0;
     padding-top: 2px;
@@ -94,24 +109,6 @@ a {
 
 
 // === Registration CSS ===
-// .reg-background {
-//     background-image: url(https://i.imgur.com/hMrEfAu.jpg);
-//     height: 100px;
-//     width: 100px;
-//     object-fit: cover;
-// }
-
-
-// .reg-container {
-//     margin-left: 5%;
-//     margin-top: 1.2em;
-//     width: 90%;
-//     border-radius: 20px;
-//     max-width: 450px;
-//     justify-content: center;
-//     position: absolute;
-//     // box-shadow: 0px 0px 7px 1px rgba(40,40,40,0.5);
-// }
 
 .form-title {
     font-size: 2em;
@@ -125,15 +122,6 @@ a {
     border-color: var(--sign);
     color: white;
 }
-
-// @media only screen and (min-width: 500px) {
-//     // .reg-container {
-//     //     margin-left: 50%;
-//     //     margin-right: none;
-//     //     width: 450px;
-//     //     justify-content: center;
-//     // }
-// }
 
 // === Trail box CSS ===
 
@@ -313,6 +301,7 @@ a {
             box-shadow: 0 2px 8px 0 rgb(0 0 0 / 24%);
             width: 48px;
             height: 48px;
+            cursor: pointer;
             z-index: 10;
             .inner-circle {
                 height: 24px;
@@ -341,6 +330,7 @@ a {
             color: #FFFFFF;
             width: 80px;
             text-align: center;
+            cursor: pointer;
         }
         p:hover {
             transform: scale(1.02);
@@ -508,8 +498,8 @@ a {
     border-radius: 50%;
 }
 
-// === Profile Show CSS ===
 
+// === Profile Show CSS ===
 // Changing some Bulma presets
 .tabs {
     a {
@@ -519,6 +509,31 @@ a {
     }
     ul {
         border-top: 1px solid #dbdbdb;
+        position: relative;
+    }
+}
+
+#update-profile {
+    position: absolute;
+    margin-left: 80%;
+    font-size: 14px;
+    font-weight: 400;
+    padding: .5em 1em;
+}
+
+@media only screen and (max-width: 650px) {
+    #update-profile {
+        position: relative;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #update-profile {
+        span {
+            visibility: hidden;
+            position: absolute;
+        }
     }
 }
 
@@ -587,7 +602,18 @@ a {
 }
 
 // === Lists Index ===
+.lists-index-main {
+    display: grid;
+    place-items: center;
+}
+
+#list-index-hr {
+    width: 100%;
+}
+
 #lists-title {
+    width: 92%;
+    max-width: 765px;
     font-size: 40px;
     text-align: center;
     font-weight: 500;

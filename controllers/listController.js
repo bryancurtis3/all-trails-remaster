@@ -8,7 +8,7 @@ const { User, Trail, List } = require("../models");
 //== User List index
 router.get("/lists", async function(req, res, next){
     try{
-        const userList = await List.find( {user_id: req.session.currentUser.id} ).populate( { path: "trail_id"} );
+        const userList = await List.find( {user_id: req.session.currentUser.id} ).populate( { path: "trail_id"} ).populate("user");
 
         const authUser = await User.findById(req.session.currentUser.id);
         const context = {
@@ -61,6 +61,7 @@ router.get("/list/:id", async function (req, res, next) {
 // Create List
 router.post("/lists", async function (req, res, next) {
     try {
+        req.body.user = req.session.currentUser.id;
         await List.create(req.body);
 
         return res.redirect("/lists")
@@ -71,7 +72,8 @@ router.post("/lists", async function (req, res, next) {
     }
 });
 
-
+/* 
+// delete route
 router.post("/lists/:id", async function (req, res, next) {
   try{ 
       await List.findByIdAndUpdate(req.params.id, {trail_id: {$set: ""}});
@@ -94,5 +96,5 @@ router.post("/lists/:id", async function (req, res, next) {
         console.log(error);
     }
 } 
- */
+  */
 module.exports = router;

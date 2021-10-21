@@ -23,6 +23,18 @@ a a:hover {
   background-color: white;
 }
 
+nav .button {
+  transition: all 0.1s ease-in-out;
+}
+nav .button:hover {
+  transform: scale(1.05);
+}
+nav #nav-profile {
+  background-color: var(--sign);
+  border-color: var(--sign);
+  color: white;
+}
+
 .logo-link {
   line-height: 0;
   padding-top: 2px;
@@ -267,6 +279,7 @@ a a:hover {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
   width: 48px;
   height: 48px;
+  cursor: pointer;
   z-index: 10;
 }
 .circles .circle .inner-circle {
@@ -295,6 +308,7 @@ a a:hover {
   color: #FFFFFF;
   width: 80px;
   text-align: center;
+  cursor: pointer;
 }
 .circles p:hover {
   transform: scale(1.02);
@@ -459,8 +473,29 @@ a a:hover {
 }
 .tabs ul {
   border-top: 1px solid #dbdbdb;
+  position: relative;
 }
 
+#update-profile {
+  position: absolute;
+  margin-left: 80%;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0.5em 1em;
+}
+
+@media only screen and (max-width: 650px) {
+  #update-profile {
+    position: relative;
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 420px) {
+  #update-profile span {
+    visibility: hidden;
+    position: absolute;
+  }
+}
 .profile-content {
   margin-top: 3em;
   display: grid;
@@ -512,7 +547,18 @@ a a:hover {
   max-width: 480px;
 }
 
+.lists-index-main {
+  display: grid;
+  place-items: center;
+}
+
+#list-index-hr {
+  width: 100%;
+}
+
 #lists-title {
+  width: 92%;
+  max-width: 765px;
   font-size: 40px;
   text-align: center;
   font-weight: 500;
