@@ -3,24 +3,22 @@ $(".review-button").on("click", function (event) {
     $(".review-modal").addClass("is-active")
 });
 
+// Close review modal
 $(".close-modal").on("click", function (event) {
     $(".review-modal").removeClass("is-active")
 });
 
-// List modal
+// Close List Modal
+$(".close-list-modal").on("click", function (event) {
+    $(".list-modal").removeClass("is-active")
+});
+
+// List Index list modal
 $(".new-list").on("click", function (event) {
     $(".list-modal").addClass("is-active")
 });
 
-$(".close-list-modal").on("click", function (event) {
-    $(".list-modal").removeClass("is-active")
-});
-
 // Trail Show list modal
-$(".new-list-trail").on("click", function (event) {
+$(".list-circle").on("click", function (event) {
     $(".list-modal").addClass("is-active")
-});
-
-$(".close-list-modal").on("click", function (event) {
-    $(".list-modal").removeClass("is-active")
 });

@@ -23,6 +23,18 @@ a a:hover {
   background-color: white;
 }
 
+nav .button {
+  transition: all 0.1s ease-in-out;
+}
+nav .button:hover {
+  transform: scale(1.05);
+}
+nav #nav-profile {
+  background-color: var(--sign);
+  border-color: var(--sign);
+  color: white;
+}
+
 .logo-link {
   line-height: 0;
   padding-top: 2px;
@@ -267,6 +279,7 @@ a a:hover {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
   width: 48px;
   height: 48px;
+  cursor: pointer;
   z-index: 10;
 }
 .circles .circle .inner-circle {
@@ -295,6 +308,7 @@ a a:hover {
   color: #FFFFFF;
   width: 80px;
   text-align: center;
+  cursor: pointer;
 }
 .circles p:hover {
   transform: scale(1.02);
