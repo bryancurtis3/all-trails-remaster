@@ -10,6 +10,7 @@
 <body>
 
 
+<<<<<<< HEAD
     <hr>
     <main class="container plan-grid">
 
@@ -19,6 +20,27 @@
             <div class="field">
                 <div class="control">
                     <input name="gear" type="text" class="input gear-input" placeholder="Planning items"></input>
+=======
+    <main class="plan-grid">
+
+        <% if (plan) { %>
+            <!-- Circles with Icons -->
+            <form class="date-trail-select" action="/plans/<%= plan.id %>?_method=PUT" method="POST">
+
+                <!-- Calendar Input -->
+                <input name="date" type="date" class="calendar" data-start-date="10/24/2019">
+
+                <!-- Drop down for trail selection -->
+                <div class="select mb-5">
+                    <select name="trail_id">
+                        <option>Select a trail</option>
+                        <% trails.forEach(trail=> { %>
+                            <option value="<%= trail.id %>">
+                                <%= trail.name %>
+                            </option>
+                            <% }) %>
+                    </select>
+>>>>>>> dev
                 </div>
             </div>
             <input type="submit" value="Add" class="button is-link">
