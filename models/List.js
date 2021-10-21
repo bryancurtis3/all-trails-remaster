@@ -15,6 +15,11 @@ const mongoose = require("mongoose");
                 type: mongoose.Types.ObjectId,
                 ref: "Trail",
             }],
+            user: {
+                type: mongoose.Types.ObjectId,
+                ref: "User",
+                required: true,
+            },
             avatar: String,
             username: String,
         }, 
