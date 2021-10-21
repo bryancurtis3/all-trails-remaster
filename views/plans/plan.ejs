@@ -10,66 +10,45 @@
 <body>
 
 
-    <main class="plan-grid">
+    <hr>
+    <main class="container plan-grid">
 
         <% if (plan) { %>
-            <!-- Circles with Icons -->
-            <form class="date-trail-select" action="/plans/<%= plan.id %>?_method=PUT" method="POST">
-
-                <!-- Calendar Input -->
-                <input name="date" type="date" class="calendar" data-start-date="10/24/2019">
-
-                <!-- Drop down for trail selection -->
-                <div class="select mb-5">
-                    <select name="trail">
-                        <option>Select a trail</option>
-                        <% trails.forEach(trail=> { %>
-                            <option value="<%= trail.id %>">
-                                <%= trail.name %>
-                            </option>
-                            <% }) %>
-                    </select>
-                </div>
-                <input type="submit" value="submit" class="button is-link">
-            </form>
 
             <!-- gear input -->
-            <form action="/plans/<%= plan.id %>/gear" method="POST">
+            <form class="add-gear-form" action="/plans/<%= plan.id %>/gear" method="POST">
+                <label for="gear" class="label">Add Gear</label>
                 <div class="field">
-                    <label for="gear" class="label">Add Gear</label>
                     <div class="control">
-                        <div name="gear" type="text" id="gear" class="input"
-                            placeholder="Planning items"></div>
+                        <input name="gear" type="text" class="input gear-input" placeholder="Planning items"></input>
                     </div>
                 </div>
-                <input id="addGear" type="submit" value="Add Gear" class="button is-link">
+                <input type="submit" value="Add" class="button is-link">
             </form>
 
             <!-- yes I know gear is already plural -->
 
-            <% plan.gear.forEach(gear=> { %>
-                <ul class="gear">
-                    <p><%= gear %></p>
-            <% }) %>
-
-                    <div>
-                        <form action="/plans/<%= plan.id %>?_method=DELETE" method="POST">
-                            <input id="removeGear" type="submit" value="Undo" class="button is-link">
-                        </form>
-                    </div>
-                </ul>
+            
+            <ul class="gear-list textarea">
+                <% plan.gear.forEach(gear=> { %>
+                    <li>• <%= gear %></li>
+                <% }) %>
+            </ul>
+            <div>
+                <form action="/plans/<%= plan.id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Undo" class="button is-link">
+                </form>
+            </div>
 
 
 
             <!--  testing things down here -->
-            <p>
-                <%= plan.trail_id %>
-            </p>
+
 
             <!--  button for deleting the current plan  -->
 
             <form action="/plans/<%= plan.id %>/delete?_method=DELETE" method="POST">
-                <input id="deletePlan" type="submit" value="deletePlan" class="button is-link">
+                <input type="submit" value="Delete Plan" class="button is-danger">
             </form>
 
         <% } else { %>

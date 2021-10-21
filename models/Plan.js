@@ -17,8 +17,8 @@ const mongoose = require("mongoose");
                 required: [ false, "List the gear would will be bringing on this trip."
                 ],
             date: {
-                type: Date,
-                required: [false, "When are you planning on going on this trip?"],
+                type: String,
+                // required: [false, "When are you planning on going on this trip?"],
             },
             }
         }, 

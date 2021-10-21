@@ -658,9 +658,11 @@ nav #nav-profile {
 }
 
 .plan-grid {
+  max-width: 650px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   place-items: center;
+  grid-auto-rows: minmax(60px, auto);
 }
 .plan-grid .date-trail-select {
   display: grid;
@@ -676,9 +678,36 @@ nav #nav-profile {
   padding-left: 0.5em;
   height: 40px;
 }
+.plan-grid .add-gear-form {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  place-items: center;
+  padding-top: 1em;
+  border-radius: 15%;
+}
+.plan-grid .add-gear-form .control {
+  width: 100%;
+}
+.plan-grid .add-gear-form .control .gear-input {
+  width: 100%;
+}
 .plan-grid .submit {
   background-color: var(--sign);
   color: #FFFFFF;
+}
+.plan-grid .textarea {
+  font-size: 15px;
+  padding-bottom: 2em;
+  max-width: 90%;
+  height: 90%;
+  min-width: 350px;
+  line-height: 1.3em;
+}
+.plan-grid .textarea li {
+  padding-bottom: 0.4em;
+  padding-top: 0.4em;
+  border-bottom: 1px solid #dbdbdb;
 }
 
 /*# sourceMappingURL=main.css.map */

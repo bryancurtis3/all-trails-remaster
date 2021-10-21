@@ -25,6 +25,27 @@ router.get("/", async function (req, res, next) {
     }
 });
 
+// Plans index testing
+router.get("/index", async function (req, res, next) {
+    try{      
+        const allTrails = await Trail.find({});
+
+        const allPlans = await Plan.find({}).populate("user_id trail_id");
+
+        const context = {
+            plans: allPlans,
+            trails: allTrails,
+        };
+        
+    return res.render("plans/index", context);
+    } 
+    catch (error) {
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+});
+
 // Create plan 
     router.post("/create", async function(req, res, next){
     try{
