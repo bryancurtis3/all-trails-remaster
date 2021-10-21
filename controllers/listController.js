@@ -2,6 +2,7 @@
 const express = require("express"); 
 const router = express.Router();
 const { User, Trail, List } = require("../models");
+const { findByIdAndUpdate } = require("../models/Hike");
 
 // base url === "/" 
 
@@ -15,7 +16,7 @@ router.get("/lists", async function(req, res, next){
             lists: userList,
             user: authUser,
         };
-
+        
         return res.render ("lists/index", context);
     }
     catch(error){
@@ -29,10 +30,10 @@ router.get("/lists", async function(req, res, next){
 router.get("/lists/:id", async function (req, res, next) {
  try { 
     const selectedList = await List.findById(req.params.id).populate("trail_id");
-    
-    console.log(`==========selected list  ${selectedList}`);
+    const allTrails = await Trail.find({});
     context = {
         list: selectedList,
+        trail: allTrails,
     }
    return res.render("lists/show", context);
  }
@@ -42,6 +43,7 @@ router.get("/lists/:id", async function (req, res, next) {
      return next();
  }
 });
+
 
 // Trail Show
 router.get("/list/:id", async function (req, res, next) {
@@ -72,8 +74,40 @@ router.post("/lists", async function (req, res, next) {
     }
 });
 
+// Add Trail to list
 
-// delete route
+router.put("/lists/:id", async function (req, res, next){
+    try{
+        await List.findByIdAndUpdate(req.params.id, {
+                $push:
+                {
+                    trail_id: req.body.trail_id
+                }
+            });
+        return res.redirect("back");   
+        console.log("did we hit the route??",req.body.trail_id);
+    }
+    catch(error){console.log(error);}
+});
+
+// Delete route for trail
+router.delete("/:id/remove", async function (req, res, next){
+    try{
+        console.log("hopefully a trail id:", req.body.trail);
+        await List.findByIdAndUpdate(req.params.id, {
+            $pull:
+            { 
+                trail_id: req.body.trail 
+               }
+           });
+           return res.redirect("back");
+       }
+       catch(error){
+           console.log(error);
+           return next()};
+       });
+
+// Delete route for list
  router.delete("/lists/:id/delete", async function (req, res, next){
      try{
          console.log("we hitting it", req.params.id)
@@ -82,8 +116,11 @@ router.post("/lists", async function (req, res, next) {
      }
      catch(error){
          console.log(error);
-         next();
+         return next();
      }
  });
+
+ 
+ 
 
 module.exports = router;

@@ -29,7 +29,21 @@
 
 
     <!-- *********************************************** -->
+<!-- ======= Drop down to add trails by Id ===== -->
+<form class="date-trail-select" action="/lists/<%= list.id %>?_method=PUT" method="POST">
+<div class="select mb-5">
+    <select name="trail_id">
+        <% trail.forEach(trail=> { %>
+            <option value="<%= trail.id %>">
+                <%= trail.name %>
+                    : <%= trail.location %>
+            </option>
+            <% }) %>
+    </select>
+</div><input type="submit" value="submit" class="button is-link">
+</form>
 
+<!-- ========== ========== =========== ========= -->
         <div class="search-grid">
             <%- include('../partials/_search.ejs') %>
         </div>
@@ -41,12 +55,32 @@
             
                 <div class="box trail-box">
                     <a href="/trails/<%= trail.id %>">
-                        
+<!--=== Here is the delete Button Alex made ===-->            
+          
+            <form action="/<%= list.id %>/remove?_method=DELETE" method="POST">
+                <button class="button is-danger is-outlined">
+                    <span class="icon is-small">
+                    
+                    <input
+                     name="trail" 
+                     type="text" 
+                     id="trail" 
+                     class="input"
+                     value="<%= trail.id %>"
+                      >
+
+
+
+
+                    <i class="fas fa-times"></i>
+                    </span>
+                </button>
+            </form>
                         <!-- Trail Box Image -->
                         <div class="box-img-cont">
-                            <img class="box-img" src="<%= trail.image %>" alt="Trail Image">
+                            <img name="test" class="box-img" src="<%= trail.image %>" alt="Trail Image">
                         </div>
-                
+                    
                         <!-- Trail Box Text -->
                         <div class="box-text-cont">
                             <h3><%= trail.name %></h3>
