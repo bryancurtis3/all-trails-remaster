@@ -4,7 +4,6 @@ const router = express.Router();
 const { User, Trail, Plan } = require("../models");
 
 // == Baseroute /plans
-
 router.get("/", async function (req, res, next) {
     try{      
         const allTrails = await Trail.find({});
@@ -27,27 +26,26 @@ router.get("/", async function (req, res, next) {
 });
 
 // Create plan 
-
-      router.post("/create", async function(req, res, next){
-        try{
-            req.body.user_id = req.session.currentUser.id;
-            await Plan.create(req.body);
-            return res.redirect("/plans");
-        }
-        catch(error){
-            console.log(error);
-            req.error = error;
-            return next();
-        }
-    });
+    router.post("/create", async function(req, res, next){
+    try{
+        req.body.user_id = req.session.currentUser.id;
+        await Plan.create(req.body);
+        console.log(req.body);
+        return res.redirect("/plans");
+    }
+    catch(error){
+        console.log(error);
+        req.error = error;
+        return next();
+    }
+});
 
 
 
 // == Add Gear
-
 router.post("/:id/gear", async function (req, res, next){
-   try{
-   const addGear = await Plan.findByIdAndUpdate(req.params.id,
+    try{
+    await Plan.findByIdAndUpdate(req.params.id,
         {
             $push: 
                 { 
@@ -63,7 +61,6 @@ router.post("/:id/gear", async function (req, res, next){
  });
 
  // == Remove Gear 
-
 router.delete("/:id", async function (req, res, next){
     try{
          await Plan.findByIdAndUpdate
@@ -83,7 +80,6 @@ router.delete("/:id", async function (req, res, next){
 });
  
 // update date and trail 
-
 router.put("/:id", async function (req, res, next){
      try{
         await Plan.findByIdAndUpdate(req.params.id,
@@ -102,11 +98,10 @@ router.put("/:id", async function (req, res, next){
         });
     
 // Delete Plan 
-
 router.delete("/:id/delete", async function (req, res, next){
     try{
         await Plan.findByIdAndDelete(req.params.id);
-        return res.redirect("/plans");
+        return res.redirect("/profile");
     }
     catch(error){
         console.log(error);

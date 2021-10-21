@@ -657,4 +657,28 @@ nav #nav-profile {
   place-items: center;
 }
 
+.plan-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+}
+.plan-grid .date-trail-select {
+  display: grid;
+  min-width: 350px;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(60px, 60px);
+}
+.plan-grid .date-trail-select .select select {
+  width: 100%;
+}
+.plan-grid .date-trail-select .calendar {
+  grid-column: span 2;
+  padding-left: 0.5em;
+  height: 40px;
+}
+.plan-grid .submit {
+  background-color: var(--sign);
+  color: #FFFFFF;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,34 @@
+<div class="modal review-modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <form action="/plans/create" method="POST">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Make A Plan</p>
+                <a href="/profile" type="button" class="delete close-modal" aria-label="close"></a>
+            </header>
+
+            <section class="modal-card-body date-trail-select">
+
+                <!-- Drop down for trail selection -->
+                <div class="select mb-5">
+                    <select name="trail_id">
+                        <option>Select a trail</option>
+                        <% trails.forEach(trail=> { %>
+                            <option value="<%= trail.id %>">
+                                <%= trail.name %>
+                            </option>
+                        <% }) %>
+                    </select>
+                </div>
+
+                <!-- Calendar Input -->
+                <input name="date" type="date" class="calendar" data-start-date="10/24/2019">
+
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button review-submit submit">Submit</button>
+                <a href="/profile" type="button" class="button close-modal">Cancel</a>
+            </footer>
+        </form>
+    </div>
+</div>

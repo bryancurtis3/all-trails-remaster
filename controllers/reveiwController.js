@@ -6,6 +6,7 @@ const { Review } = require("../models");
 
 // base URL === /reviews
 
+// Create a review
 router.post("/", async function (req, res, next) {
     try {
         req.body.rating = parseInt(req.body.rating);
