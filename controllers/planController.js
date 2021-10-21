@@ -9,7 +9,7 @@ router.get("/", async function (req, res, next) {
     try{      
         const allTrails = await Trail.find({});
 
-       /* for testing purposes will need to be updated to find by id */
+/* for testing purposes will need to be updated to find by id */
         const thePlan = await Plan.findOne({});
 
         const context = {
@@ -86,9 +86,6 @@ router.delete("/:id", async function (req, res, next){
 
 router.put("/:id", async function (req, res, next){
      try{
-         console.log("date", req.body.date);
-         console.log("trail id", req.body.trail);
-         console.log("user id: ", req.session.currentUser.id);
         await Plan.findByIdAndUpdate(req.params.id,
             {
             $set: 
