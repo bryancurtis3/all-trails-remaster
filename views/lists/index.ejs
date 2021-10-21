@@ -60,32 +60,31 @@
                             
                         <% } %>
                     <% } %>
-                <% } %>
-            </div>
+                
+                </div>
 
-            
-            <div class="list-info">
-                <h3><%= list.name %></h3>
-                <h4><%= list.username %></h4>
-                <h5><%= list.trail_id.length %> trails</h5>
-            </div> 
-            
-            <form action="/lists/<%= list.id %>/delete?_method=DELETE" method="POST">
-                <button class="button is-danger is-outlined">
-                    <span class="icon is-small">
-                    <i class="fas fa-times"></i>
-                    </span>
-                </button>
-            </form>
-            <hr>
-        <% } %> 
+                
+                <div class="list-info">
+                    <h3><%= list.name %></h3>
+                    <h4><%= list.username %></h4>
+                    <h5><%= list.trail_id.length %> trails</h5>
+                </div> 
+                
+                <form action="/lists/<%= list.id %>/delete?_method=DELETE" method="POST">
+                    <button class="button is-danger is-outlined">
+                        <span class="icon is-small">
+                        <i class="fas fa-times"></i>
+                        </span>
+                    </button>
+                </form>
+                <hr>
+            <% } %> 
         
     </div>
 
-                <hr>
-            <% } %> 
+        <hr>
             
-        </div>
+    </div>
     </main>
 
 </body>
