@@ -33,10 +33,10 @@
                 <div class="list-info">
                     <h3><%= plan.trail_id.name %></h3>
                     <h4><%= plan.user_id.username %></h4>
-                    <h5><%= plan.length %> items</h5>
+                    <h5><%= plan.date %> items</h5>
                 </div> 
                 
-                <form action="/lists/<%= plan.id %>/delete?_method=DELETE" method="POST">
+                <form action="plans/<%= plan.id %>/delete?_method=DELETE" method="POST">
                     <button class="button is-danger is-outlined">
                         <span class="icon is-small">
                         <i class="fas fa-times"></i>

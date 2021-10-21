@@ -4,12 +4,13 @@ const router = express.Router();
 const { User, Trail, Plan } = require("../models");
 
 // == Baseroute /plans
-router.get("/", async function (req, res, next) {
+router.get("/:id", async function (req, res, next) {
     try{      
         const allTrails = await Trail.find({});
 
 /* for testing purposes will need to be updated to find by id */
-        const thePlan = await Plan.findOne({});
+
+        const thePlan = await Plan.findById(req.params.id);
 
         const context = {
             plan: thePlan,
@@ -26,7 +27,7 @@ router.get("/", async function (req, res, next) {
 });
 
 // Plans index testing
-router.get("/index", async function (req, res, next) {
+router.get("/", async function (req, res, next) {
     try{      
         const allTrails = await Trail.find({});
 
@@ -51,7 +52,6 @@ router.get("/index", async function (req, res, next) {
     try{
         req.body.user_id = req.session.currentUser.id;
         await Plan.create(req.body);
-        console.log(req.body);
         return res.redirect("/plans");
     }
     catch(error){
@@ -122,7 +122,7 @@ router.put("/:id", async function (req, res, next){
 router.delete("/:id/delete", async function (req, res, next){
     try{
         await Plan.findByIdAndDelete(req.params.id);
-        return res.redirect("/profile");
+        return res.redirect("/plans");
     }
     catch(error){
         console.log(error);
