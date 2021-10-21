@@ -19,7 +19,8 @@ router.get("/:id", async function (req, res, next) {
             // trails: allTrails,
         };
         
-    return res.render("plans/plan", context);
+        console.log(context)
+        return res.render("plans/plan", context);
     } 
     catch (error) {
         console.log(error);
