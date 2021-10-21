@@ -715,3 +715,30 @@ nav {
     place-items: center;
 }
 
+// === The Abomiminable Plan Page
+.plan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    .date-trail-select {
+        display: grid;
+        min-width: 350px;
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(60px, 60px);
+        .select {
+            // width: 80%;
+            select {
+                width: 100%;
+            }
+        }
+        .calendar {
+            grid-column: span 2;
+            padding-left: .5em;
+            height: 40px;
+        }
+    }
+    .submit {
+        background-color: var(--sign);
+        color: #FFFFFF;
+    }
+}
