@@ -11,11 +11,12 @@ const mongoose = require("mongoose");
                 ref: "User",
                 required: true, 
             },
-            trail_id: {
-                type: Array,
+            trail_id: [{
+                type: mongoose.Types.ObjectId,
                 ref: "Trail",
-                required: [true, "Add at least one trail."]
-            },
+            }],
+            avatar: String,
+            username: String,
         }, 
         {timestamps: true,},
     );

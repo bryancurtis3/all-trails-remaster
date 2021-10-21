@@ -10,6 +10,14 @@
 a {
     font-style: none;
     color: #4a4a4a;
+    // take this out?
+    a:hover {
+        color: initial;
+    }
+}
+
+#trail-show-modal-title {
+    color: #414141;
 }
 
 #navbar {
@@ -60,9 +68,14 @@ a {
         width: 40px;
         margin-top: 10px;
         margin-right: 10px;
+        border: none;
         visibility: hidden;
+        pointer-events: initial;
     }
-    @media screen and (min-width: 725px) {
+    .fa-arrow-right {
+        color: #FFFFFF;
+    }
+    @media screen and (min-width: 742px) {
         #search-arrow {
             visibility: visible;
         }
@@ -151,28 +164,42 @@ a {
         line-height: 1.6em;
         h3 {
             font-weight: bold;
+            color: #414141;
             font-size: 1.1em;
             line-height: 1.3em;
         }
         .trail-location {
             font-size: .8em;
-            color: rgb(150, 150, 150);
+            font-weight: 300;
+            color: #767676;
             padding-bottom: .15em;
         }
         .diff-rating {
-            background-color: mediumseagreen;
-            width: 25%;
+            width: 35%;
             font-size: .8em;
-            font-weight: bolder;
-            color:rgb(235, 235, 235);
+            font-weight: 500;
+            color:#fff;
             text-align: center;
             line-height: 1.6em;
-            padding-bottom: .1em;
             border-radius: 7px;
         }
+        .easy {
+            background-color: #69a041;
+        }
+        .medium {
+            background-color: #4bafe1;
+        }
+        .hard {
+            background-color: #676767;
+        }
+
         .trail-length {
+            color: #767676;
             padding-top: .15em;
-            font-size: .9em;
+            font-size: .82em;
+            span {
+                padding: 0 4px;
+            }
         }
     }
 }
@@ -247,8 +274,8 @@ a {
         font-weight: bold;
         color: #FFFFFF;
     }
+    
     .diff-rating {
-        background-color: mediumseagreen;
         padding: 3px 15px;
         font-size: .8em;
         font-weight: 500;
@@ -256,6 +283,16 @@ a {
         text-align: center;
         border-radius: 5px;
     }
+    .easy {
+        background-color: #69a041;
+    }
+    .medium {
+        background-color: #4bafe1;
+    }
+    .hard {
+        background-color: #676767;
+    }
+
     .trail-location {
         font-size: 14px;
         line-height: 2.2em;
@@ -295,12 +332,18 @@ a {
                 background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/more-green-dc6375e2.png);
             }
         }
+        .circle:hover {
+            transform: scale(1.05);
+        }
         p {
             margin-top: .4em;
             line-height: 1em;
             color: #FFFFFF;
             width: 80px;
             text-align: center;
+        }
+        p:hover {
+            transform: scale(1.02);
         }
 }
 
@@ -353,21 +396,42 @@ a {
     min-height: 150px;
     max-width: 765px;
     padding: 1.5em;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 2fr 1fr 1fr; 
     place-items: center;
     background-color: white;
+    #rating-cont {
+        display: grid;
+        place-items: center;
+    }
     h2 {
         font-size: 56px;
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr 1fr;
     }
     p {
         padding: 0 5px;
     }
-    button {
+    .review-button {
             grid-column: span 2;
-            width: 50%;
+            width: 60%;
+            min-width: 137px;
             border-radius: 7px;
             background-color: var(--green);
             color: #FFFFFF;
+            transition: all 0.1s ease-in-out;
+    }
+    button:hover {
+        transform: scale(1.05);
+        color: #FFFFFF;
+    }
+    #big-star {
+        height: 52px;
+        width: 52px;
+    }
+    #modal-star {
+        height: 22px;
+        width: 22px;
     }
 }
 
@@ -382,7 +446,12 @@ a {
     width: 25%;
 }
 
-.is-64x64 {
+.star {
+    height: 16px;
+    width: 16px;
+}
+
+.is-32x32, .is-64x64, .is-128x128 {
     .profile-pic {
         aspect-ratio: 1;
         object-fit: cover;
@@ -399,14 +468,31 @@ a {
     grid-auto-rows: minmax(20px, auto);
     .name-rating {
         padding-top: 5px;
+        h3 {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 25px;
+        }
+        .star-date {
+            display: grid;
+            place-items: center;
+            grid-template-columns: 20px 20px 20px 20px 20px 150px;
+        }
+    }
+    h5 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #767676;
+        display: inline;
+        margin-left: 1em;
     }
     p {
+        margin-top: 10px;
         grid-column: span 2;
     }
     hr {
         grid-column: span 3;
         margin-top: 20px;
-
     }
 }
 
@@ -500,16 +586,106 @@ a {
     }
 }
 
-
-
-
-
-
-
-
-#lists{
-    background-color: green;
-    color: white;
+// === Lists Index ===
+#lists-title {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 500;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
 }
 
+.new-list-form {
+    margin: 0;
+    width: 70%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.new-list {
+    width: 70%;
+    height: 40px;
+    transition: all 0.15s ease-in-out;
+}
+.new-list:hover {
+    background-color: var(--green);
+    color: #FFFFFF;
+    transform: scale(1.05);
+}
+
+.lists-container {
+    display: grid;
+    width: 100%;
+    max-width: 765px;
+    padding: 1.5em;
+    background-color: white;
+    grid-template-columns: 128px 1fr 40px;
+    grid-auto-rows: minmax(20px, auto);
+    .list-info {
+        max-height: 128px;
+        padding-top: 5px;
+        padding-left: 1em;
+        color: #414141;
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        h4 {
+            font-size: 15px;
+            margin-left: 2px;
+        }
+        h5 {
+            font-size: 15px;
+            margin-top: 1.2em;
+        }
+    }
+    .list-spot {
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 2px;
+        overflow: hidden;
+        .profile-pic {
+            border: 2px solid #414141;
+        }
+    }
+    hr {
+        grid-column: span 4;
+        margin-top: 20px;
+    }
+    button {
+        margin-top: 45%;
+        width: 40px;
+    }
+}
+
+
+// === Lists Show ===
+#list-boxes {
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.list-view-main {
+    h1 {
+        margin-top: 1em;
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+    }
+    .user-avatar {
+        display: flex;
+        justify-content: center;
+    }
+    .name-rating {
+        padding: 8px;
+    }
+}
+
+.search-grid {
+    margin: 70px 0;
+    display: grid;
+    place-items: center;
+}
 
