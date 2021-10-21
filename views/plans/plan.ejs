@@ -42,13 +42,24 @@
     
 
     <!-- <hr> -->
-        <h1 id="plan-title">Plan Your Hike</h1>
+ 
     
         <main class="container plan-grid">
             <!-- gear input -->
 
             
             <ul class="gear-items">
+                <h1 id="plan-title">
+                    Plan Your Hike On <br>
+                    <% const created = plan.date %> 
+                    <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                    
+                    const monthNumber = new Date(created).getMonth();
+                    const monthName = monthNames[monthNumber]
+                    %> 
+                    
+                    <span><%= new Date(created).getDay() %> <%= monthName %>, <%= new Date(created).getFullYear() %></span>
+                </h1>
                 <% plan.gear.forEach(gear=> { %>
                     <li class="box"><%= gear %></li>
                 <% }) %>
