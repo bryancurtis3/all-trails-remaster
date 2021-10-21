@@ -28,7 +28,7 @@ router.get("/lists", async function(req, res, next){
 //== User List Show Page
 router.get("/lists/:id", async function (req, res, next) {
  try { 
-    const selectedList = await List.findById(req.params.id).populate("trail_id");
+    const selectedList = await List.findById(req.params.id).populate("trail_id user_id");
     
     console.log(`==========selected list  ${selectedList}`);
     context = {

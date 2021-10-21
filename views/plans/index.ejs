@@ -33,7 +33,17 @@
                 <div class="list-info">
                     <h3><%= plan.trail_id.name %></h3>
                     <h4><%= plan.user_id.username %></h4>
-                    <h5><%= plan.date %> items</h5>
+                    <h5>
+                        <% const created = plan.date %> 
+                        <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                        
+                        const monthNumber = new Date(created).getMonth();
+                        const monthName = monthNames[monthNumber]
+                        %> 
+                        
+                        Planned for: <%= new Date(created).getDay() %> <%= monthName %>, <%= new Date(created).getFullYear() %> 
+
+                    </h5>
                 </div> 
                 
                 <form action="plans/<%= plan.id %>/delete?_method=DELETE" method="POST">

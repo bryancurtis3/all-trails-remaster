@@ -74,7 +74,7 @@ router.post("/:id/gear", async function (req, res, next){
                 } 
          },
     );  
-     return res.redirect("/plans");
+     return res.redirect("back");
     } 
     catch (error){
         console.log(error);

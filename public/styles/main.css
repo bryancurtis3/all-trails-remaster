@@ -657,10 +657,30 @@ nav #nav-profile {
   place-items: center;
 }
 
+.date-trail-select {
+  display: grid;
+  align-items: center;
+  min-width: 350px;
+  grid-template-columns: 3fr 1fr;
+  grid-auto-rows: minmax(60px, 60px);
+}
+.date-trail-select div p {
+  margin-bottom: 5px;
+}
+.date-trail-select .select {
+  grid-column: span 2;
+}
+.date-trail-select .select select {
+  width: 100%;
+}
+.date-trail-select .calendar {
+  padding-left: 0.5em;
+}
+
 .plan-grid {
   max-width: 650px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   place-items: center;
   grid-auto-rows: minmax(60px, auto);
 }
@@ -679,6 +699,7 @@ nav #nav-profile {
   height: 40px;
 }
 .plan-grid .add-gear-form {
+  grid-column: span 2;
   width: 90%;
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
@@ -696,18 +717,14 @@ nav #nav-profile {
   background-color: var(--sign);
   color: #FFFFFF;
 }
-.plan-grid .textarea {
-  font-size: 15px;
-  padding-bottom: 2em;
-  max-width: 90%;
-  height: 90%;
-  min-width: 350px;
-  line-height: 1.3em;
+.plan-grid .gear-items {
+  margin: 1em 0 0 2em;
 }
-.plan-grid .textarea li {
-  padding-bottom: 0.4em;
-  padding-top: 0.4em;
-  border-bottom: 1px solid #dbdbdb;
+.plan-grid .gear-items .box {
+  line-height: 1.2em;
+  margin-bottom: 0.5em;
+  padding: 0.4em 0.7em;
+  max-width: 225px;
 }
 
 /*# sourceMappingURL=main.css.map */

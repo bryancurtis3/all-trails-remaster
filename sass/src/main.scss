@@ -716,10 +716,34 @@ nav {
 }
 
 // === The Abomiminable Plan Page
+.date-trail-select {
+    display: grid;
+    align-items: center;
+    min-width: 350px;
+    grid-template-columns: 3fr  1fr;
+    grid-auto-rows: minmax(60px, 60px);
+    div {
+        p {
+            margin-bottom: 5px;
+        }
+    }
+    .select {
+        // width: 80%;
+        grid-column: span 2;
+        select {
+            width: 100%;
+        }
+    }
+    .calendar {
+        padding-left: .5em;
+        // height: 20px;
+    }
+}
+
 .plan-grid {
     max-width: 650px;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     place-items: center;
     grid-auto-rows: minmax(60px, auto);
     .date-trail-select {
@@ -740,6 +764,7 @@ nav {
         }
     }
     .add-gear-form {
+        grid-column: span 2;
         width: 90%;
         display: grid;
         grid-template-columns: 1fr 5fr 1fr;
@@ -759,17 +784,13 @@ nav {
         background-color: var(--sign);
         color: #FFFFFF;
     }
-    .textarea {
-        font-size: 15px;
-        padding-bottom: 2em;
-        max-width: 90%;
-        height: 90%;
-        min-width: 350px;
-        line-height: 1.3em;
-        li {
-            padding-bottom: .4em;
-            padding-top: .4em;
-            border-bottom: 1px solid #dbdbdb;
+    .gear-items {
+        margin: 1em 0 0 2em;
+        .box {
+            line-height: 1.2em;
+            margin-bottom: .5em;
+            padding: .4em .7em;
+            max-width: 225px;
         }
     }
 }
