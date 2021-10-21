@@ -9,6 +9,7 @@ const { Review } = require("../models");
 router.post("/", async function (req, res, next) {
     try {
         req.body.rating = parseInt(req.body.rating);
+        req.body.user = req.session.currentUser.id;
         await Review.create(req.body);
 
         return res.redirect("back");
