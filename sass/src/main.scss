@@ -16,6 +16,10 @@ a {
     }
 }
 
+#trail-show-modal-title {
+    color: #414141;
+}
+
 #navbar {
     background-color: white;
 }
@@ -600,12 +604,12 @@ a {
     place-items: center;
 }
 
-#new-list {
+.new-list {
     width: 70%;
     height: 40px;
     transition: all 0.15s ease-in-out;
 }
-#new-list:hover {
+.new-list:hover {
     background-color: var(--green);
     color: #FFFFFF;
     transform: scale(1.05);

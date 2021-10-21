@@ -41,14 +41,14 @@
                 <div class="circle">
                     <div id="directions-circle" class="inner-circle"></div>
                 </div>
-
-                <a href="/lists/new" class="circle">
-                    <div id="more-circle" class="inner-circle"></div>
+                <%- include('../partials/_listModal.ejs') %>
+                <a class="circle">
+                    <div id="more-circle" class="inner-circle new-list-trail"></div>
                 </a>
 
                 <p>Photos</p>
                 <p>Directions</p>
-                <a href="/lists/new">
+                <a href="/lists/">
                     <p>Start a List</p>
                 </a>
             </div>
