@@ -55,8 +55,12 @@ const { Trail } = require("./models"); // idk where to put this atm
 app.get("/", async function (req, res, next) {
     try {
         const allTrails = await Trail.find({});
+        const allReviews = await Review.find({});
 
-        const context = { trails: allTrails };
+        const context = { 
+            trails: allTrails,
+            reviews: allReviews,
+        };
     
         return res.render("./index", context);
     } catch (error) {
@@ -68,7 +72,7 @@ app.get("/", async function (req, res, next) {
 
 //================== Test Map Route ================
 app.get("/map", function (req, res, next) {
-    res.render("./maptest");
+    res.render("./mapindex");
 });
 
 
