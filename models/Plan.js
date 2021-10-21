@@ -10,14 +10,14 @@ const mongoose = require("mongoose");
             trail_id: {
                 type: mongoose.Types.ObjectId,
                 ref: "Trail",
-                required: [true, "Add at least one trail."]
+                required: [false, "Add at least one trail."]
             },
             gear: {
-                type: String,
-                required: [ true, "List the gear would will be bringing on this trip."
+                type: Array,
+                required: [ false, "List the gear would will be bringing on this trip."
                 ],
             date: {
-                type: new Date,
+                type: Date,
                 required: [false, "When are you planning on going on this trip?"],
             },
             }

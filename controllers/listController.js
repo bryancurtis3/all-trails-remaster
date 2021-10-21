@@ -57,6 +57,7 @@ router.get("/list/:id", async function (req, res, next) {
     }
 });
 
+
 // Create List
 router.post("/lists", async function (req, res, next) {
     try {
@@ -70,7 +71,6 @@ router.post("/lists", async function (req, res, next) {
     }
 });
 
-/* // Delete Trail from list
 
 router.post("/lists/:id", async function (req, res, next) {
   try{ 
@@ -93,8 +93,6 @@ router.post("/lists/:id", async function (req, res, next) {
     catch(error){
         console.log(error);
     }
-
-} */
-
-
+} 
+ */
 module.exports = router;
