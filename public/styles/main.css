@@ -849,4 +849,13 @@ nav #nav-profile {
   cursor: pointer;
 }
 
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
 /*# sourceMappingURL=main.css.map */

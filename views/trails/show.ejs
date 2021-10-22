@@ -100,7 +100,7 @@
                     },
                     properties: {
                         title: 'Trailhead',
-                        description: 'Torres Del Paine, Patagonia'
+                        description: '-72.8741, -50.97365'
                     }
                     },
                     {
@@ -111,7 +111,7 @@
                     },
                     properties: {
                         title: 'Trail End',
-                        description: 'Torres Del Paine, Patagonia'
+                        description: '-73.09384, -51.07232'
                     }
                     },
                     
@@ -135,7 +135,14 @@
                 el.className = 'marker';
 
                 // make a marker for each feature and add to the map
-                new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
+                new mapboxgl.Marker(el)
+                .setLngLat(feature.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML(
+                    `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+                    )
+                )
+                .addTo(map);
             }
         </script>
 
