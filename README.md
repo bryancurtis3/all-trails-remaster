@@ -85,9 +85,10 @@ As a non-account user I can search for new trails and see descriptions and ratin
 - Not found redirect 
 
 === Wireframe === 
-![Imgur](https://imgur.com/iQ1q7ao)
+![Imgur](https://i.imgur.com/iQ1q7ao.png)
+
 
 === Database Model ===
 
-![Imgur](https://imgur.com/krceH5U)
+![Imgur](https://i.imgur.com/krceH5U.png)
 
