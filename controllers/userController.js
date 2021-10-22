@@ -7,9 +7,6 @@ const saltRounds = 10;
 
 // base url === "/" 
 
-
-
-
 // == Registration 
 router.get("/registration", function (req, res, next) {
     return res.render("users/registration");
@@ -24,12 +21,9 @@ router.post("/registration", async function (req, res, next){
             if(hasAccount) {
                 return res.redirect("/login");
             }
-
         const hash = await bcrypt.hash(req.body.password, saltRounds);
         req.body.password = hash;
-
         await User.create(req.body);
-
         return res.redirect("/login");
     }
     
@@ -40,18 +34,12 @@ router.post("/registration", async function (req, res, next){
     }
 });
 
-router.get("/login", function(req, res, next){
-    return res.render("users/login");
-});
-
-
-
 
 // == Login 
 
 // Show login page
 router.get("/login", function(req, res, next){
-    res.render("users/login");
+    return res.render("users/login");
 });
 
 // Create(?) login
@@ -63,15 +51,11 @@ router.post("/login", async function (req, res, next){
         if(!foundUser) {
             return res.redirect("/registration");
         }
-
         const varified = await bcrypt.compare(req.body.password, foundUser.password);
-
         if(!varified) { 
             return res.send("Email or Password Invalid");
-            ///// would like to make this a pop-up message /////
         }
-        
-        req.session.currentUser = {
+            req.session.currentUser = {
             id: foundUser._id,
             username: foundUser.username,
         };
@@ -85,19 +69,16 @@ router.post("/login", async function (req, res, next){
 });
 
 
-// == Profile / Update page. 
+// == Profile 
 
 // Show profile page
 router.get("/profile", async function(req, res, next){
     try{
-        
         const authUser = await User.findById(req.session.currentUser.id); 
         const context = { 
             user: authUser,
          };
-        
         return res.render("users/show", context);
-    
     }
     catch(error){
         console.log(error);
@@ -113,9 +94,7 @@ router.get("/profile/update", async function(req, res, next){
         const context = { 
             user: authUser,
         };
-        
         return res.render("users/update", context);
-    
     }
     catch(error){
         console.log(error);

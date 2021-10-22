@@ -1,25 +1,18 @@
 
 const express = require("express"); 
 const router = express.Router();
-const { User, Trail, Plan } = require("../models");
+const { Trail, Plan } = require("../models");
 
 // == Baseroute /plans
 
 
 router.get("/:id", async function (req, res, next) {
     try{      
-        // const allTrails = await Trail.find({});
-
-/* for testing purposes will need to be updated to find by id */
-
         const thePlan = await Plan.findById(req.params.id).populate("trail_id user_id");
 
         const context = {
             plan: thePlan,
-            // trails: allTrails,
         };
-        
-        console.log(context)
         return res.render("plans/plan", context);
     } 
     catch (error) {
@@ -33,14 +26,11 @@ router.get("/:id", async function (req, res, next) {
 router.get("/", async function (req, res, next) {
     try{      
         const allTrails = await Trail.find({});
-
         const allPlans = await Plan.find({}).populate("user_id trail_id");
-
         const context = {
             plans: allPlans,
             trails: allTrails,
-        };
-        
+        };      
     return res.render("plans/index", context);
     } 
     catch (error) {
@@ -81,6 +71,8 @@ router.post("/:id/gear", async function (req, res, next){
     } 
     catch (error){
         console.log(error);
+        req.error=error;
+        return next();
     }
  });
 
@@ -100,6 +92,8 @@ router.delete("/:id", async function (req, res, next){
         }
     catch(error){
         console.log(error);
+        req.error=error;
+        return next();
     }
 });
  
@@ -118,7 +112,11 @@ router.put("/:id", async function (req, res, next){
         );
         return res.redirect("/plans");
     }
-    catch(error){console.log(error);}
+    catch(error){
+        console.log(error);
+        req.error=error;
+        return next();
+    }
         });
     
 // Delete Plan 
@@ -129,6 +127,8 @@ router.delete("/:id/delete", async function (req, res, next){
     }
     catch(error){
         console.log(error);
+        req.error=error;
+        return next();
     }
 });
  

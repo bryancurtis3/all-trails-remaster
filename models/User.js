@@ -23,7 +23,6 @@ const mongoose = require("mongoose");
             },
             location: {
                 type: String,
-                // possibly a dropped pin or coordinates
             },
         }, 
         {timestamps: true,},

@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
             user_id: {
                 type: mongoose.Types.ObjectId,
                 ref: "User",
-                // required: true, 
             },
             trail_id: {
                 type: mongoose.Types.ObjectId,
