@@ -20,10 +20,11 @@
         <hr id="list-index-hr">
 
         <div class="lists-container">
+            <% console.log("plans length") %> 
             <% console.log(plans.length) %> 
             <% for (let i = 0; i < plans.length; i++) { %>
                 <% const plan = plans[i] %> 
-                <% console.log(plan) %> 
+                <% console.log("looped") %> 
 
                 <a href="plans/<%= plan.id %>">
                     <figure class="image is-128x128">
