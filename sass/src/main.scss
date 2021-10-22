@@ -630,6 +630,7 @@ nav {
 .lists-index-main {
     display: grid;
     place-items: center;
+    min-height: calc(100vh - 207px);
 }
 
 #list-index-hr {
@@ -916,8 +917,8 @@ nav {
     place-items: center;
     gap: 15px;
     margin-top: 30px;
-    position: absolute;
-    bottom: 0;
+    // position: absolute;
+    // bottom: 0;
     #footer-logo {
         margin-top: 30px;
     }
