@@ -1,0 +1,78 @@
+{
+
+  "name": "all-trails-remaster",
+
+  "version": "1.0.0",
+
+  "description": "a reverse engineering project of the AlTrails website",
+
+  "main": "server.js",
+
+  "scripts": {
+
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "start": "node server.js",
+
+    "watch-sass": "sass -w sass/src:public/styles",
+
+    "watch-nodemon": "nodemon server.js",
+
+    "dev": "concurrently --handle-input -n server,sass -c 'bgGrey.bold,bgRed.bold' 'npm:watch-nodemon' 'npm:watch-sass' rs "
+
+  },
+
+  "repository": {
+
+    "type": "git",
+
+    "url": "git+https://github.com/bryancurtis3/all-trails-remaster.git"
+
+  },
+
+  "author": "",
+
+  "license": "ISC",
+
+  "bugs": {
+
+    "url": "https://github.com/bryancurtis3/all-trails-remaster/issues"
+
+  },
+
+  "homepage": "https://github.com/bryancurtis3/all-trails-remaster#readme",
+
+  "dependencies": {
+
+    "bcrypt": "^5.0.1",
+
+    "body-parser": "^1.19.0",
+
+    "bulma": "^0.9.3",
+
+    "connect-mongo": "^4.6.0",
+
+    "dotenv": "^10.0.0",
+
+    "ejs": "^3.1.6",
+
+    "express": "^4.17.1",
+
+    "express-session": "^1.17.2",
+
+    "jquery": "^3.6.0",
+
+    "method-override": "^3.0.0",
+
+    "mongoose": "^6.0.11"
+
+  },
+
+  "devDependencies": {
+
+    "concurrently": "^6.3.0"
+
+  }
+
+}
+

@@ -1,0 +1,79 @@
+
+
+<nav id="navbar" class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="logo-link" href="/">
+        <img src="https://i.imgur.com/inBZZRA.png" width="120" height="50">
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">
+          Home
+        </a>
+  
+        <a class="navbar-item" href="/trails">
+          Explore Trails
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More
+          </a>
+  
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/bryancurtis3/all-trails-remaster">
+              About
+            </a>
+            <% const num = Math.round(Math.random()) %>
+            <% if (num === 0) { %> 
+              <a class="navbar-item" href="https://www.linkedin.com/in/bryancurtis3/">
+                Contact
+              </a>
+            <% } else { %>
+              <a class="navbar-item" href="https://www.linkedin.com/in/alexander-arvanitis/">
+                Contact
+              </a>
+            <% } %> 
+
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="https://www.merriam-webster.com/dictionary/help">
+              Help
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            
+            <% if( typeof user !== "undefined") {%>
+              
+              <a href="/profile" id="profile" class="button nav-profile" style="background-color: var(--sign); color: #FFFFFF;">
+                Profile
+              </a>
+              <a href="/logout" id="logout" class="button">
+                Logout
+              </a>
+            <% } else { %> 
+            <a href="/registration" id="sign-up" class="button">
+              <strong>Sign up</strong>
+            </a>
+            <a href="/login" id="login" class="button">
+              Log in
+            </a>
+            <% } %>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

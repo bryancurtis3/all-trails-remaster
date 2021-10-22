@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Header tag content -->
+<%- include('../partials/_head.ejs') %>
+
+<!-- Navbar -->
+<%- include('../partials/_nav.ejs') %>
+
+<body class="form-body login">
+
+    <div class="show-grid">
+        <div class="show-wrapper">
+            <form action="/login" method="POST" class="box">
+                <h3 class="form-title">Login</h3>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input name="email" class="input" type="email" placeholder="Input@email.com" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input name="password" class="input" type="password" placeholder="*******" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button id="submission" class="button is-link is-fullwidth">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

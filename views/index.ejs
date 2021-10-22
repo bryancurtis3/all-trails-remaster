@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag content -->
+<%- include('./partials/_head.ejs') %>
+
+<body>
+    <!-- Navbar -->
+    <%- include('./partials/_nav.ejs') %>
+
+    <!-- Hero Banner -->
+    <%- include('./partials/_hero.ejs') %>
+
+
+    <!-- Container of trail boxes -->
+    <div class="trail-boxes">
+        <!-- Dynamically displays available trails -->
+                
+        <% for (let i = 0; i < 6; i++) { %> 
+            <% const trail = trails[i] %> 
+
+            <div class="box trail-box">
+                <a href="/trails/<%= trail.id %>">
+                    
+                    <!-- Trail Box Image -->
+                    <div class="box-img-cont">
+                        <img class="box-img" src="<%= trail.image %>" alt="Trail Image">
+                    </div>
+
+                    <!-- Trail Box Text -->
+                    <div class="box-text-cont">
+                        <h3><%= trail.name %></h3>
+                        <p class="trail-location"><%= trail.location %></p>
+
+                        <!-- Difficulty color controller -->
+                        <% let diff = "easy" %>
+                        <% if (trail.difficulty === "3" || trail.difficulty === "4") { %> 
+                            <% diff = "medium" %> 
+                        <% } else if (trail.difficulty === "5") { %>
+                            <% diff = "hard" %> 
+                        <% } %> 
+
+                        <p class="diff-rating <%= diff %>">Difficulty: <%= trail.difficulty %></p>
+
+                        <!-- Time Estimator -->
+                        <% const time = trail.length * 28 %> 
+                        <% const hours = (time / 60) %> 
+                        <% const roundHours = Math.floor(hours) %> 
+                        <% const minutes = (hours - roundHours) * 60 %>
+                        <% const roundMinutes = Math.round(minutes) %>  
+
+                        <p class="trail-length">Length: <%= trail.length %> mi <span>•</span> Est. <%= roundHours %> h <%= roundMinutes %> min </p>
+                    </div>
+                </a>
+            </div>
+
+        <% } %> 
+    </div>
+
+    <%- include('./partials/_footer.ejs') %>
+
+</body>
+</html>
+
+
+

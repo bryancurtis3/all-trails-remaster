@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Header tag content -->
+<%- include('../partials/_head.ejs') %>
+
+<!-- Navbar -->
+<%- include('../partials/_nav.ejs') %>
+
+<body>
+
+    <main>
+
+        <div class="tabs is-centered">
+            <ul>
+                <li class="is-active"><a href="/profile">Profile</a></li>
+                <li><a href="/lists">Lists</a></li>
+                <li><a href="/plans">Plans</a></li>
+                <!-- <li><a>Reviews</a></li> -->
+                <a id="update-profile" class="button" href="/profile/update">Edit&nbsp;<span>Profile</span></a>
+            </ul>
+        </div>
+
+        <div class="container profile-content">
+            <figure class="image is-128x128">
+                <img class="profile-pic" src="<%= user.avatar %>">
+            </figure>
+
+            <h4>
+                <strong>Member Since</strong>
+                <br>
+                <!-- The rest of this <h4> ouputs the month & year lol -->
+                <% const since = user._id.getTimestamp() %> 
+                <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                
+                const monthNumber = new Date(since).getMonth();
+                const monthName = monthNames[monthNumber]
+                %> 
+                
+                <%= monthName %> <%= new Date(since).getFullYear() %> 
+            </h4>
+
+            <h2><%= user.username %></h2>
+
+            <h3><%= user.location %></h3>
+        
+        
+
+        </div>
+
+        <hr id="pad-hr">
+
+        <h1 id="profile-header">Top Trails For You</h1>
+
+        <div class="trail-boxes" style="margin-top: 25px">
+            <!-- Dynamically displays available trails -->
+                    
+            <% for (let i = 0; i < 6; i++) { %> 
+                <% const trail = trails[i] %> 
+    
+                <div class="box trail-box">
+                    <a href="/trails/<%= trail.id %>">
+                        
+                        <!-- Trail Box Image -->
+                        <div class="box-img-cont">
+                            <img class="box-img" src="<%= trail.image %>" alt="Trail Image">
+                        </div>
+    
+                        <!-- Trail Box Text -->
+                        <div class="box-text-cont">
+                            <h3><%= trail.name %></h3>
+                            <p class="trail-location"><%= trail.location %></p>
+    
+                            <!-- Difficulty color controller -->
+                            <% let diff = "easy" %>
+                            <% if (trail.difficulty === "3" || trail.difficulty === "4") { %> 
+                                <% diff = "medium" %> 
+                            <% } else if (trail.difficulty === "5") { %>
+                                <% diff = "hard" %> 
+                            <% } %> 
+    
+                            <p class="diff-rating <%= diff %>">Difficulty: <%= trail.difficulty %></p>
+    
+                            <!-- Time Estimator -->
+                            <% const time = trail.length * 28 %> 
+                            <% const hours = (time / 60) %> 
+                            <% const roundHours = Math.floor(hours) %> 
+                            <% const minutes = (hours - roundHours) * 60 %>
+                            <% const roundMinutes = Math.round(minutes) %>  
+    
+                            <p class="trail-length">Length: <%= trail.length %> mi <span>•</span> Est. <%= roundHours %> h <%= roundMinutes %> min </p>
+                        </div>
+                    </a>
+                </div>
+    
+            <% } %> 
+        </div>
+
+        <%- include('../partials/_footer.ejs') %>
+
+    </main>
+      
+
+</body>
+</html>

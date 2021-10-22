@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag content -->
+<%- include('../partials/_head.ejs') %>
+
+<body>
+    <!-- Navbar -->
+    <%- include('../partials/_nav.ejs') %>
+
+    <div class="show-grid">
+        <div class="show-wrapper">
+            <!-- Hero Image -->
+            <section class="hero show-hero">
+                <div id="show-img-div" class="hero-body">
+                    <img class="show-img" src="<%= trail.image %>" alt="">
+                </div>
+            </section>
+
+            <!-- Trail info on image -->
+            <a href="https://www.google.com/maps/dir/-50.97365,-72.8741/-51.07232,-73.09384" target="_blank" class="show-box-text-cont">
+                <h3><%= trail.name %></h3>
+
+                <!-- Difficulty color checker -->
+                <% let diff = "easy" %>
+                <% if (trail.difficulty === "3" || trail.difficulty === "4") { %> 
+                    <% diff = "medium" %> 
+                <% } else if (trail.difficulty === "5") { %>
+                    <% diff = "hard" %> 
+                <% } %> 
+
+                <span class="diff-rating <%= diff %>">Difficulty: <%= trail.difficulty %></span>
+                <p class="trail-location"><%= trail.location %></p>
+            </a>
+
+            <!-- Circles with Icons -->
+            <div class="circles">
+                <div class="circle share-circle">
+                    <div id="share-inner-circle" class="inner-circle"></div>
+                </div>
+                <a class="circle" href="https://www.google.com/maps/dir/Current+Location/-50.97365,-72.8741" target="_blank">
+                    <div id="directions-circle" class="inner-circle"></div>
+                </a>
+                
+                <%- include('../partials/_listModal.ejs') %>
+                <div class="circle list-circle">
+                    <div id="more-circle" class="inner-circle"></div>
+                </div>
+
+                <p class="share-circle">Share</p>
+                <p>Directions</p>
+                <p class="list-circle">Start a List</p>
+            </div>
+
+            <p class="container trail-description"><%= trail.description %></p>
+
+            <hr id="pad-hr">
+
+            <!-- Trail stats -->
+            <div class="stats">
+                <p class="stat">
+                    Length
+                    <br>
+                    <span><%= trail.length %> mi</span>
+                </p>
+                <p class="stat">
+                    Elevation gain
+                    <br>
+                    <span><%= trail.elevation %> ft</span>
+                </p>
+                <p class="stat">
+                    Route type
+                    <br>
+                    <span><%= trail.style %></span>
+                </p>
+            </div>
+
+            <hr id="pad-hr">
+        </div>
+
+        <div id='map'></div>
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleGdhIiwiYSI6ImNrdjFmMGZvejZsYmEydnQ5ZjcwbDRyZnIifQ.EVCmZIQHzV7y-DjXXWW3mg';
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [-72.8741, -50.97365], // starting position
+                zoom: 10
+            });
+
+            // GeoJson
+            const geojson = {
+                type: 'FeatureCollection',
+                features: [
+                    {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [-72.8741, -50.97365]
+                    },
+                    properties: {
+                        title: 'Trailhead',
+                        description: '-72.8741, -50.97365'
+                    }
+                    },
+                    {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [-73.09384, -51.07232]
+                    },
+                    properties: {
+                        title: 'Trail End',
+                        description: '-73.09384, -51.07232'
+                    }
+                    },
+                    
+                ]
+                };
+            // set the bounds of the map
+            // const bounds = [
+            //     [-20, -20],
+            //     [-100, -100]
+            // ];
+            // map.setMaxBounds(bounds);
+    
+            // // an arbitrary start will always be the same
+            // // only the end or destination will change
+            // const start = [-50.97365, -72.8741];
+    
+            // add markers to map
+            for (const feature of geojson.features) {
+                // create a HTML element for each feature
+                const el = document.createElement('div');
+                el.className = 'marker';
+
+                // make a marker for each feature and add to the map
+                new mapboxgl.Marker(el)
+                .setLngLat(feature.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                .setHTML(
+                    `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+                    )
+                )
+                .addTo(map);
+            }
+        </script>
+
+        <!-- Reviews section -->
+
+        <!-- Review header logic -->
+        <div class="review-head">
+            <div id="rating-cont">
+                <!-- Get score to 1 decimal -->
+                <% let score = 0 %>
+                <% for( let i = 0; i < reviews.length; i++ ) { %>
+                     <% score += reviews[i].rating %>
+                <% } %>
+                <% const total = Math.round(((score / reviews.length) * 10)) / 10 %> 
+
+                <!-- Display total rating -->
+                <% let button = "Write First Review" %> 
+                <% if (reviews.length !== 0) { %> 
+                    <% button = "Write a Review" %> 
+                    <h2><%= total %> <img id="big-star" src="https://cdn-assets.alltrails.com/assets/packs/media/icons/icons_stars_active_lrg-4058040f.svg" alt=""></h2>
+                <% } %> 
+                
+                <% if (reviews.length === 1) { %>
+                    <p><%= reviews.length %> review</p>
+                <% } else { %>   
+                    <p><%= reviews.length %> reviews</p>
+                <% } %> 
+            </div>
+
+            <%- include('../partials/_reviewModal.ejs') %>
+
+            <button class="button review-button dark-scheme"><%= button %></button>
+        </div>
+
+        <!-- This is where the reviews are pushed out -->
+        <div class="reviews-container">
+
+            <% for (let i = 0; i < reviews.length; i++) { %>
+                <% const review = reviews[i] %> 
+
+                <div>
+                    <figure class="image is-64x64">
+                        <img class="profile-pic is-rounded" src="<%= review.user.avatar %>">
+                    </figure>
+                </div>
+
+                <div class="name-rating">
+                    <h3><%= review.user.username %></h3>
+                    <div class="star-date">
+                        <!-- Create stars -->
+                        <% for( let i = 0; i < review.rating; i++ ) { %>
+                            <img class="star" src="https://cdn-assets.alltrails.com/assets/packs/media/icons/icons_stars_active_lrg-4058040f.svg" alt="">
+                        <% } %>
+                        <% for( let i = 5; i > review.rating; i-- ) { %>
+                            <img class="star" src="https://cdn-assets.alltrails.com/assets/packs/media/icons/icons_stars_inactive_lrg-a0d4ffbc.svg" alt="">
+                        <% } %>
+
+                        <!-- Date Processing -->
+                        <% const posted = review.createdAt %> 
+                        <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                        
+                        const monthNumber = new Date(posted).getMonth();
+                        const monthName = monthNames[monthNumber]
+                        %> 
+
+                        <h5>
+                            <%= new Date(posted).getDay() %> <%= monthName %>, <%= new Date(posted).getFullYear() %> 
+                        <h5/>
+                    </div>
+                </div>
+                
+                <p><%= review.description %></p>
+
+                <hr>
+            <% } %> 
+            
+        </div>
+    </div>
+    <%- include('../partials/_footer.ejs') %>
+</body>
+</html>

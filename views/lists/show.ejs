@@ -1,0 +1,122 @@
+
+<!-- Head tag content -->
+<%- include('../partials/_head.ejs') %>
+
+<body>
+    <!-- Navbar -->
+    <%- include('../partials/_nav.ejs') %>
+
+
+    <main class="list-view-main">
+        <h1> <%=list.name%> </h1>
+
+        <!-- ******************************************* -->
+        <div class="user-avatar">
+            <figure class="image is-64x64">
+                <img class="profile-pic is-rounded" src="<%= list.user_id.avatar %>">
+            </figure>
+
+            <div class="name-rating">
+                <h3><%= list.user_id.username %></h3>
+
+                <% let trails = "trails" %> 
+                <% if (list.trail_id.length === 1) { %>
+                    <% trails = "trail" %> 
+                <% } %>
+                <p><%= list.trail_id.length %> <%= trails %></p>
+            </div>
+        </div>
+
+
+    <!-- *********************************************** -->
+        <!-- ======= Drop down to add trails by Id ===== -->
+        <form class="trail-select" action="/lists/<%= list.id %>?_method=PUT" method="POST">
+            <div class="select mb-5">
+                <select name="trail_id">
+                    <option value="">Select a Trail</option>
+                    <% trail.forEach(trail=> { %>
+                        <option value="<%= trail.id %>">
+                            <%= trail.name %>
+                        </option>
+                    <% }) %>
+                </select>
+            </div>
+            <input type="submit" value="Submit" class="button is-link">
+        </form>
+
+<!-- ========== ========== =========== ========= -->
+        <!-- <div class="search-grid">
+            <!-- search would go here in theory -->
+        <!-- </div>  -->
+        <!-- Container of list boxes -->
+        <div id="list-boxes" class="trail-boxes">
+            <!-- Dynamically displays available trails -->
+            <%  for (i = 0; i < list.trail_id.length; i++) { %>
+                <%   const trail = list.trail_id[i]; %>
+            
+                <div class="box trail-box">
+                    <a href="/trails/<%= trail.id %>">
+           
+          
+                        <!-- Trail Box Image -->
+                        <div class="box-img-cont">
+                            <img name="test" class="box-img" src="<%= trail.image %>" alt="Trail Image">
+                        </div>
+                    
+                        <!-- Trail Box Text -->
+                        <div class="box-text-cont">
+                            <h3><%= trail.name %></h3>
+                            <p class="trail-location"><%= trail.location %></p>
+                
+                            <!-- Difficulty color controller -->
+                            <% let diff = "easy" %>
+                            <% if (trail.difficulty === "3" || trail.difficulty === "4") { %> 
+                                <% diff = "medium" %> 
+                            <% } else if (trail.difficulty === "5") { %>
+                                <% diff = "hard" %> 
+                            <% } %> 
+                
+                            <p class="diff-rating <%= diff %>">Difficulty: <%= trail.difficulty %></p>
+                
+                            <!-- Time Estimator -->
+                            <% const time = trail.length * 28 %> 
+                            <% const hours = (time / 60) %> 
+                            <% const roundHours = Math.floor(hours) %> 
+                            <% const minutes = (hours - roundHours) * 60 %>
+                            <% const roundMinutes = Math.round(minutes) %>  
+                
+                            <div class="length-delete">
+                                <!-- Trail length & time  -->
+                                <p class="trail-length">
+                                    Length: <%= trail.length %> mi <span>•</span> Est. <%= roundHours %> h <%= roundMinutes %> min 
+                                </p>
+
+                                <!-- Delete button -->
+                                <form action="/<%= list.id %>/remove?_method=DELETE" method="POST">
+                                    <input
+                                    name="trail" 
+                                    type="hidden" 
+                                    id="trail" 
+                                    class="input"
+                                    value="<%= trail.id %>"
+                                     >
+                                    <button class="button is-danger is-outlined">
+                                        <span class="icon is-small">
+                                            <i class="fas fa-times"></i>
+                                        </span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+            <% } %> 
+        </div>
+    </main>
+    <%- include('../partials/_footer.ejs') %>
+</body>
+</html>
+
+

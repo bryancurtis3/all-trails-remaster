@@ -1,0 +1,62 @@
+<div class="modal review-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <form action="/reviews" method="POST">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Write a Review</p>
+                <button type="button" class="delete close-modal" aria-label="close"></button>
+            </header>
+
+            <section class="modal-card-body">
+
+                <h2 id="review-trail-name">
+                    <%= trail.name %>
+                </h2>
+
+                <div class="field">
+                    <div class="control has-icons-left">
+                    <div class="select mb-5">
+                        <select name="rating">
+                        <option value="" default>Select Rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="icon is-small is-left">
+                        <img id="modal-star" src="https://cdn-assets.alltrails.com/assets/packs/media/icons/icons_stars_active_lrg-4058040f.svg" alt="">
+                    </div>
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <!-- <label class="label">Message</label> -->
+                    <div class="control">
+                        <textarea 
+                        name="description"
+                        class="textarea" 
+                        placeholder="Write your review of <%= trail.name %> trail here"
+                        maxlength="2000"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <input type="hidden" name="trail_id" value="<%= trail._id %>">
+
+                <input type="hidden" name="user_id" value="<%= user._id %>">
+
+                <input type="hidden" name="username" value="<%= user.username %>">
+
+                <input type="hidden" name="avatar" value="<%= user.avatar %>">
+
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button review-submit is-link">Submit</button>
+                <button type="button" class="button close-modal">Cancel</button>
+            </footer>
+        </form>
+    </div>
+</div>
