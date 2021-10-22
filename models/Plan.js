@@ -16,11 +16,11 @@ const mongoose = require("mongoose");
                 type: Array,
                 required: [ false, "List the gear would will be bringing on this trip."
                 ],
+            },
             date: {
                 type: Date,
-                required: [false, "When are you planning on going on this trip?"],
+                // required: [false, "When are you planning on going on this trip?"],
             },
-            }
         }, 
         {timestamps: true,},
     );
