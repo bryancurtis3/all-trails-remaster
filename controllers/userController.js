@@ -92,8 +92,10 @@ router.get("/profile", async function(req, res, next){
     try{
         
         const authUser = await User.findById(req.session.currentUser.id); 
+        const allTrails = await Trail.find({});
         const context = { 
             user: authUser,
+            trails: allTrails,
          };
         
         return res.render("users/show", context);

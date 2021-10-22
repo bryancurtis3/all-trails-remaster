@@ -34,7 +34,7 @@ router.get("/", async function (req, res, next) {
     try{      
         const allTrails = await Trail.find({});
 
-        const allPlans = await Plan.find({}).populate("user_id trail_id");
+        const allPlans = await Plan.find({ user_id: req.session.currentUser.id}).populate("user_id trail_id");
 
         const context = {
             plans: allPlans,
