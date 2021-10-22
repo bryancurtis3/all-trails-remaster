@@ -1,6 +1,7 @@
 :root {
   --green: #428a13;
   --sign: rgb(75, 152, 211);
+  --fff: #FFFFFF;
 }
 
 * {
@@ -20,7 +21,7 @@ a a:hover {
 }
 
 #navbar {
-  background-color: white;
+  background-color: var(--fff);
 }
 
 nav .button {
@@ -32,7 +33,7 @@ nav .button:hover {
 nav #nav-profile {
   background-color: var(--sign);
   border-color: var(--sign);
-  color: white;
+  color: var(--fff);
 }
 
 .logo-link {
@@ -43,7 +44,7 @@ nav #nav-profile {
 #sign-up {
   background-color: var(--sign);
   border-color: var(--sign);
-  color: white;
+  color: var(--fff);
 }
 
 #login {
@@ -85,7 +86,7 @@ nav #nav-profile {
   pointer-events: initial;
 }
 #search .fa-arrow-right {
-  color: #FFFFFF;
+  color: var(--fff);
 }
 @media screen and (min-width: 742px) {
   #search #search-arrow {
@@ -111,7 +112,7 @@ nav #nav-profile {
 #submission {
   background-color: var(--sign);
   border-color: var(--sign);
-  color: white;
+  color: var(--fff);
 }
 
 .trail-boxes {
@@ -217,7 +218,7 @@ nav #nav-profile {
   width: 100%;
   max-width: 765px;
   height: 100%;
-  background-color: white;
+  background-color: var(--fff);
 }
 
 .show-img {
@@ -251,13 +252,13 @@ nav #nav-profile {
 .show-box-text-cont h3 {
   font-size: 22px;
   font-weight: bold;
-  color: #FFFFFF;
+  color: var(--fff);
 }
 .show-box-text-cont .diff-rating {
   padding: 3px 15px;
   font-size: 0.8em;
   font-weight: 500;
-  color: #FFFFFF;
+  color: var(--fff);
   text-align: center;
   border-radius: 5px;
 }
@@ -285,7 +286,7 @@ nav #nav-profile {
   padding-bottom: 0.5em;
 }
 .circles .circle {
-  background: #FFFFFF;
+  background: var(--fff);
   border-radius: 50%;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
   width: 48px;
@@ -299,8 +300,8 @@ nav #nav-profile {
   background-size: cover;
   margin: 11px 0 0 12px;
 }
-.circles .circle #photos-circle {
-  background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/photos-green-81f81b5c.png);
+.circles .circle #share-inner-circle {
+  background-image: url(https://cdn-assets.alltrails.com/assets/packs/media/Green-Variant/share-green-57e7f2b6.png);
 }
 .circles .circle #directions-circle {
   margin-top: 12px;
@@ -313,10 +314,14 @@ nav #nav-profile {
 .circles .circle:hover {
   transform: scale(1.05);
 }
+.circles .notification {
+  position: fixed;
+  z-index: 20;
+}
 .circles p {
   margin-top: 0.4em;
   line-height: 1em;
-  color: #FFFFFF;
+  color: var(--fff);
   width: 80px;
   text-align: center;
   cursor: pointer;
@@ -375,7 +380,7 @@ nav #nav-profile {
   padding: 1.5em;
   grid-template-columns: 2fr 1fr 1fr;
   place-items: center;
-  background-color: white;
+  background-color: var(--fff);
 }
 .review-head #rating-cont {
   display: grid;
@@ -396,12 +401,12 @@ nav #nav-profile {
   min-width: 137px;
   border-radius: 7px;
   background-color: var(--green);
-  color: #FFFFFF;
+  color: var(--fff);
   transition: all 0.1s ease-in-out;
 }
 .review-head button:hover {
   transform: scale(1.05);
-  color: #FFFFFF;
+  color: var(--fff);
 }
 .review-head #big-star {
   height: 52px;
@@ -437,7 +442,7 @@ nav #nav-profile {
   width: 100%;
   max-width: 765px;
   padding: 1.5em;
-  background-color: white;
+  background-color: var(--fff);
   grid-template-columns: 80px 1fr;
   grid-auto-rows: minmax(20px, auto);
 }
@@ -594,7 +599,7 @@ nav #nav-profile {
 
 .new-list:hover {
   background-color: var(--green);
-  color: #FFFFFF;
+  color: var(--fff);
   transform: scale(1.05);
 }
 
@@ -603,7 +608,7 @@ nav #nav-profile {
   width: 100%;
   max-width: 765px;
   padding: 1.5em;
-  background-color: white;
+  background-color: var(--fff);
   grid-template-columns: 128px 1fr 40px;
   grid-auto-rows: minmax(20px, auto);
 }
@@ -712,7 +717,7 @@ nav #nav-profile {
   width: 100%;
   max-width: 765px;
   text-align: center;
-  background-color: white;
+  background-color: var(--fff);
   line-height: 1em;
   border-radius: 7px;
 }
@@ -725,7 +730,7 @@ nav #nav-profile {
   max-width: 765px;
   margin-top: 17px;
   width: 100%;
-  background-color: white;
+  background-color: var(--fff);
   display: grid;
   place-items: center;
   padding-bottom: 40px;
@@ -823,6 +828,10 @@ nav #nav-profile {
   padding: 0;
   height: inherit;
   width: 100%;
+}
+
+.footer {
+  padding: 1rem 0.5rem 1.5rem;
 }
 
 #map {
