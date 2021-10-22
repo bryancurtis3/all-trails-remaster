@@ -35,18 +35,19 @@
 
             <!-- Circles with Icons -->
             <div class="circles">
-                <div id="share-circle"" class="circle">
+                <div class="circle share-circle">
                     <div id="share-inner-circle" class="inner-circle"></div>
                 </div>
-                <div class="circle">
+                <a class="circle" href="https://www.google.com/maps/dir/Current+Location/-50.97365,-72.8741" target="_blank">
                     <div id="directions-circle" class="inner-circle"></div>
-                </div>
+                </a>
+                
                 <%- include('../partials/_listModal.ejs') %>
                 <div class="circle list-circle">
                     <div id="more-circle" class="inner-circle"></div>
                 </div>
 
-                <p>Share</p>
+                <p class="share-circle">Share</p>
                 <p>Directions</p>
                 <p class="list-circle">Start a List</p>
             </div>
@@ -84,20 +85,58 @@
                 container: 'map',
                 style: 'mapbox://styles/mapbox/streets-v11',
                 center: [-72.8741, -50.97365], // starting position
-                zoom: 12
+                zoom: 10
             });
+
+            // GeoJson
+            const geojson = {
+                type: 'FeatureCollection',
+                features: [
+                    {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [-72.8741, -50.97365]
+                    },
+                    properties: {
+                        title: 'Trailhead',
+                        description: 'Torres Del Paine, Patagonia'
+                    }
+                    },
+                    {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [-73.09384, -51.07232]
+                    },
+                    properties: {
+                        title: 'Trail End',
+                        description: 'Torres Del Paine, Patagonia'
+                    }
+                    },
+                    
+                ]
+                };
             // set the bounds of the map
-            const bounds = [
-                [-20, -20],
-                [-100, -100]
-            ];
-            map.setMaxBounds(bounds);
+            // const bounds = [
+            //     [-20, -20],
+            //     [-100, -100]
+            // ];
+            // map.setMaxBounds(bounds);
     
-            // an arbitrary start will always be the same
-            // only the end or destination will change
-            const start = [-50.97365, -72.8741];
+            // // an arbitrary start will always be the same
+            // // only the end or destination will change
+            // const start = [-50.97365, -72.8741];
     
-        // this is where the code for the next step will go
+            // add markers to map
+            for (const feature of geojson.features) {
+                // create a HTML element for each feature
+                const el = document.createElement('div');
+                el.className = 'marker';
+
+                // make a marker for each feature and add to the map
+                new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
+            }
         </script>
 
         <!-- Reviews section -->

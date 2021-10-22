@@ -25,6 +25,6 @@ $(".list-circle").on("click", function (event) {
     $(".list-modal").addClass("is-active");
 });
 
-$("#share-circle").on("click", function (event) {
+$(".share-circle").on("click", function (event) {
     navigator.clipboard.writeText(window.location.href);
 });
