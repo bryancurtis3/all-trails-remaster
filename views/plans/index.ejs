@@ -1,0 +1,71 @@
+<html>
+<!-- Head tag content -->
+<%- include('../partials/_head.ejs') %>
+
+<!-- Navbar -->
+<%- include('../partials/_nav.ejs') %>
+
+
+<body>
+    <%- include('../partials/_planModal.ejs') %>
+    <main class="lists-index-main">
+
+        <div id="lists-title">
+            <p>Your Plans</p>
+            <div class="new-list-form">
+                <button class="button new-plan is-outlined">New Plan</button>
+            </div>
+        </div>
+        
+        <hr id="list-index-hr">
+
+        <div class="lists-container">
+            <% for (let i = 0; i < plans.length; i++) { %>
+                <% const plan = plans[i] %> 
+                <% console.log(plan) %> 
+
+                <a href="plans/<%= plan.id %>">
+                    <figure class="image is-128x128">
+                        <img class="profile-pic" src="https://cdn-assets.alltrails.com/assets/placeholder/person_placeholder.png">
+                    </figure>
+                </a>
+
+                <div class="list-info">
+                    <h3><%= plan.trail_id.name %></h3>
+                    <h4><%= plan.user_id.username %></h4>
+                    <h5>
+                        <% const created = plan.date %> 
+                        <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                        
+                        const monthNumber = new Date(created).getMonth();
+                        const monthName = monthNames[monthNumber]
+                        %> 
+                        
+                        Planned for: <%= new Date(created).getDay() %> <%= monthName %>, <%= new Date(created).getFullYear() %> 
+
+                    </h5>
+                </div> 
+                
+                <form action="plans/<%= plan.id %>/delete?_method=DELETE" method="POST">
+                    <button class="button is-danger is-outlined">
+                        <span class="icon is-small">
+                        <i class="fas fa-times"></i>
+                        </span>
+                    </button>
+                </form>
+                <hr>
+                
+            <% } %> 
+    
+        
+    </div>
+
+        <hr>
+            
+    </div>
+    </main>
+
+</body>
+</html>
+
+
