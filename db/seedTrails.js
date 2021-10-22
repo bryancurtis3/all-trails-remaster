@@ -162,6 +162,7 @@ const trails = [
         style: "Loop",
         difficulty: 2,
         image: "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTU4NjkxOTkvYTgwMTIxNmE2NzY3MTdlMGM3ODgwZGI2ODQ4ZmMxNjcuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjoyMDQ4LCJoZWlnaHQiOjIwNDgsImZpdCI6Imluc2lkZSJ9LCJyb3RhdGUiOm51bGwsImpwZWciOnsidHJlbGxpc1F1YW50aXNhdGlvbiI6dHJ1ZSwib3ZlcnNob290RGVyaW5naW5nIjp0cnVlLCJvcHRpbWlzZVNjYW5zIjp0cnVlLCJxdWFudGlzYXRpb25UYWJsZSI6M319fQ==",
+        coords: [37.7361000, -122.4397800],
     },
     {
         name: "Presidio Loop Trail",
@@ -172,6 +173,7 @@ const trails = [
         style: "Loop",
         difficulty: 3,
         image: "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvMTk4MDUxMTMvZDcxNzc1ZDFjMWRjYzU0Y2NlMTA4YzE1N2Y1ZDIyMmYuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjoyMDQ4LCJoZWlnaHQiOjIwNDgsImZpdCI6Imluc2lkZSJ9LCJyb3RhdGUiOm51bGwsImpwZWciOnsidHJlbGxpc1F1YW50aXNhdGlvbiI6dHJ1ZSwib3ZlcnNob290RGVyaW5naW5nIjp0cnVlLCJvcHRpbWlzZVNjYW5zIjp0cnVlLCJxdWFudGlzYXRpb25UYWJsZSI6M319fQ==",
+        coords: [37.7899300, -122.4596400],
     },
     {
         name: "Weltch Dickey Loop Trail",
@@ -181,7 +183,8 @@ const trails = [
         elevation: 1778,
         style: "Loop",
         difficulty: 4,
-        image: "https://cdn-assets.alltrails.com/uploads/photo/image/29436638/extra_large_a4c6f59770806b1991e8c2ab8e6b5c74.jpg",   
+        image: "https://cdn-assets.alltrails.com/uploads/photo/image/29436638/extra_large_a4c6f59770806b1991e8c2ab8e6b5c74.jpg",
+        coords: [43.9042600, -71.5886200],   
     },
     {
         name: "Owl Head Lookout",
@@ -191,7 +194,8 @@ const trails = [
         elevation: 1240,
         style: "Out & back",
         difficulty: 3,
-        image: "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvNDE1Nzc0NDQvMTJmMDU3YzY5ODAyYjY1Mzk5MTMwMWQwOWUzZDQxY2EuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjoyMDQ4LCJoZWlnaHQiOjIwNDgsImZpdCI6Imluc2lkZSJ9LCJyb3RhdGUiOm51bGwsImpwZWciOnsidHJlbGxpc1F1YW50aXNhdGlvbiI6dHJ1ZSwib3ZlcnNob290RGVyaW5naW5nIjp0cnVlLCJvcHRpbWlzZVNjYW5zIjp0cnVlLCJxdWFudGlzYXRpb25UYWJsZSI6M319fQ==",   
+        image: "https://photos.alltrails.com/eyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvNDE1Nzc0NDQvMTJmMDU3YzY5ODAyYjY1Mzk5MTMwMWQwOWUzZDQxY2EuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJqcGVnIiwicmVzaXplIjp7IndpZHRoIjoyMDQ4LCJoZWlnaHQiOjIwNDgsImZpdCI6Imluc2lkZSJ9LCJyb3RhdGUiOm51bGwsImpwZWciOnsidHJlbGxpc1F1YW50aXNhdGlvbiI6dHJ1ZSwib3ZlcnNob290RGVyaW5naW5nIjp0cnVlLCJvcHRpbWlzZVNjYW5zIjp0cnVlLCJxdWFudGlzYXRpb25UYWJsZSI6M319fQ==",
+        coords: [44.2123400, -73.6789300],
     },
     {
         name: "Pemigewasset River Trail",
@@ -201,7 +205,8 @@ const trails = [
         elevation: 154,
         style: "Out & back",
         difficulty: 1,
-        image: "https://cdn-assets.alltrails.com/uploads/photo/image/22421788/extra_large_dd0baa406a9973614db7e97bd3b56bbe.jpg",   
+        image: "https://cdn-assets.alltrails.com/uploads/photo/image/22421788/extra_large_dd0baa406a9973614db7e97bd3b56bbe.jpg", 
+        coords: [44.0414800, -71.6636800],  
     },
 ];
 
