@@ -14,9 +14,9 @@ const plans = [
 const seedPlan = async function seedPlan(){
     try{
         await Plan.deleteMany({});
-        const createdPlans = await Plan.insertMany(plans);
+       /*  const createdPlans = await Plan.insertMany(plans); */
         console.log("=== Plans Seeded ===");
-        console.log(createdPlans);
+        /* console.log(createdPlans); */
         process.exit();
     }
     catch (error) {
