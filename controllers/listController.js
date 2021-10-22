@@ -86,9 +86,12 @@ router.put("/lists/:id", async function (req, res, next){
                 }
             });
         return res.redirect("back");   
-        console.log("did we hit the route??",req.body.trail_id);
     }
-    catch(error){console.log(error);}
+    catch(error){   
+    console.log(error);
+    re.error = error;
+    return next();
+    }
 });
 
 // Delete route for trail
@@ -105,6 +108,7 @@ router.delete("/:id/remove", async function (req, res, next){
        }
        catch(error){
            console.log(error);
+           req.error = error;
            return next()};
        });
 
@@ -117,6 +121,7 @@ router.delete("/:id/remove", async function (req, res, next){
      }
      catch(error){
          console.log(error);
+         req.error = error;
          return next();
      }
  });

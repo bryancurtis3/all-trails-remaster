@@ -13,7 +13,6 @@ const mongoose = require("mongoose");
             location: {
                 type: String,
                 required: [ true, "List the gear would will be bringing on this trip."],
-                // add feature for map-box (or coordinates)
             },
             length: {
                 type: Number,

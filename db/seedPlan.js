@@ -1,12 +1,8 @@
 /* ====!!!! Must be run After the seedTrails.js && seedUser!!!!==== */
 /*  == and updated manually == */
 
-
 require("../config/db.configuration");
 const { Plan } = require("../models");
-
-/* find user by user name
-generate trail ids radomly usind math.random() to to hit the trial ids like in an array maybe */
 
 const plans = [
     {

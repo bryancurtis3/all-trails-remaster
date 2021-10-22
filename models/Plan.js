@@ -19,7 +19,6 @@ const mongoose = require("mongoose");
             },
             date: {
                 type: Date,
-                // required: [false, "When are you planning on going on this trip?"],
             },
         }, 
         {timestamps: true,},
