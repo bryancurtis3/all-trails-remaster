@@ -8,81 +8,81 @@
 <%- include('../partials/_nav.ejs') %>
 
 <body>
-
-
-    <main class="plan-grid">
-
-        <% if (plan) { %>
-            <!-- Circles with Icons -->
-            <form class="date-trail-select" action="/plans/<%= plan.id %>?_method=PUT" method="POST">
-
-                <!-- Calendar Input -->
-                <input name="date" type="date" class="calendar" data-start-date="10/24/2019">
-
-                <!-- Drop down for trail selection -->
-                <div class="select mb-5">
-                    <select name="trail_id">
-                        <option>Select a trail</option>
-                        <% trails.forEach(trail=> { %>
-                            <option value="<%= trail.id %>">
-                                <%= trail.name %>
-                            </option>
-                            <% }) %>
-                    </select>
+    <!-- Hero Banner -->
+    <div class="show-grid">
+        <div class="show-wrapper">
+                <!-- Hero Image -->
+                <section class="hero show-hero">
+                <div id="show-img-div" class="hero-body">
+                    <img class="show-img" src="<%= plan.trail_id.image %>" alt="">
                 </div>
-                <input type="submit" value="submit" class="button is-link">
-            </form>
+            </section>
 
+            <!-- Trail info on image -->
+            <div class="show-box-text-cont">
+                <h3><%= plan.trail_id.name %></h3>
+
+                <!-- Difficulty color checker -->
+                <% let diff = "easy" %>
+                <% if (plan.trail_id.difficulty === "3" || plan.trail_id.difficulty === "4") { %> 
+                    <% diff = "medium" %> 
+                <% } else if (plan.trail_id.difficulty === "5") { %>
+                    <% diff = "hard" %> 
+                <% } %> 
+
+                <span class="diff-rating <%= diff %>">Difficulty: <%= plan.trail_id.difficulty %></span>
+                <p class="trail-location"><%= plan.trail_id.location %></p>
+            </div>
+
+            <!-- Circles left here for spacing (sorry ran out of time) -->
+            <div class="circles">
+
+            </div>
+        </div>
+    
+
+    <!-- <hr> -->
+ 
+    
+        <main class="container plan-grid">
             <!-- gear input -->
-            <form action="/plans/<%= plan.id %>/gear" method="POST">
-                <div class="field">
-                    <label for="gear" class="label">Add Gear</label>
-                    <div class="control">
-                        <div name="gear" type="text" id="gear" class="input"
-                            placeholder="Planning items"></div>
-                    </div>
+
+            
+            <ul class="gear-items">
+                <h1 id="plan-title">
+                    Plan Your Hike On <br>
+                    <% const created = plan.date %> 
+                    <% const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                    
+                    const monthNumber = new Date(created).getMonth();
+                    const monthName = monthNames[monthNumber]
+                    %> 
+                    
+                    <span><%= new Date(created).getDay() %> <%= monthName %>, <%= new Date(created).getFullYear() %></span>
+                </h1>
+                <% plan.gear.forEach(gear=> { %>
+                    <li class="box"><%= gear %></li>
+                <% }) %>
+                <form class="gear-adder" action="/plans/<%= plan.id %>/gear" method="POST">
+                    <input name="gear" type="text" class="box" placeholder="New Item"></input>
+                    <input type="submit" value="Add" class="button">
+                </form>
+                <div class="bottom-bs">
+                    <form class="undo-delete" action="/plans/<%= plan.id %>/delete?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete Plan" class="button is-danger">
+                    </form>
+                    <form id="undo" class="undo-delete" action="/plans/<%= plan.id %>?_method=DELETE" method="POST">
+                        <input type="submit" value="Undo" class="button">
+                    </form>
                 </div>
-                <input id="addGear" type="submit" value="Add Gear" class="button is-link">
-            </form>
-
-            <!-- yes I know gear is already plural -->
-
-            <% plan.gear.forEach(gear=> { %>
-                <ul class="gear">
-                    <p><%= gear %></p>
-            <% }) %>
-
-                    <div>
-                        <form action="/plans/<%= plan.id %>?_method=DELETE" method="POST">
-                            <input id="removeGear" type="submit" value="Undo" class="button is-link">
-                        </form>
-                    </div>
-                </ul>
+            </ul>
 
 
-
-            <!--  testing things down here -->
-            <p>
-                <%= plan.trail_id %>
-            </p>
-
-            <!--  button for deleting the current plan  -->
-
-            <form action="/plans/<%= plan.id %>/delete?_method=DELETE" method="POST">
-                <input id="deletePlan" type="submit" value="deletePlan" class="button is-link">
-            </form>
-
-        <% } else { %>
+                <!--  button for deleting the current plan  -->
 
 
-            <%- include('../partials/_planModal.ejs') %>
-            <!-- Create New Plan Form  -->
-
-
-        <% } %>
-
-
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>
