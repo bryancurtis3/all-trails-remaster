@@ -70,14 +70,7 @@ app.get("/", async function (req, res, next) {
     }
 });
 
-//================== Test Map Route ================
-/* app.get("/map", function (req, res, next) {
-    res.render("./mapindex");
-}); */
-
-
 // ==  Default Routes
-
 
 // user
 app.use("/", controllers.user);
@@ -92,6 +85,14 @@ app.use("/plans", controllers.plan);
 
 
 // == Utility Routes
+
+// == 404
+app.get("/*", function(req, res){
+    const context = {
+        error: req.error
+    };
+    res.render("404", context);
+});
 
 /* === Server Listener === */
 
