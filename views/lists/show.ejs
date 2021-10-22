@@ -17,7 +17,7 @@
             </figure>
 
             <div class="name-rating">
-                <h3><%= list.username %></h3>
+                <h3><%= list.user_id.username %></h3>
 
                 <% let trails = "trails" %> 
                 <% if (list.trail_id.length === 1) { %>
@@ -29,24 +29,25 @@
 
 
     <!-- *********************************************** -->
-<!-- ======= Drop down to add trails by Id ===== -->
-<form class="date-trail-select" action="/lists/<%= list.id %>?_method=PUT" method="POST">
-<div class="select mb-5">
-    <select name="trail_id">
-        <% trail.forEach(trail=> { %>
-            <option value="<%= trail.id %>">
-                <%= trail.name %>
-                    : <%= trail.location %>
-            </option>
-            <% }) %>
-    </select>
-</div><input type="submit" value="submit" class="button is-link">
-</form>
+        <!-- ======= Drop down to add trails by Id ===== -->
+        <form class="trail-select" action="/lists/<%= list.id %>?_method=PUT" method="POST">
+            <div class="select mb-5">
+                <select name="trail_id">
+                    <option value="">Select a Trail</option>
+                    <% trail.forEach(trail=> { %>
+                        <option value="<%= trail.id %>">
+                            <%= trail.name %>
+                        </option>
+                    <% }) %>
+                </select>
+            </div>
+            <input type="submit" value="Submit" class="button is-link">
+        </form>
 
 <!-- ========== ========== =========== ========= -->
-        <div class="search-grid">
-            <%- include('../partials/_search.ejs') %>
-        </div>
+        <!-- <div class="search-grid">
+            <!-- search would go here in theory -->
+        <!-- </div>  -->
         <!-- Container of list boxes -->
         <div id="list-boxes" class="trail-boxes">
             <!-- Dynamically displays available trails -->
@@ -55,27 +56,8 @@
             
                 <div class="box trail-box">
                     <a href="/trails/<%= trail.id %>">
-<!--=== Here is the delete Button Alex made ===-->            
+           
           
-            <form action="/<%= list.id %>/remove?_method=DELETE" method="POST">
-                <button class="button is-danger is-outlined">
-                    <span class="icon is-small">
-                    
-                    <input
-                     name="trail" 
-                     type="text" 
-                     id="trail" 
-                     class="input"
-                     value="<%= trail.id %>"
-                      >
-
-
-
-
-                    <i class="fas fa-times"></i>
-                    </span>
-                </button>
-            </form>
                         <!-- Trail Box Image -->
                         <div class="box-img-cont">
                             <img name="test" class="box-img" src="<%= trail.image %>" alt="Trail Image">
@@ -103,7 +85,28 @@
                             <% const minutes = (hours - roundHours) * 60 %>
                             <% const roundMinutes = Math.round(minutes) %>  
                 
-                            <p class="trail-length">Length: <%= trail.length %> mi <span>•</span> Est. <%= roundHours %> h <%= roundMinutes %> min </p>
+                            <div class="length-delete">
+                                <!-- Trail length & time  -->
+                                <p class="trail-length">
+                                    Length: <%= trail.length %> mi <span>•</span> Est. <%= roundHours %> h <%= roundMinutes %> min 
+                                </p>
+
+                                <!-- Delete button -->
+                                <form action="/<%= list.id %>/remove?_method=DELETE" method="POST">
+                                    <input
+                                    name="trail" 
+                                    type="hidden" 
+                                    id="trail" 
+                                    class="input"
+                                    value="<%= trail.id %>"
+                                     >
+                                    <button class="button is-danger is-outlined">
+                                        <span class="icon is-small">
+                                            <i class="fas fa-times"></i>
+                                        </span>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </a>
                 </div>

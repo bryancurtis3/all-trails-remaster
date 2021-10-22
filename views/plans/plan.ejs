@@ -9,7 +9,7 @@
 
 <body>
     <!-- Hero Banner -->
-    <div class="show-grid">
+    <div id="plan-main" class="show-grid">
         <div class="show-wrapper">
                 <!-- Hero Image -->
                 <section class="hero show-hero">
@@ -44,7 +44,7 @@
     <!-- <hr> -->
  
     
-        <main class="container plan-grid">
+        <main class="plan-grid">
             <!-- gear input -->
 
             
@@ -64,7 +64,7 @@
                     <li class="box"><%= gear %></li>
                 <% }) %>
                 <form class="gear-adder" action="/plans/<%= plan.id %>/gear" method="POST">
-                    <input name="gear" type="text" class="box" placeholder="New Item"></input>
+                    <input name="gear" type="text" class="box" placeholder="New Item" required></input>
                     <input type="submit" value="Add" class="button">
                 </form>
                 <div class="bottom-bs">

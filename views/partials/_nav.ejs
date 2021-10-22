@@ -29,14 +29,22 @@
           </a>
   
           <div class="navbar-dropdown">
-            <a class="navbar-item">
+            <a class="navbar-item" href="https://github.com/bryancurtis3/all-trails-remaster">
               About
             </a>
-            <a class="navbar-item">
-              Contact
-            </a>
+            <% const num = Math.round(Math.random()) %>
+            <% if (num === 0) { %> 
+              <a class="navbar-item" href="https://www.linkedin.com/in/bryancurtis3/">
+                Contact
+              </a>
+            <% } else { %>
+              <a class="navbar-item" href="https://www.linkedin.com/in/alexander-arvanitis/">
+                Contact
+              </a>
+            <% } %> 
+
             <hr class="navbar-divider">
-            <a class="navbar-item">
+            <a class="navbar-item" href="https://www.merriam-webster.com/dictionary/help">
               Help
             </a>
           </div>
