@@ -26,7 +26,7 @@ router.get("/:id", async function (req, res, next) {
 router.get("/", async function (req, res, next) {
     try{      
         const allTrails = await Trail.find({});
-
+        console.log("session", req.session.currentUser.id);
         const allPlans = await Plan.find({ user_id: req.session.currentUser.id}).populate("user_id trail_id");
 
         console.log("session id")
