@@ -74,7 +74,7 @@ const trails = [
         image: "https://https://cdn.britannica.com/17/83817-050-67C814CD/Mount-Everest.jpg.imgur.com/ltTZBX6.jpg",
     },
     {
-        name: "The Cliffs, Mount Bond and West Bond",
+        name: "The Cliffs, Mount & West Bond",
         description: "The Cliffs, Mount Bond and West Bond is a 21.6 mile heavily trafficked out and back trail located near Bethlehem, New Hampshire that offers the chance to see wildlife and is rated as difficult. The trail is primarily used for hiking, running, and backpacking and is best used from April until October. Dogs are also able to use this trail but must be kept on leash.",
         location: "White Mountains, NH",
         length: 21.6,
@@ -84,7 +84,7 @@ const trails = [
         image: "https://cdn-assets.alltrails.com/uploads/photo/image/39131393/extra_large_7186b5c1b56647213adf28fe8dd8477b.jpg",
     },
     {
-        name: "Mount Lafayette and Franconia Ridge Trail Loop",
+        name: "Mount Lafayette Trail Loop",
         description: "Mount Lafayette and Franconia Ridge Trail Loop is a 9.3 mile heavily trafficked loop trail located near Lincoln, New Hampshire that features a waterfall and is only recommended for very experienced adventurers. The trail is primarily used for hiking and snowshoeing and is best used from April until October. Dogs are also able to use this trail.",
         location: "White Mountains, NH",
         length: 9.3,
@@ -124,7 +124,7 @@ const trails = [
         image: "https://cdn-assets.alltrails.com/uploads/photo/image/25424053/extra_large_b3e2978d1981193c1626ab442ee4f227.jpg",
     },
     {
-        name: "Mount Washington via Tuckerman Ravine and Lion Head Trail",
+        name: "Mount Washington Trail",
         description: "Mount Washington via Tuckerman Ravine and Lion Head Trail is a 7.4 mile heavily trafficked out and back trail located near Gorham, New Hampshire that features a waterfall and is only recommended for very experienced adventurers. The trail is primarily used for hiking and is best used from June until October. Dogs are also able to use this trail.",
         location: "Mount Washington National Park, NH",
         length: 7.4,
@@ -176,7 +176,7 @@ const trails = [
         coords: [37.7899300, -122.4596400],
     },
     {
-        name: "Weltch Dickey Loop Trail",
+        name: "Welch Dickey Loop Trail",
         description: "Welch-Dickey Loop Trail is a 4.4 mile heavily trafficked loop trail located near Thornton, New Hampshire that features a great forest setting and is rated as difficult. The trail is primarily used for hiking and is best used from May until October. Dogs are also able to use this trail but must be kept on leash.",
         location: "Thorton, NH",
         length: 4.4,

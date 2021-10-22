@@ -624,6 +624,7 @@ nav #nav-profile {
   padding-top: 5px;
   padding-left: 1em;
   color: #414141;
+  overflow: scroll;
 }
 .lists-container .list-info h3 {
   font-size: 20px;
@@ -843,6 +844,9 @@ nav #nav-profile {
   grid-template-columns: 4fr 8fr;
   place-items: center;
   gap: 15px;
+  margin-top: 30px;
+  position: absolute;
+  bottom: 0;
 }
 .footer #footer-logo {
   margin-top: 30px;
