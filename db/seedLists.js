@@ -14,7 +14,6 @@ const lists = [
     {
         name: "Admin Favorites",
         user_id: "616de0428522779fb4e92a53",
-        bryan
         trail_id: ["616df3d061265f478db458b8","616df3d061265f478db458b4", "616df3d061265f478db458b6"],
         avatar: "https://img.favpng.com/0/23/18/stormtrooper-clone-trooper-boba-fett-computer-icons-scalable-vector-graphics-png-favpng-56B4q1isPqtT7wgwpRPZ1ArJ8.jpg",
         username: "Admin",
@@ -22,20 +21,16 @@ const lists = [
     {
         name: "Admin Second List",
         user_id: "616de0428522779fb4e92a53",
-        bryan
         trail_id: ["616df3d061265f478db458b9","616df3d061265f478db458b8", "616df3d061265f478db458b6"],
         avatar: "https://img.favpng.com/0/23/18/stormtrooper-clone-trooper-boba-fett-computer-icons-scalable-vector-graphics-png-favpng-56B4q1isPqtT7wgwpRPZ1ArJ8.jpg",
         username: "Admin",
-
     },
     {
         name: "Admin Third List",
         user_id: "616de0428522779fb4e92a53",
-        bryan
         trail_id: ["616df3d061265f478db458b4","616df3d061265f478db458b8", "616df3d061265f478db458b6","616df3d061265f478db458b9"],
         avatar: "https://img.favpng.com/0/23/18/stormtrooper-clone-trooper-boba-fett-computer-icons-scalable-vector-graphics-png-favpng-56B4q1isPqtT7wgwpRPZ1ArJ8.jpg",
         username: "Admin",
-
     },
 ];
 
