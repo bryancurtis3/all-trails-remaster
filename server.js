@@ -51,7 +51,7 @@ app.use(function (req, res, next){
 /* === Routes === */
 
 // Home route
-const { Trail } = require("./models"); // idk where to put this atm
+const { Trail, Review } = require("./models"); // idk where to put this atm
 app.get("/", async function (req, res, next) {
     try {
         const allTrails = await Trail.find({});
@@ -71,9 +71,9 @@ app.get("/", async function (req, res, next) {
 });
 
 //================== Test Map Route ================
-app.get("/map", function (req, res, next) {
+/* app.get("/map", function (req, res, next) {
     res.render("./mapindex");
-});
+}); */
 
 
 // ==  Default Routes
