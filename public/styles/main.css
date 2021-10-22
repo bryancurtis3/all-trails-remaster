@@ -178,6 +178,17 @@ nav #nav-profile {
 .trail-box .box-text-cont .trail-length span {
   padding: 0 4px;
 }
+.trail-box .box-text-cont p {
+  white-space: nowrap;
+}
+.trail-box .box-text-cont .length-delete {
+  display: grid;
+  grid-template-columns: 1fr 35px;
+  width: 288px;
+}
+.trail-box .box-text-cont .button {
+  bottom: 12px;
+}
 
 @media only screen and (min-width: 420px) {
   .trail-boxes {
@@ -646,6 +657,7 @@ nav #nav-profile {
 .list-view-main .user-avatar {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .list-view-main .name-rating {
   padding: 8px;
@@ -701,6 +713,8 @@ nav #nav-profile {
   background-color: white;
   display: grid;
   place-items: center;
+  padding-bottom: 40px;
+  padding-top: 20px;
 }
 .plan-grid .date-trail-select {
   display: grid;
@@ -797,6 +811,7 @@ nav #nav-profile {
 }
 
 #map {
+  max-width: 765px;
   width: 100%;
   height: 400px;
 }
