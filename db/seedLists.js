@@ -36,9 +36,9 @@ const lists = [
 const seedLists = async function seedLists (){
     try{
         await List.deleteMany({});
-        const createdLists = await List.insertMany(lists);
+        /* const createdLists = await List.insertMany(lists); */
         console.log("=== Lists Seeded ===");
-        console.log(createdLists);
+       /*  console.log(createdLists); */
         process.exit();
     }
     catch (error) {
