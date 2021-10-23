@@ -33,6 +33,16 @@
                 <p class="trail-location"><%= trail.location %></p>
             </a>
 
+            <!-- Trail coords stuff -->
+            <% const url = "http://www.google.com" %> 
+            <a href="<%= url %>">Google</a>
+
+            <% const start = trail.start %>
+            <%  %> 
+            <% console.log(trail.startLat) %> 
+
+
+
             <!-- Circles with Icons -->
             <div class="circles">
                 <div class="circle share-circle">
@@ -42,14 +52,20 @@
                     <div id="directions-circle" class="inner-circle"></div>
                 </a>
                 
-                <%- include('../partials/_listModal.ejs') %>
                 <div class="circle list-circle">
                     <div id="more-circle" class="inner-circle"></div>
                 </div>
 
                 <p class="share-circle">Share</p>
                 <p>Directions</p>
-                <p class="list-circle">Start a List</p>
+                <% if (user !== undefined) { %>
+                    <%- include('../partials/_listModal.ejs') %>
+                    
+                <% } else { %>
+                    <a href="/login">
+                        <p class="list-circle">Start a List</p>
+                    </a>
+                <% } %> 
             </div>
 
             <p class="container trail-description"><%= trail.description %></p>
@@ -114,7 +130,6 @@
                         description: '-73.09384, -51.07232'
                     }
                     },
-                    
                 ]
                 };
             // set the bounds of the map
@@ -172,9 +187,18 @@
                 <% } %> 
             </div>
 
-            <%- include('../partials/_reviewModal.ejs') %>
+           
 
-            <button class="button review-button dark-scheme"><%= button %></button>
+            <% if (user !== undefined) { %>
+                <%- include('../partials/_reviewModal.ejs') %>
+                <button class="button review-button dark-scheme"><%= button %></button>
+            <% } else { %>
+                <a href="/login">
+                    <button class="button review-button"><%= button %></button>
+                </a>
+            <% } %> 
+
+
         </div>
 
         <!-- This is where the reviews are pushed out -->

@@ -9,7 +9,7 @@ const { findByIdAndUpdate } = require("../models/Hike");
 //== User List index
 router.get("/lists", async function(req, res, next){
     try{
-        const userList = await List.find( {user_id: req.session.currentUser.id} ).populate( { path: "trail_id"} ).populate("user");
+        const userList = await List.find( {user_id: req.session.currentUser.id} ).populate("trail_id user");
 
         const authUser = await User.findById(req.session.currentUser.id);
         const context = {
@@ -47,10 +47,11 @@ router.get("/lists/:id", async function (req, res, next) {
 
 
 // Trail Show
+// NOTE should be plural to match the rest
 router.get("/list/:id", async function (req, res, next) {
     try {
         const trail = await Trail.findById(req.params.id);
-        const context = { trail: trail };
+        const context = { trail };
         
         return res.render("trails/show", context);
     } catch (error) {
@@ -95,6 +96,9 @@ router.put("/lists/:id", async function (req, res, next){
 });
 
 // Delete route for trail
+
+// /lists/:id/trails/:trailid DELETE
+
 router.delete("/:id/remove", async function (req, res, next){
     try{
         console.log("hopefully a trail id:", req.body.trail);
@@ -105,12 +109,12 @@ router.delete("/:id/remove", async function (req, res, next){
                }
            });
            return res.redirect("back");
-       }
-       catch(error){
-           console.log(error);
-           req.error = error;
-           return next()};
-       });
+    } catch(error){
+        console.log(error);
+        req.error = error;
+        return next()
+    };    
+});
 
 // Delete route for list
  router.delete("/lists/:id/delete", async function (req, res, next){
@@ -125,8 +129,5 @@ router.delete("/:id/remove", async function (req, res, next){
          return next();
      }
  });
-
- 
- 
 
 module.exports = router;
