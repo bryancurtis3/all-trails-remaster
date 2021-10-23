@@ -56,51 +56,63 @@ nav {
     color: var(--sign);
 }
 
-.hero-body {
-    padding: 0;
-    margin: 0;
-}
-
-.hero-body-partial {
+.hero {
+    height: 500px;
     display: grid;
     place-items: center;
-}
-
-.hero-image {
-    height: 500px;
-    width: 100%;
-    object-fit: cover;
-    object-position: 50% 40%;
-}
-
-#search {
-    position: absolute;
-    width: 90%;
-    max-width: 650px;
-    #search-arrow {
-        background-color: var(--green);
-        border-radius: 50%;
-        height: 40px;
-        width: 40px;
-        margin-top: 10px;
-        margin-right: 10px;
-        border: none;
-        visibility: hidden;
-        pointer-events: initial;
+    grid-auto-rows: minmax(500px, 500px);
+    .hero-body {
+        grid-area: 1;
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        .hero-image {
+            height: 500px;
+            width: 100%;
+            object-fit: cover;
+            object-position: 50% 40%;
+        }
     }
-    .fa-arrow-right {
-        color: var(--fff);
-    }
-    @media screen and (min-width: 742px) {
-        #search-arrow {
-            visibility: visible;
+    .hero-search {
+        grid-area: 1;
+        #search {
+            position: absolute;
+            width: 90%;
+            max-width: 650px;
+            margin-left: 5%;
+            @media screen and (min-width: 742px) {
+                margin-left: calc(50vw - 325px);
+            }
+            #search-arrow {
+                background-color: var(--green);
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                margin-top: 10px;
+                margin-right: 10px;
+                border: none;
+                visibility: hidden;
+                pointer-events: initial;
+            }
+            .fa-arrow-right {
+                color: var(--fff);
+            }
+            @media screen and (min-width: 742px) {
+                #search-arrow {
+                    visibility: visible;
+                }
+            }
         }
     }
 }
 
-.hero {
-    height: 20px;
-}
+
+// .hero-body-partial {
+//     display: grid;
+//     place-items: center;
+// }
+
+
 
 .navbar-link:not(.is-arrowless)::after {
     border-color: var(--sign);
@@ -127,7 +139,7 @@ nav {
 // === Trail box CSS ===
 
 .trail-boxes {
-    margin-top: 510px;
+    margin-top: 40px;
 }
 
 .trail-box {
@@ -214,7 +226,7 @@ nav {
         gap: 1em 1.5em;
         justify-content: space-evenly;
         flex-wrap: wrap;
-        margin: 525px 1.5em 0 1.5em;
+        margin: 40px 1.5em 0 1.5em;
     }
 
     .trail-box {
@@ -381,15 +393,18 @@ nav {
         position: absolute;
         height: 312px;
     }
+
     .show-img {
         height: 312px;
     }
+
     .show-box-text-cont {
         margin-top: 164px;
         h3 {
             font-size: 30px;
         }
     }
+
     .circles {
         margin-top: 268px;
     }
@@ -407,24 +422,38 @@ nav {
     grid-template-columns: 2fr 1fr 1fr; 
     place-items: center;
     background-color: var(--fff);
+
     #rating-cont {
         display: grid;
         place-items: center;
     }
+
     h2 {
         font-size: 56px;
         display: grid;
         place-items: center;
         grid-template-columns: 1fr 1fr;
     }
+
     p {
         padding: 0 5px;
     }
+
+    a {
+        grid-column: span 2;
+        width: 60%;
+        min-width: 137px;
+        padding: 7px 16px;
+        margin: 1px;
+    }
+    
     .review-button {
             grid-column: span 2;
-            width: 60%;
+            width: 100%;
             min-width: 137px;
             border-radius: 7px;
+            padding: 7px 16px;
+            margin: 1px;
             background-color: var(--green);
             color: var(--fff);
             transition: all 0.1s ease-in-out;
@@ -608,6 +637,7 @@ nav {
         height: 100vh;
         align-content: space-between;
         .show-wrapper {
+            margin-top: 50px;
             max-width: 420px;
             height: 321px; 
             border-radius: 10px;
@@ -621,6 +651,7 @@ nav {
         height: 100vh;
         align-content: space-between;
         .show-wrapper {
+            margin-top: 80px;
             max-width: 480px;
         }
     }

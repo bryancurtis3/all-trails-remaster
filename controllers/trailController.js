@@ -52,14 +52,20 @@ router.get("/", async function (req, res, next) {
 router.get("/:id", async function (req, res, next) {
     try {
         const trail = await Trail.findById(req.params.id);
-        const user = await User.findById(req.session.currentUser.id);
+        // console.log(req.session.currentUser.id + "test")
         const reviews = await Review.find( {trail_id: req.params.id} ).populate("user").sort("-createdAt");
+        
         
         const context = { 
             trail: trail,
-            user: user,
             reviews: reviews,
         };
+
+        // Condition so non users can use the website
+        if (req.session.currentUser !== undefined) {
+            const user = await User.findById(req.session.currentUser.id);
+            context.user = user;
+        }
         
         return res.render("trails/show", context);
     } catch (error) {

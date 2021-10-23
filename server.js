@@ -51,18 +51,19 @@ app.use(function (req, res, next){
 /* === Routes === */
 
 // Home route
-const { Trail, Review } = require("./models"); // idk where to put this atm
+const { Trail, Review } = require("./models"); // idk where to put this atm -> it ok
 app.get("/", async function (req, res, next) {
     try {
-        const allTrails = await Trail.find({});
+        // const allTrails = await Trail.find({});
         const allReviews = await Review.find({});
 
         const context = { 
-            trails: allTrails,
-            reviews: allReviews,
+            // trails: allTrails,
+            trails: await Trail.find({}),
+            reviews: allReviews, // NOTE Not needed
         };
     
-        return res.render("./index", context);
+        return res.render("index", context);
     } catch (error) {
         console.log(error);
         req.error = error;
@@ -75,6 +76,7 @@ app.get("/", async function (req, res, next) {
 // user
 app.use("/", controllers.user);
 // list
+// NOTE should be /lists
 app.use("/", controllers.list);
 // trail
 app.use("/trails", controllers.trail);
