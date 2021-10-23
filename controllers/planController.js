@@ -22,7 +22,7 @@ router.get("/:id", async function (req, res, next) {
     }
 });
 
-// Plans index testing
+// Plans index
 router.get("/", async function (req, res, next) {
     try{      
         const allTrails = await Trail.find({});
@@ -35,7 +35,7 @@ router.get("/", async function (req, res, next) {
             plans: allPlans,
             trails: allTrails,
         };      
-    return res.render("plans/index", context);
+        return res.render("plans/index", context);
     } 
     catch (error) {
         console.log(error);
@@ -45,7 +45,7 @@ router.get("/", async function (req, res, next) {
 });
 
 // Create plan 
-    router.post("/create", async function(req, res, next){
+router.post("/create", async function(req, res, next){
     try{
         req.body.user_id = req.session.currentUser.id;
         await Plan.create(req.body);
@@ -63,15 +63,15 @@ router.get("/", async function (req, res, next) {
 // == Add Gear
 router.post("/:id/gear", async function (req, res, next){
     try{
-    await Plan.findByIdAndUpdate(req.params.id,
-        {
-            $push: 
-                { 
-                    gear: req.body.gear
-                } 
-         },
-    );  
-     return res.redirect("back");
+        await Plan.findByIdAndUpdate(req.params.id,
+            {
+                $push: 
+                    { 
+                        gear: req.body.gear
+                    } 
+            },
+        );  
+        return res.redirect("back");
     } 
     catch (error){
         console.log(error);
@@ -81,6 +81,7 @@ router.post("/:id/gear", async function (req, res, next){
  });
 
  // == Remove Gear 
+ // NOTE add /gear to url like the create gear
 router.delete("/:id", async function (req, res, next){
     try{
          await Plan.findByIdAndUpdate
@@ -106,12 +107,12 @@ router.put("/:id", async function (req, res, next){
      try{
         await Plan.findByIdAndUpdate(req.params.id,
             {
-            $set: 
-                {
-                date: req.body.date,
-               
-                trail_id: req.body.trail,
-                }
+                $set: 
+                    {
+                        date: req.body.date,
+                    
+                        trail_id: req.body.trail,
+                    }
             }
         );
         return res.redirect("/plans");
@@ -121,7 +122,7 @@ router.put("/:id", async function (req, res, next){
         req.error=error;
         return next();
     }
-        });
+});
     
 // Delete Plan 
 router.delete("/:id/delete", async function (req, res, next){

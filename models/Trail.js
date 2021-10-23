@@ -37,10 +37,17 @@ const mongoose = require("mongoose");
                 type: String,
                 required: [true, "Please provide a representitive image"]
             },
-            coords: {
-                type: [String],
+            start: String,
+            end: [String],
+
+           /* 
+            location: {
+                address: String,
+                lat: Number,
+                lng: Number
             }
-        }, 
+           */
+        } ,  
         {timestamps: true,},
     );
 

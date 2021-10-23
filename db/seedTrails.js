@@ -14,7 +14,7 @@ const trails = [
         image: "https://i.imgur.com/tkWtYEv.jpg",
     },
     {
-        name: "Edwards Point",
+        name: "Edward's Point",
         description: "A woodsy hike out to a scenic view of the river. There is a quaint creek and blue hole area part way into the hike which is great for a swim in the summer.",
         location: "Signal Mountain, TN",
         length: 4.2,
