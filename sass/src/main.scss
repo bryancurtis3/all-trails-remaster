@@ -57,10 +57,12 @@ nav {
 }
 
 .hero {
-    height: 500px;
+    // This breaks show page
+    // height: 500px;
     display: grid;
     place-items: center;
-    grid-auto-rows: minmax(500px, 500px);
+    // Below line breaks show page completely
+    // grid-auto-rows: minmax(500px, 500px);
     .hero-body {
         grid-area: 1;
         padding: 0;
@@ -241,11 +243,18 @@ nav {
 
 // === Trail show CSS ===
 
+.show-page-body {
+    .footer {
+        margin-top: 0;
+    }
+}
+
 .show-grid {
     display: grid;
     place-items: center;
     height: 100%;
     background-color: #F2F2F2;
+    padding-bottom: 30px;
 }
 
 .show-wrapper {
@@ -262,8 +271,14 @@ nav {
     object-position: 50% 50%;
 }
 
+// #show-img-div {
+//     position:absolute;
+//     margin-top: 300px;
+// }
+
 .show-hero {
-    position: relative;
+    // Not sure why this was changed to relative, it broke everything
+    position: absolute;
 }
 
 .show-hero::after {
@@ -315,7 +330,7 @@ nav {
 }
 
 .circles {
-        margin-top: 168px;
+        margin-top: 188px;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         justify-items: center;
@@ -398,6 +413,10 @@ nav {
         height: 312px;
     }
 
+    #show-img-div {
+        width: 765px;
+    }
+
     .show-box-text-cont {
         margin-top: 164px;
         h3 {
@@ -406,7 +425,7 @@ nav {
     }
 
     .circles {
-        margin-top: 268px;
+        margin-top: 288px;
     }
 }
 
@@ -948,8 +967,6 @@ nav {
     place-items: center;
     gap: 15px;
     margin-top: 30px;
-    // position: absolute;
-    // bottom: 0;
     #footer-logo {
         margin-top: 30px;
     }

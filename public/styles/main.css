@@ -53,10 +53,8 @@ nav #nav-profile {
 }
 
 .hero {
-  height: 500px;
   display: grid;
   place-items: center;
-  grid-auto-rows: minmax(500px, 500px);
 }
 .hero .hero-body {
   grid-area: 1;
@@ -213,11 +211,16 @@ nav #nav-profile {
     min-width: 320px;
   }
 }
+.show-page-body .footer {
+  margin-top: 0;
+}
+
 .show-grid {
   display: grid;
   place-items: center;
   height: 100%;
   background-color: #F2F2F2;
+  padding-bottom: 30px;
 }
 
 .show-wrapper {
@@ -235,7 +238,7 @@ nav #nav-profile {
 }
 
 .show-hero {
-  position: relative;
+  position: absolute;
 }
 
 .show-hero::after {
@@ -284,7 +287,7 @@ nav #nav-profile {
 }
 
 .circles {
-  margin-top: 168px;
+  margin-top: 188px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
@@ -367,6 +370,10 @@ nav #nav-profile {
     height: 312px;
   }
 
+  #show-img-div {
+    width: 765px;
+  }
+
   .show-box-text-cont {
     margin-top: 164px;
   }
@@ -375,7 +382,7 @@ nav #nav-profile {
   }
 
   .circles {
-    margin-top: 268px;
+    margin-top: 288px;
   }
 }
 .review-head {
