@@ -4,7 +4,7 @@
 <!-- Head tag content -->
 <%- include('../partials/_head.ejs') %>
 
-<body>
+<body class="show-page-body">
     <!-- Navbar -->
     <%- include('../partials/_nav.ejs') %>
 
@@ -33,14 +33,6 @@
                 <p class="trail-location"><%= trail.location %></p>
             </a>
 
-            <!-- Trail coords stuff -->
-            <% const url = "http://www.google.com" %> 
-            <a href="<%= url %>">Google</a>
-
-            <% const start = trail.start %>
-            <%  %> 
-            <% console.log(trail.startLat) %> 
-
 
 
             <!-- Circles with Icons -->
@@ -60,7 +52,7 @@
                 <p>Directions</p>
                 <% if (user !== undefined) { %>
                     <%- include('../partials/_listModal.ejs') %>
-                    
+                    <p class="list-circle">Start a List</p>
                 <% } else { %>
                     <a href="/login">
                         <p class="list-circle">Start a List</p>
